@@ -71,7 +71,7 @@
     align-items: center;
     justify-content: space-evenly;
     height: 100vh;
-    background-image: url('../images//finance-bg.jpg');
+    background-image: url('../images//finance-1280px.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -119,7 +119,7 @@
     align-items: center;
     justify-content: center;
     min-height: 400px;
-    background-image: url('../images/artem-podrez.jpg');
+    background-image: url('../images/artem-podrez-1280px.jpg');
     background-repeat: no-repeat;
     background-size: 700px;
     background-position-x: 90%;

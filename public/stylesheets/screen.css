@@ -1,0 +1,25 @@
+@media screen and (max-width: 1280px) {
+    .ssdr{
+        background-image: url('../images/finance-2550px.jpg');
+    }
+    .bx-photo div{
+        background-image: url('../images/artem-podrez.jpg');
+    }
+    .userauth{
+
+        background-image: url('../images//artem-podrez.jpg');
+    }
+}
+
+@media screen and (max-width: 640) {
+    .ssdr{
+        background-image: url('../images/finance-640px.jpg');
+    }
+    .bx-photo div{
+        background-image: url('../images/artem-podrez-640.jpg');
+    }
+    .userauth{
+
+        background-image: url('../images//artem-podrez-640.jpg');
+    }
+}
