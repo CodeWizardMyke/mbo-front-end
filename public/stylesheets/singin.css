@@ -1,0 +1,18 @@
+
+form.singin{
+    max-width: 700px;
+    padding: 10px;
+    color: #fff;
+    border-radius: 15px;
+    margin:  0 auto;
+    background-color: #312f2ff2;
+}
+.userauth{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-image: url('../images//artem-podrez.jpg');
+    background-size: cover;
+}

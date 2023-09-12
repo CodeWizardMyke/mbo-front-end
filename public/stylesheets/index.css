@@ -1,0 +1,181 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+:root{
+    ---dark:#312F2F;
+    ---dark-off:#312f2fea;
+    ---tt-color:#D5BB77;
+    ---tt-color-on:#d5ba778f;
+    --subcolor:#1D2780;
+    --bg-box:#DDDDDD;
+    --bg-bx-blue: #1d2780ec;
+    --bg-bx-security:#d5ba77ea ;
+}
+
+/*------------header----------*/
+.header{
+    background-color: var(---dark) ;
+}
+.header .header-tt a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 90px;
+    text-decoration: none;
+}
+.header .header-tt img{
+    width: 35px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+.header-tt h1{
+    color: var(---tt-color);
+}
+.h-nav{
+    background-color: var(--subcolor);
+    min-height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.h-nav nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.h-nav a{
+    color: var(---tt-color);
+}
+.h-nav a:hover{
+    color: var(---tt-color-on);
+}
+
+/*------------ main ----------*/
+.box{
+    background-color: var(--bg-box);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.ssdr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+    background-image: url('../images//finance-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.box-nav{
+    background-color: var(---dark-off);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    align-items: center;
+    border-radius: 15px;
+}
+.box-nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+
+}
+.box-nav ul li{
+    margin: 1px;
+    align-items: center;
+}
+.box-nav ul li button{
+    color: var(---tt-color);
+    font-size: 10pt;
+}
+.box-nav ul li button:hover{
+    color: var(---tt-color-on);
+}
+
+.ssdr-2{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.bx-photo div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    background-image: url('../images/artem-podrez.jpg');
+    background-repeat: no-repeat;
+    background-size: 700px;
+    background-position-x: 90%;
+    background-position-y:50%;
+}
+
+.bx-photo div p{
+    background-color: var(--bg-bx-blue);
+    padding:25px;
+    margin-right: 50px;
+    max-width: 400px;
+    text-align: center;
+    color: #fff;
+    font-size: 14pt;
+    border-radius: 15px;
+}
+
+.bx-security div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: var(--bg-bx-security);
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+.bx-security div p {
+    padding:25px;
+    max-width: 400px;
+    margin: 5px;
+    text-align: right;
+}
+
+.bx-security img{
+    width: 75px;
+    height: 75px;
+    padding: 5px;
+    margin-left: 10px;
+}
+.footer-index{
+    background-color: var(---dark);
+    color: #fff;
+}
+.footer-index ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.flex-center-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.flex-center-col img{
+    width: 25px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
