@@ -1,0 +1,72 @@
+.positive{
+    color: #63E435;
+}
+.negative{
+    color: #FF0000;
+}
+body{
+    background-color: aliceblue;
+}
+
+.card-mod{
+    background-color: var(---dark);
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    margin: 25px auto;
+    border-radius: 15px;
+}
+.card-mod h4 {
+    font-size: 24pt;
+    padding: 15px 0;
+    border-bottom: #fff 2px solid;
+}
+.c-flex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+
+#balance {
+    font-size: 24pt;
+    margin-left: 10px;
+}
+.description-balance{
+    display: flex;
+    flex-direction:row;
+    margin: 15px auto;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.description-balance div p{
+    margin-top: 5px;
+    font-size: 14pt;
+}
+.tag-add {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding:  0 15px;
+    min-height: 100px;
+}
+.graphics{
+    height: 95px;
+    width: 95px;
+    border-radius: 100%;
+    background-color: red;
+}
+.m-expense ul, .m-expense ul li {
+    list-style: none;
+    margin:0 ;
+    padding: 0;
+    text-align: start;
+
+}
+.m-expense ul li span{
+    margin: 0 5px;
+}
+

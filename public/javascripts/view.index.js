@@ -6,7 +6,7 @@ if(isUserLoged){
     divUserState.innerHTML = ""
     const linkProfile =  document.createElement('a');
     linkProfile.innerHTML = 'Profile'
-    linkProfile.href = '/'
+    linkProfile.href = '/profile'
     linkProfile.classList.add('nav-link')
 
     divUserState.appendChild(linkProfile)

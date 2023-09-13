@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <body>
+        <%- include('partials/header') %>
+        <main class="container">
+            <section>
+                <div class="card-mod">
+                    <h4>Setembro</h4>
+                    <div class="c-flex">
+                        <div class="div-balance">
+                            <span>Saldo em conta</span>
+                            <span class="positive" id="balance">R$ 500.00</span>
+                        </div>
+                        <div class="description-balance">
+                            <div>
+                                <span>Receitas</span>
+                                <p class="positive">R$ 1.000.00</p>
+                            </div>
+                            <div>
+                                <span>Despesas</span>
+                                <p class="negative">R$ -500.00</p>
+                            </div>
+                            <div>
+                                <span>Projeção</span>
+                                <p class="positive">R$ 500.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-mod">
+                    <div class="tag-add ">
+                        <div>
+                            <h3>Carteira</h3>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-secondary">Nova despesa +</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-mod">
+                    <div class="tag-add ">
+                        <div>
+                            <h3>Transação</h3>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-secondary">Nova transação +</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-mod">
+                    <div class="tag-add ">
+                        <div>
+                            <h3>Despesas mensais</h3>
+                            <div class="m-expense">
+                                <ul>
+                                    <li><span>Água</span><span>R$000</span></li>
+                                    <li><span>Aluguel</span><span>R$000</span></li>
+                                    <li><span>Energia</span><span>R$000</span></li>
+                                    <li><span>Mercado</span><span>R$000</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="graphics"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-mod">
+                    <div class="tag-add ">
+                        <div>
+                            <h3>Adicionar conta</h3>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-secondary">Nova conta +</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-mod">
+                    <div class="tag-add ">
+                        <div>
+                            <h3>Adicionar meta</h3>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-secondary">Nova meta +</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <%- include('partials/footer') %>
+    </body>
+</html>

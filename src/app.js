@@ -7,6 +7,7 @@ const methodOverride =  require('method-override');
 const cors = require("cors");
 
 const publicRoutes = require('./routes/public.routes');
+const privateRoutes = require('./routes/private.routes');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(methodOverride('_method'))
 app.use(cors());
 
 app.use('/', publicRoutes);
+app.use('/profile', privateRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
