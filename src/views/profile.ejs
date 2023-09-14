@@ -6,7 +6,7 @@
         <%- include('partials/header') %>
         <main class="container">
             <section>
-                <div class="card-mod">
+                <div class="card-mod" id="balance-card">
                     <h4>Setembro</h4>
                     <div class="c-flex">
                         <div class="div-balance">
@@ -32,20 +32,26 @@
                 <div class="card-mod">
                     <div class="tag-add ">
                         <div>
-                            <h3>Carteira</h3>
+                            <h3>Transação</h3>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-secondary">Nova despesa +</button>
+                            <button type="button" class="btn btn-secondary" id="btn-transaction">Nova transação +</button>
                         </div>
+                    </div>
+                    <div class="transaction-option">
+                        <button type="button" class="btn btn-secondary" id="transfer">Transferência</button>
+                        <button type="button" class="btn btn-secondary" id="revenue">Receita</button>
+                        <button type="button" class="btn btn-secondary" id="expense">Despesa</button>
+                        <button type="button" class="btn btn-secondary" id="expense-cart">Despesa cartão</button>
                     </div>
                 </div>
                 <div class="card-mod">
                     <div class="tag-add ">
                         <div>
-                            <h3>Transação</h3>
+                            <h3>Carteira</h3>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-secondary">Nova transação +</button>
+                            <button type="button" class="btn btn-secondary">Nova despesa +</button>
                         </div>
                     </div>
                 </div>
@@ -90,5 +96,6 @@
             </section>
         </main>
         <%- include('partials/footer') %>
+        <script src="/javascripts/profile.user.js"></script>
     </body>
 </html>

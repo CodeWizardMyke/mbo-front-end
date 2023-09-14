@@ -4,8 +4,15 @@
 .negative{
     color: #FF0000;
 }
+.d-off{
+    display: none;
+}
 body{
     background-color: aliceblue;
+}
+
+#balance-card{
+    display: none;
 }
 
 .card-mod{
