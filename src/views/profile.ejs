@@ -39,10 +39,22 @@
                         </div>
                     </div>
                     <div class="transaction-option">
+                        
+                        <div class="py-3 border m-1 p-1">
+                            <div>
+                                <label for="category">Suas categorias</label>
+                                <select name="category" class="form-select" id="category"></select>
+                            </div>
+                            <div class="py-3">
+                                <button type="button" class="btn btn-secondary">nova categoria</button>
+                            </div>
+                            <div id="new_category"></div>
+                        </div>
+
                         <form id="transactionForm">
                             <div class="py-3">
-                                <label for="category_name">Selecione o tipo</label>
-                                <select name="type" class="form-select" id="category_name">
+                                <label for="type">Selecione o tipo</label>
+                                <select name="type" class="form-select" id="type">
                                     <option value="transaction">Transação</option>
                                     <option value="revenue">Receita</option>
                                     <option value="expense">Despesa</option>

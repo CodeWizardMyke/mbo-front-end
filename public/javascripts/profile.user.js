@@ -11,9 +11,3 @@ if(!user){
 let headerTitle =  document.querySelector('.header-tt h1')
 headerTitle.innerHTML = `Bem vindo ${user.fullname.split(' ')[0]}`
 
-function StartApplicationByTransactions(response){
-    if(response.length > 0){
-        transactionIsTrue()
-    }else{
-    }
-}
