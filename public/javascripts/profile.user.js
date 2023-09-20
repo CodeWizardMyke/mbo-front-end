@@ -8,6 +8,4 @@ if(!user){
     window.location = '/singin'
 }
 
-let headerTitle =  document.querySelector('.header-tt h1')
-headerTitle.innerHTML = `Bem vindo ${user.fullname.split(' ')[0]}`
 

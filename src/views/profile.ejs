@@ -31,56 +31,57 @@
                 </div>
                 <div class="card-mod">
                     <div class="tag-add ">
-                        <div>
-                            <h3>Transação</h3>
-                        </div>
-                        <div>
-                            <button type="button" class="btn btn-secondary" id="btn-transaction">Nova transação +</button>
-                        </div>
+                        <h3>Transação</h3>
+                        <button type="button" class="btn btn-secondary" id="btn-transaction">Nova transação +</button>
                     </div>
-                    <div class="transaction-option">
-                        
-                        <div class="div_category">
-                            <div id="category_select" class="mtb-25"></div>
-                            <form id="new_category" class="mtb-25"></form>
-                            <button type="button" class="btn btn-secondary" id="btn_add_category">nova categoria</button>
-                        </div>
-                        
-                        <form id="transactionForm">
-                            <div class="py-3">
-                                <label for="type">Selecione o tipo</label>
-                                <select name="type" class="form-select" id="type">
-                                    <option value="transaction">Transação</option>
-                                    <option value="revenue">Receita</option>
-                                    <option value="expense">Despesa</option>
-                                    <option value="card_expense">Despesa do cartão</option>
-                                </select>
-                            </div>
-                           <div class="py-3">
-                                <div class="input-group">
-                                    <input type="number" class="form-control" placeholder="Valor...">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">R$ 0.00</span>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="installments">Parcelas</label>
-                                    <input type="number" class="form-control" name="installments" id="installments" placeholder="quantidade de parcelas..">
-                                </div>
-                           </div>
-                            <div class="py-3">
+                    <div class="box-form">
+                        <button type="button" class="btn border" id="btn-category-add">Adicionar categoria +</button>
+                        <div class="div-category">
+                            <form id="form_category">
                                 <div>
-                                    <label for="date">Informar data</label>
-                                    <div class="form-group">
-                                        <input type="date" name="date" id="date" class="form-control" >
-                                    </div>
+                                    <label for="category_name">Nome da conta</label>
+                                    <input type="text" id="category_name" class="input-group-text" placeholder="Digite um nome...">
                                 </div>
-                            </div>
-                            <div class="py-3">
-                                <button type="submit" class="btn btn-warning">Adicionar</button>
-                            </div>
-                        </form>
-
+                                <div class="df-end">
+                                    <button class="btn btn-warning">Adicionar</button>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn border">Gerenciar Categorias</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="div-transaction">
+                            <h3>Adicionar nova transação</h3>
+                            <form id="box-form">
+                                <div>
+                                    <label for="category_id">Categorias </label>
+                                    <select class="form-select" name="category_id" id="category_id">
+                                        <option value="" disabled>Nome da conta</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="category_id">Tipo de Transação </label>
+                                    <select class="form-select" name="category_id" id="category_id">
+                                        <option value="" >Receita</option>
+                                        <option value="" >Despesa</option>
+                                        <option value="" >Cartão</option>
+                                        <option value="" >Presentes</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="amount">Valor</label>
+                                    <input type="number" name="amount" class="input-group-text" placeholder="R$ 0.00">
+                                </div>
+                                <div>
+                                    <label for="installments">Parcelas</label>
+                                    <input type="number" name="installments" class="input-group-text" value="0">
+                                </div>
+                                <div>
+                                    <label for="date">Data da conta</label>
+                                    <input type="date" name="date" class="input-group-text" placeholder="dd/mm/aaaa" id="date">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div class="card-mod">
@@ -127,6 +128,6 @@
         </main>
         <%- include('partials/footer') %>
         <script src="/javascripts/profile.user.js"></script>
-        <script src="/javascripts/crud_transactions.js"></script>
+        <script src="/javascripts/profile_dom_buttons.js"></script>
     </body>
 </html>
