@@ -65,6 +65,7 @@ body{
 
 .df-end{
     justify-content: end !important;
+    margin: 15px auto;
 }
 
 .div-category {
@@ -73,6 +74,38 @@ body{
 .div-category button{
     color: #f2f2f2;
 }
+.div-transaction{
+    padding: 10px 0;
+    margin-top: 15px;
+}
+.div-transaction input#date{
+    width: 100%;
+}
+.div-category{
+    padding: 15px 0;
+    border-bottom: 1px solid #fff;
+}
+.div-category form{
+    padding: 10px 5px;
+}
+.user_category{
+    display: none;
+}
+.user_category ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.user_category ul li  {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+}
+
 
 /*transaction - category end*/
 

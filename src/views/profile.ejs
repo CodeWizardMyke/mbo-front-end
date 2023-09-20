@@ -35,20 +35,24 @@
                         <button type="button" class="btn btn-secondary" id="btn-transaction">Nova transação +</button>
                     </div>
                     <div class="box-form">
-                        <button type="button" class="btn border" id="btn-category-add">Adicionar categoria +</button>
+                        <button type="button" class="btn border" id="btn-category-add">Adicionar categoria</button>
                         <div class="div-category">
                             <form id="form_category">
                                 <div>
                                     <label for="category_name">Nome da conta</label>
-                                    <input type="text" id="category_name" class="input-group-text" placeholder="Digite um nome...">
+                                    <input type="text" id="category_name" name="category_name" class="input-group-text" placeholder="Digite um nome...">
                                 </div>
                                 <div class="df-end">
-                                    <button class="btn btn-warning">Adicionar</button>
-                                </div>
-                                <div>
-                                    <button type="submit" class="btn border">Gerenciar Categorias</button>
+                                    <button class="btn btn-warning" >Adicionar</button>
                                 </div>
                             </form>
+                            <div>
+                                <button type="submit" class="btn border" id="btnManagerCategory">Gerenciar Categorias</button>
+                            </div>
+                            <div class="user_category">
+                                <label for="category_list"></label>
+                                <ul id="category_list"></ul>
+                            </div>
                         </div>
                         <div class="div-transaction">
                             <h3>Adicionar nova transação</h3>
@@ -78,7 +82,7 @@
                                 </div>
                                 <div>
                                     <label for="date">Data da conta</label>
-                                    <input type="date" name="date" class="input-group-text" placeholder="dd/mm/aaaa" id="date">
+                                    <input type="date" id="date" name="date" class="input-group-text" placeholder="dd/mm/aaaa" id="date">
                                 </div>
                             </form>
                         </div>
@@ -126,8 +130,12 @@
                 </div>
             </section>
         </main>
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
         <%- include('partials/footer') %>
         <script src="/javascripts/profile.user.js"></script>
         <script src="/javascripts/profile_dom_buttons.js"></script>
+        <script src="/javascripts/profile.category.js"></script>
     </body>
 </html>
