@@ -56,20 +56,20 @@
                         </div>
                         <div class="div-transaction">
                             <h3>Adicionar nova transação</h3>
-                            <form id="box-form">
+                            <form id="form-transaction">
                                 <div>
                                     <label for="category_id">Categorias </label>
-                                    <select class="form-select" name="category_id" id="category_id">
+                                    <select class="form-select" name="category_id" id="category_select_transaction">
                                         <option value="" disabled>Nome da conta</option>
                                     </select>
                                 </div>
                                 <div>
-                                    <label for="category_id">Tipo de Transação </label>
-                                    <select class="form-select" name="category_id" id="category_id">
-                                        <option value="" >Receita</option>
-                                        <option value="" >Despesa</option>
-                                        <option value="" >Cartão</option>
-                                        <option value="" >Presentes</option>
+                                    <label for="type">Tipo de Transação</label>
+                                    <select class="form-select" name="type" id="type">
+                                        <option value="Revenue" >Receita</option>
+                                        <option value="Expense" >Despesa</option>
+                                        <option value="card" >Cartão</option>
+                                        <option value="Gift" >Presente</option>
                                     </select>
                                 </div>
                                 <div>
@@ -84,20 +84,14 @@
                                     <label for="date">Data da conta</label>
                                     <input type="date" id="date" name="date" class="input-group-text" placeholder="dd/mm/aaaa" id="date">
                                 </div>
+                                <div>
+                                    <button class="btn btn-warning">Adicionar</button>
+                                </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="card-mod">
-                    <div class="tag-add ">
-                        <div>
-                            <h3>Carteira</h3>
-                        </div>
-                        <div>
-                            <button type="button" class="btn btn-secondary">Nova despesa +</button>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="card-mod">
                     <div class="tag-add ">
                         <div>
@@ -137,5 +131,6 @@
         <script src="/javascripts/profile.user.js"></script>
         <script src="/javascripts/profile_dom_buttons.js"></script>
         <script src="/javascripts/profile.category.js"></script>
+        <script src="/javascripts/profile.transaction.js"></script>
     </body>
 </html>
