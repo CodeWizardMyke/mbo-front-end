@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="stylesheet" href="/stylesheets/transactions.css">
+    <body>
+        <%- include('partials/header') %>
+        <main class="container">
+            <section>
+                <div class="card-mod" >
+                    <h3>Listar transações</h3>
+                    <div class="nav nav-transactions" >
+                        <ul>
+                            <li>
+                                <label for="bt_get_all_transactions">Mostrar todas</label>
+                                <button class="btn btn-light" type="button" id="bt_get_all_transactions">Transações</button>
+                            </li>
+                            <li>
+                                <label for="type">Filtrar por tipo</label>
+                                <select class="form-select" name="type" id="type">
+                                    <option value="Revenue" >Receita</option>
+                                    <option value="Expense" >Despesa</option>
+                                    <option value="card" >Cartão</option>
+                                    <option value="Gift" >Presente</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label for="category_list">Listar por categoria</label>
+                                <select class="form-select" name="category_id" id="category_select_transaction">
+                                    <option value="" disabled>Nome da conta</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="content">
+                    <div class="transactions-listed">
+                        <ul>
+                            <li>
+                                <div class="transactions-listed-title">
+                                    <span>Categoria : Internet</span>
+                                    <button type="button" class="btn btn-secondary">Editar</button>
+                                    <button type="button" class="btn btn-danger">apagar</button>
+                                </div>
+                                <div>
+                                    <span>Tipo : Transação</span>
+                                    <span>Valor : R$ 150.00</span> 
+                                </div>
+                                <div>
+                                    <span>Parcelas: 0 </span>
+                                    <span>Data : 31-06-2023</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="transactions-listed-title">
+                                    <span>Categoria : Internet</span>
+                                    <button type="button" class="btn btn-secondary">Editar</button>
+                                    <button type="button" class="btn btn-danger">apagar</button>
+                                </div>
+                                <div>
+                                    <span>Tipo : Transação</span>
+                                    <span>Valor : R$ 150.00</span> 
+                                </div>
+                                <div>
+                                    <span>Parcelas: 0 </span>
+                                    <span>Data : 31-06-2023</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="transactions-listed-title">
+                                    <span>Categoria : Internet</span>
+                                    <button type="button" class="btn btn-secondary">Editar</button>
+                                    <button type="button" class="btn btn-danger">apagar</button>
+                                </div>
+                                <div>
+                                    <span>Tipo : Transação</span>
+                                    <span>Valor : R$ 150.00</span> 
+                                </div>
+                                <div>
+                                    <span>Parcelas: 0 </span>
+                                    <span>Data : 31-06-2023</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="transactions-listed-title">
+                                    <span>Categoria : Internet</span>
+                                    <button type="button" class="btn btn-secondary">Editar</button>
+                                    <button type="button" class="btn btn-danger">apagar</button>
+                                </div>
+                                <div>
+                                    <span>Tipo : Transação</span>
+                                    <span>Valor : R$ 150.00</span> 
+                                </div>
+                                <div>
+                                    <span>Parcelas: 0 </span>
+                                    <span>Data : 31-06-2023</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <nav class="transaction-paginate">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <button type="button" class="page-link">Anterior</button>
+                            </li>
+                            <li class="page-item">
+                                <button type="button" class="page-link">Proximo</button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+        </main>
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+        <div id="transaction_edit">
+            <form id="transaction-from-edit">
+                <div>
+                    <label for="category_id">Categorias </label>
+                    <select class="form-select" name="category_id" id="category_select_transaction">
+                        <option value="" disabled>Nome da conta</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="type">Tipo de Transação</label>
+                    <select class="form-select" name="type" id="type">
+                        <option value="Revenue" >Receita</option>
+                        <option value="Expense" >Despesa</option>
+                        <option value="card" >Cartão</option>
+                        <option value="Gift" >Presente</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="amount">Valor</label>
+                    <input type="number" name="amount" class="input-group-text" >
+                </div>
+                <div>
+                    <label for="installments">Parcelas</label>
+                    <input type="number" name="installments" class="input-group-text" >
+                </div>
+                <div>
+                    <label for="date">Data da conta</label>
+                    <input type="date" id="date" name="date" class="input-group-text" id="date">
+                </div>
+                <div>
+                    <button class="btn btn-light" type="button">Editar</button>
+                    <button class="btn btn-danger" type="button">Cancelar</button>
+                </div>
+            </form>
+        </div>
+        <%- include('partials/footer') %>
+        <script src="/javascripts/profile.user.js"></script>
+        <script src="/javascripts/profile_dom_buttons.js"></script>
+        <script src="/javascripts/profile.category.js"></script>
+        <script src="/javascripts/profile.transaction.js"></script>
+    </body>
+</html>

@@ -14,7 +14,7 @@ function changeToNavigateHeader (){
 
     const transactionNav =document.createElement('a');
     transactionNav.innerText = 'Transações'
-    transactionNav.href = '/profil/transactions'    
+    transactionNav.href = '/profile/transactions'    
     transactionNav.classList.add('nav-link')
 
     div_nav.appendChild(transactionNav)
