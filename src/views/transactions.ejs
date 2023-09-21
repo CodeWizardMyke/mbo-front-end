@@ -59,13 +59,15 @@
         <div id="transaction_edit">
             <form id="transaction-from-edit">
                 <div>
-                    <label for="category_id">Categorias </label>
-                    <select class="form-select" name="category_id" id="category_select_transaction">
-                        <option value="" disabled>Nome da conta</option>
+                    <label for="category_id">Mudar categoria </label>
+                    <input type="text" name="category_name"  value="" id="category_name">
+                    <select class="form-select" name="category_id" id="category_select">
+
                     </select>
                 </div>
                 <div>
                     <label for="type">Tipo de Transação</label>
+                    <input type="text" name="type_selected"  value="" id="type_selected">
                     <select class="form-select" name="type" id="type">
                         <option value="Revenue" >Receita</option>
                         <option value="Expense" >Despesa</option>
@@ -75,19 +77,22 @@
                 </div>
                 <div>
                     <label for="amount">Valor</label>
+                    <input type="text" name="amount_selected"  value="" id="amount_selected">
                     <input type="number" name="amount" class="input-group-text" >
                 </div>
                 <div>
                     <label for="installments">Parcelas</label>
+                    <input type="text" name="installments_selected"  value="" id="installments_selected">
                     <input type="number" name="installments" class="input-group-text" >
                 </div>
                 <div>
                     <label for="date">Data da conta</label>
+                    <input type="text" name="date_selected"  value="" id="date_selected">
                     <input type="date" id="date" name="date" class="input-group-text" id="date">
                 </div>
                 <div>
-                    <button class="btn btn-light" type="button">Editar</button>
-                    <button class="btn btn-danger" type="button">Cancelar</button>
+                    <button id="submit_edit" class="btn btn-light" type="button">Editar</button>
+                    <button id="close_edit_transaciton" class="btn btn-danger" type="button">Cancelar</button>
                 </div>
             </form>
         </div>

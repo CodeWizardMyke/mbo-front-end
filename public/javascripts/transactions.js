@@ -1,5 +1,20 @@
 const url = `${urlBase}/transactions`
 
+async function getAllCategory(){
+    const urlCategory =  `${urlBase}/category`
+    const opt = {
+        method:'GET',
+        headers:{
+            "Authorization": `Baerer ${token}`
+        }
+    }
+
+    const promisse = await fetch(urlCategory, opt);
+    const response = await promisse.json();
+
+    insertAllCategoryInSelect(response)
+}
+
 const btn_get_all_transaction = document.querySelector('#bt_get_all_transactions')
 btn_get_all_transaction.addEventListener('click', getTransactions)
 window.addEventListener('load', getTransactions )
@@ -20,9 +35,10 @@ async function getTransactions(){
     handdlerTransactionsCrud(promisse, response)
 }
 
-async function editTransaction(data){
-    console.log('Edit')
 
+function showFormEditTransaction(data){
+    showTransactionEdit()
+    setDataInFormTransactionEdit(data)
 }
 async function deleteTransaction(id){
     console.log('delete')
@@ -66,7 +82,7 @@ function setDataInListAllTransactions(response) {
             btnEdit.id = 'bt_transaction_edit'
             /*------------------- EVENT BUTTON ADD ----------------------*/
             btnEdit.addEventListener('click', e => {
-                editTransaction(element)
+                showFormEditTransaction(element)
             })
 
             btnDelete.innerText = 'Delete'
@@ -100,4 +116,55 @@ function setDataInListAllTransactions(response) {
             ul.appendChild(li)
         });
     }
+}
+
+function setDataInFormTransactionEdit(data){
+    const category_name = document.querySelector('#category_name')
+    category_name.value = data.category.category_name
+    category_name.disabled = true
+    getAllCategory()
+
+    const type_selected = document.querySelector('#type_selected')
+    type_selected.value = data.type
+    type_selected.disabled = true
+
+    const amount_selected = document.querySelector('#amount_selected')
+    amount_selected.value = data.amount
+    amount_selected.disabled = true
+
+    const installments_selected = document.querySelector('#installments_selected')
+    installments_selected.value = data.installments
+    installments_selected.disabled = true
+
+    const date_selected = document.querySelector('#date_selected')
+    date_selected.value = data.date
+    date_selected.disabled = true
+}
+
+function insertAllCategoryInSelect(response){
+    const select = document.querySelector('#category_select')
+    response.forEach(element => {
+        const option = document.createElement('option');
+        option.value = element.id
+        option.innerText = element.category_name
+        
+        console.log(select)
+        select.appendChild(option)
+    });
+}
+
+/* form edit action event */
+const btnCloseshowFormEditTransaction = document.querySelector('#close_edit_transaciton')
+if(btnCloseshowFormEditTransaction){
+    btnCloseshowFormEditTransaction.addEventListener('click', hideTransactionEdit)
+}
+function hideTransactionEdit(){
+    const element = document.querySelector('#transaction_edit')
+    if(element.style.display = 'flex'){
+        element.style.display = ''
+    }
+}
+function showTransactionEdit(){
+    const element = document.querySelector('#transaction_edit')
+    element.style.display = 'flex'
 }
