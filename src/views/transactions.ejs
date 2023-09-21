@@ -18,7 +18,8 @@
                             <li>
                                 <label for="type">Filtrar por tipo</label>
                                 <select class="form-select" name="type" id="type">
-                                    <option value="Revenue" >Receita</option>
+                                    <option value="">Selecione</option>
+                                    <option value="Revenue">Receita</option>
                                     <option value="Expense" >Despesa</option>
                                     <option value="card" >Cartão</option>
                                     <option value="Gift" >Presente</option>
@@ -27,7 +28,7 @@
                             <li>
                                 <label for="category_list">Listar por categoria</label>
                                 <select class="form-select" name="category_id" id="category_select_transaction">
-                                    <option value="" disabled>Nome da conta</option>
+                                    <option value="" >selecione</option>
                                 </select>
                             </li>
                         </ul>
@@ -37,68 +38,7 @@
             <section>
                 <div class="content">
                     <div class="transactions-listed">
-                        <ul>
-                            <li>
-                                <div class="transactions-listed-title">
-                                    <span>Categoria : Internet</span>
-                                    <button type="button" class="btn btn-secondary">Editar</button>
-                                    <button type="button" class="btn btn-danger">apagar</button>
-                                </div>
-                                <div>
-                                    <span>Tipo : Transação</span>
-                                    <span>Valor : R$ 150.00</span> 
-                                </div>
-                                <div>
-                                    <span>Parcelas: 0 </span>
-                                    <span>Data : 31-06-2023</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="transactions-listed-title">
-                                    <span>Categoria : Internet</span>
-                                    <button type="button" class="btn btn-secondary">Editar</button>
-                                    <button type="button" class="btn btn-danger">apagar</button>
-                                </div>
-                                <div>
-                                    <span>Tipo : Transação</span>
-                                    <span>Valor : R$ 150.00</span> 
-                                </div>
-                                <div>
-                                    <span>Parcelas: 0 </span>
-                                    <span>Data : 31-06-2023</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="transactions-listed-title">
-                                    <span>Categoria : Internet</span>
-                                    <button type="button" class="btn btn-secondary">Editar</button>
-                                    <button type="button" class="btn btn-danger">apagar</button>
-                                </div>
-                                <div>
-                                    <span>Tipo : Transação</span>
-                                    <span>Valor : R$ 150.00</span> 
-                                </div>
-                                <div>
-                                    <span>Parcelas: 0 </span>
-                                    <span>Data : 31-06-2023</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="transactions-listed-title">
-                                    <span>Categoria : Internet</span>
-                                    <button type="button" class="btn btn-secondary">Editar</button>
-                                    <button type="button" class="btn btn-danger">apagar</button>
-                                </div>
-                                <div>
-                                    <span>Tipo : Transação</span>
-                                    <span>Valor : R$ 150.00</span> 
-                                </div>
-                                <div>
-                                    <span>Parcelas: 0 </span>
-                                    <span>Data : 31-06-2023</span>
-                                </div>
-                            </li>
-                        </ul>
+                        <ul></ul>
                     </div>
                     <nav class="transaction-paginate">
                         <ul class="pagination justify-content-center">
@@ -153,8 +93,6 @@
         </div>
         <%- include('partials/footer') %>
         <script src="/javascripts/profile.user.js"></script>
-        <script src="/javascripts/profile_dom_buttons.js"></script>
-        <script src="/javascripts/profile.category.js"></script>
-        <script src="/javascripts/profile.transaction.js"></script>
+        <script src="/javascripts/transactions.js"></script>
     </body>
 </html>
