@@ -8,4 +8,19 @@ if(!user){
     window.location = '/singin'
 }
 
+function changeToNavigateHeader (){
+    const div_nav = document.querySelector('#nav-public');
+    div_nav.innerHTML = '';
 
+    const transactionNav =document.createElement('a');
+    transactionNav.innerText = 'Transações'
+    transactionNav.href = '/profil/transactions'    
+    transactionNav.classList.add('nav-link')
+
+    div_nav.appendChild(transactionNav)
+}
+
+const startFunctionsProfileIndex = () => {
+    changeToNavigateHeader()
+};
+startFunctionsProfileIndex()
