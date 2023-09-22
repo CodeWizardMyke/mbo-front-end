@@ -1,5 +1,22 @@
 const url = `${urlBase}/category`
 
+//**************// FUNCTION GET CATEGORY //**************//
+document.querySelector('#btnManagerCategory').addEventListener('click', categoryGet)
+async function categoryGet(){
+    showLoader()
+    const opt ={
+        method:"GET",
+        headers:{
+            "Authorization":`Baerer ${token}`
+        }
+    }
+
+    const promisse = await fetch(url, opt);
+    const response = await promisse.json()
+    hideLoader()
+    handdlerResquests(promisse, response, 'GET')
+}
+
 //**************// FUNCTION POST CATEGORY //**************//
 document.querySelector('#form_category').addEventListener('submit', async (evt)  => {
     evt.preventDefault()
@@ -22,28 +39,28 @@ document.querySelector('#form_category').addEventListener('submit', async (evt) 
     handdlerResquests(promisse, response, 'POST')
 })
 
-//**************// FUNCTION GET CATEGORY //**************//
-document.querySelector('#btnManagerCategory').addEventListener('click', categoryGet)
-async function categoryGet(){
-    showLoader()
-    const opt ={
-        method:"GET",
-        headers:{
-            "Authorization":`Baerer ${token}`
-        }
-    }
-
-    const promisse = await fetch(url, opt);
-    const response = await promisse.json()
-    hideLoader()
-    handdlerResquests(promisse, response, 'GET')
-}
-
 //**************// FUNCTION EDIT CATEGORY //**************//
 async function categoryEdit(element){
-    console.log(element)
-}
+    const inputEdit = document.querySelector(`#${element.category_name}${element.id}`);
+    const object = {
+        id:element.id,
+        category_name:inputEdit.value
+    }
 
+    const opt = {
+        method:"PUT",
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":`Baerer ${token}`
+        },
+        body: JSON.stringify(object)
+    }
+
+    const promise = await fetch(url, opt)
+    const response = await promise.json()
+    handdlerResquests(promise, response, "PUT")
+
+}
 //**************// FUNCTION DELTE CATEGORY //**************//
 async function categoryDelete(element){
     showLoader()
@@ -70,6 +87,10 @@ function handdlerResquests(promisse, response, method){
             updateList()
             listUserCategorys(response)
             break;
+        case 200 && 'PUT' :
+            updateList()
+            listUserCategorys(response)
+            break;
         case 201 && 'POST':
             hideElementDom('.div-category')
             break;
@@ -83,7 +104,6 @@ function handdlerResquests(promisse, response, method){
     }
 }
 
-
 function listUserCategorys(response){
     const ul = document.querySelector('#category_list')
     if(response.length > 0){
@@ -96,6 +116,7 @@ function listUserCategorys(response){
             input.value = element.category_name
             input.name= 'category_name'
             input.classList.add('input-group-text')
+            input.id = `${element.category_name}${element.id}`
 
             btnDelet.classList.add('btn','border')
             btnEdit.classList.add('btn','border')

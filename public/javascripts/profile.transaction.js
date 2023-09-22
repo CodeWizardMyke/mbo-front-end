@@ -1,7 +1,4 @@
-
-
-const btnTransactionAdd = document.querySelector('#btn-transaction')
-
+const btnTransactionAdd = document.querySelector('#transaction_show_form')
 btnTransactionAdd.addEventListener('click', GetAllCategoryForUser)
 
 async function GetAllCategoryForUser(){
@@ -69,6 +66,7 @@ function handdlerTransaction(promisse, response, data){
 
 function populateSelectWhitCategory(response) {
     const select = document.querySelector('#category_select_transaction')
+    select.innerHTML=""
 
     if(response.length >0){
         response.forEach(element => {

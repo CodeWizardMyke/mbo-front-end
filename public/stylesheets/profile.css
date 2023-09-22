@@ -63,6 +63,10 @@ body{
     max-width: 175px;
 }
 
+#form-transaction{
+    display: none;
+}
+
 .df-end{
     justify-content: end !important;
     margin: 15px auto;
