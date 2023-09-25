@@ -1,8 +1,4 @@
-const btnTransactionAdd = document.querySelector('#transaction_show_form')
-btnTransactionAdd.addEventListener('click', GetAllCategoryForUser)
-
-async function GetAllCategoryForUser(){
-    showLoader()
+window.addEventListener('load', async ()=> {
     const urlCategory = `${urlBase}/category`
     const opt = {
         method:"GET",
@@ -10,13 +6,13 @@ async function GetAllCategoryForUser(){
             "Authorization":`Baerer ${token}`
         }
     }
-
+    
     const promisse = await fetch(urlCategory, opt);
     const response = await promisse.json();
-
-    hideLoader()
+    
     handdlerTransaction(promisse, response , 'category')
-}
+})
+
 
 const myForm = document.querySelector('#form-transaction')
 myForm.addEventListener('submit',async evt => {
@@ -42,11 +38,11 @@ myForm.addEventListener('submit',async evt => {
         body:  JSON.stringify(formDataObj)
     }
     
-    const promisse = await fetch(urlTransaction, opt);
-    const response = await promisse.json()
-
+   const promisse = await fetch(urlTransaction, opt);
+   const response = await promisse.json()
+    console.log(response)
     hideLoader()
-   handdlerTransaction(promisse, response, 'transaction')
+    handdlerTransaction(promisse, response, 'transaction')
 })
 
 
@@ -67,6 +63,11 @@ function handdlerTransaction(promisse, response, data){
 function populateSelectWhitCategory(response) {
     const select = document.querySelector('#category_select_transaction')
     select.innerHTML=""
+
+    const optionOffValue = document.createElement('option')
+    optionOffValue.innerText = 'Selecione...'
+    optionOffValue.value=''
+    select.appendChild(optionOffValue)
 
     if(response.length >0){
         response.forEach(element => {

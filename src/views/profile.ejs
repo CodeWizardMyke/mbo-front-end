@@ -7,24 +7,26 @@
         <main class="container">
             <section>
                 <div class="card-mod" id="balance-card">
-                    <h4>Setembro</h4>
+                    <div class="month-date">
+                        <span>Setembro</span>
+                    </div>
                     <div class="c-flex">
-                        <div class="div-balance">
-                            <span>Saldo em conta</span>
-                            <span class="positive" id="balance">R$ 500.00</span>
+                        <div class="balance">
+                            <span>Saldo:</span>
+                            <h3 id="balance">R$ 500.00</h3>
                         </div>
-                        <div class="description-balance">
+                        <div class="revenue-expense">
                             <div>
-                                <span>Receitas</span>
-                                <p class="positive">R$ 1.000.00</p>
+                                <a href="#">
+                                    <span>Receitas</span>
+                                    <span class="positive">R$ 1.000.00</span>
+                                </a>
                             </div>
                             <div>
-                                <span>Despesas</span>
-                                <p class="negative">R$ -500.00</p>
-                            </div>
-                            <div>
-                                <span>Projeção</span>
-                                <p class="positive">R$ 500.00</p>
+                                <a href="#">
+                                    <span>Despesas</span>
+                                    <span class="negative">R$ -500.00</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -35,33 +37,17 @@
                         <button type="button" class="btn btn-secondary" id="btn-transaction">Nova transação +</button>
                     </div>
                     <div class="box-form">
-                        <button type="button" class="btn border" id="btn-category-add">Adicionar categoria</button>
-                        <div class="div-category">
-                            <form id="form_category">
-                                <div>
-                                    <label for="category_name">Nome da conta</label>
-                                    <input type="text" id="category_name" name="category_name" class="input-group-text" placeholder="Digite um nome...">
-                                </div>
-                                <div class="df-end">
-                                    <button class="btn btn-warning" >Adicionar</button>
-                                </div>
-                            </form>
-                            <div>
-                                <button type="submit" class="btn border" id="btnManagerCategory">Gerenciar Categorias</button>
-                            </div>
-                            <div class="user_category">
-                                <label for="category_list"></label>
-                                <ul id="category_list"></ul>
-                            </div>
-                        </div>
                         <div class="div-transaction">
-                            <button class="btn border" id="transaction_show_form">Acicionar transação</button>
                             <form id="form-transaction">
                                 <div>
-                                    <label for="category_id">Categorias</label>
+                                    <label for="category_id">Suas categorias</label>
                                     <select class="form-select" name="category_id" id="category_select_transaction">
                                         <option value="" disabled>Nome da conta</option>
                                     </select>
+                                </div>
+                                <div>
+                                    <label for="new_category">Nova categoria</label>
+                                    <input type="text" class="input-group-text" name="new_category" id="new_category" placeholder="Adicionar categoria...">
                                 </div>
                                 <div>
                                     <label for="type">Tipo de Transação</label>
@@ -84,9 +70,7 @@
                                     <label for="date">Data da conta</label>
                                     <input type="date" id="date" name="date" class="input-group-text" placeholder="dd/mm/aaaa" id="date">
                                 </div>
-                                <div>
-                                    <button class="btn btn-warning">Adicionar</button>
-                                </div>
+                                <button class="btn btn-warning mt-3">Adicionar</button>
                             </form>
                         </div>
                     </div>

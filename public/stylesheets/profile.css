@@ -1,18 +1,11 @@
 
 .positive{
-    color: #63E435;
+    color: #5ECE37;
 }
 .negative{
-    color: #FF0000;
+    color: #D30C0C;
 }
 .d-off{
-    display: none;
-}
-body{
-    background-color: aliceblue;
-}
-
-#balance-card{
     display: none;
 }
 
@@ -24,11 +17,7 @@ body{
     margin: 25px auto;
     border-radius: 15px;
 }
-.card-mod h4 {
-    font-size: 24pt;
-    padding: 15px 0;
-    border-bottom: #fff 2px solid;
-}
+
 .c-flex{
     display: flex;
     flex-direction: column;
@@ -41,7 +30,6 @@ body{
 }
 
 /*transaction - category start*/
-
 .box-form{
     display: none;
     background-color: #6A6A6A;
@@ -60,23 +48,7 @@ body{
     justify-content: space-between;
 }
 .box-form form div input, .box-form form div select {
-    max-width: 175px;
-}
-
-#form-transaction{
-    display: none;
-}
-
-.df-end{
-    justify-content: end !important;
-    margin: 15px auto;
-}
-
-.div-category {
-    display: none;
-}
-.div-category button{
-    color: #f2f2f2;
+    max-width: 165px;
 }
 .div-transaction{
     padding: 10px 0;
@@ -85,38 +57,27 @@ body{
 .div-transaction input#date{
     width: 100%;
 }
-.div-category{
-    padding: 15px 0;
-    border-bottom: 1px solid #fff;
+
+
+
+
+/*transaction - category end*/
+.month-date{
+    font-size: 20pt;
+    font-weight: bolder;
 }
-.div-category form{
-    padding: 10px 5px;
-}
-.user_category{
-    display: none;
-}
-.user_category ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.user_category ul li  {
-    margin: 0;
-    width: 100%;
+.balance{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
-    padding: 0;
+    font-weight: bolder;
 }
-
-/*transaction - category end*/
-
-#balance {
-    font-size: 24pt;
-    margin-left: 10px;
+.balance h3{
+    color: #D5BB77;
+    padding-left: 15px;
+    font-size: 20pt;
 }
-.description-balance{
+.revenue-expense{
     display: flex;
     flex-direction:row;
     margin: 15px auto;
@@ -124,10 +85,21 @@ body{
     justify-content: space-evenly;
     width: 100%;
 }
-.description-balance div p{
-    margin-top: 5px;
-    font-size: 14pt;
+.revenue-expense a {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    height: 70px;
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-decoration: none;
+    color: #fff;
 }
+
+
+
 .tag-add {
     display: flex;
     flex-direction: row;
