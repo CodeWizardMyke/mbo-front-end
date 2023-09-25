@@ -10,7 +10,7 @@ window.addEventListener('load', async ()=> {
     const promisse = await fetch(urlCategory, opt);
     const response = await promisse.json();
     
-    handdlerTransaction(promisse, response , 'category')
+    handdlerTransaction(promisse, response)
 })
 
 
@@ -40,20 +40,23 @@ myForm.addEventListener('submit',async evt => {
     
    const promisse = await fetch(urlTransaction, opt);
    const response = await promisse.json()
-    console.log(response)
-    hideLoader()
-    handdlerTransaction(promisse, response, 'transaction')
+
+   hideLoader()
+    handdlerTransaction(promisse, response)
 })
 
 
-function handdlerTransaction(promisse, response, data){
-    switch (promisse.status && data) {
-        case 200 && 'category':
+function handdlerTransaction(promisse, response){
+    switch (promisse.status) {
+        case 200:
             updateCategorySelect()
             populateSelectWhitCategory(response);
             break;
-        case 201 && 'transaction':
+        case 201:
             hideElementDom('.box-form')
+            break;
+        case 400:
+            arrayErrorsHanddler(response)
             break;
         default:
             break;
@@ -82,4 +85,12 @@ function populateSelectWhitCategory(response) {
 function updateCategorySelect(){
     const select = document.querySelector('#category_select_transaction')
     select.innerHTML = ''
+}
+
+function arrayErrorsHanddler(response){
+    response.forEach(element => {
+        const getElementDomByErrorName = document.querySelector(`#${element.path}-error`)
+        getElementDomByErrorName.innerHTML = ""
+        getElementDomByErrorName.innerText = element.msg
+    });
 }
