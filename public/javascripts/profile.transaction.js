@@ -1,4 +1,6 @@
-window.addEventListener('load', async ()=> {
+window.addEventListener('load', GetCategorys)
+
+async function GetCategorys (){
     const urlCategory = `${urlBase}/category`
     const opt = {
         method:"GET",
@@ -11,7 +13,7 @@ window.addEventListener('load', async ()=> {
     const response = await promisse.json();
     
     handdlerTransaction(promisse, response)
-})
+}
 
 
 const myForm = document.querySelector('#form-transaction')
@@ -41,7 +43,6 @@ myForm.addEventListener('submit',async evt => {
    const promisse = await fetch(urlTransaction, opt);
    const response = await promisse.json()
 
-   hideLoader()
     handdlerTransaction(promisse, response)
 })
 
@@ -54,11 +55,15 @@ function handdlerTransaction(promisse, response){
             break;
         case 201:
             hideElementDom('.box-form')
+            GetCategorys()
+            hideLoader()
             break;
         case 400:
             arrayErrorsHanddler(response)
+            hideLoader()
             break;
         default:
+            hideLoader()
             break;
     }
 }
@@ -87,10 +92,21 @@ function updateCategorySelect(){
     select.innerHTML = ''
 }
 
+let oldArrError = [];
 function arrayErrorsHanddler(response){
+    const arrError = []
     response.forEach(element => {
+        arrError.push(element.path)
         const getElementDomByErrorName = document.querySelector(`#${element.path}-error`)
         getElementDomByErrorName.innerHTML = ""
         getElementDomByErrorName.innerText = element.msg
     });
+
+    if(!oldArrError.length){ oldArrError = arrError }
+
+    if(oldArrError.length != arrError.length){
+        const difference = oldArrError.filter( element => !arrError.includes(element))
+
+        difference.forEach(element => document.querySelector(`#${element}-error`).innerHTML = "")
+    }
 }

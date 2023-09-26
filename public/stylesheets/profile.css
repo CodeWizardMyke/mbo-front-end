@@ -5,6 +5,11 @@
 .negative{
     color: #D30C0C;
 }
+.error{
+    color: #ff5151;
+    font-weight: bolder;
+    font-size: 14pt;
+}
 .d-off{
     display: none;
 }
