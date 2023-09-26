@@ -7,11 +7,19 @@ ul li {
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+}
 
 /* nav menu transactions*/
 
 .nav-transactions{
     min-height: 100px;
+    background-color: #312F2F;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 1px;
 }
 .nav-transactions ul{
     margin: 15px auto;
@@ -28,70 +36,57 @@ ul li {
     align-items: start;
     justify-content: center;
 }
+/*transactions */
 
-/*list transactions*/
-.transactions-listed{
-    padding: 15px 0;
+/*transactions values*/
+
+.transactions-values{
     background-color: #312F2F;
-}
-.transactions-listed ul li {
-    background-color: red;
-    margin: 5px auto;
-    background-color: #dddd;
-    border: 1px solid black;
-    padding: 5px;
-}
-.transactions-listed ul li div{
-    display: flex;
+    color: #fff;
+    padding: 15px;
+    display:flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
 }
-.transactions-listed span{
-    padding: 5px 0;
-    font-weight: bold;
+.transactions-values div {
+    padding: 15px 2px;
+    text-align: center;
 }
+
+
+/*list transactions*/
+.tr-content{
+    padding: 5px;
+    margin: 15px auto;
+}
+
 .transactions-listed{
-    padding: 2px;
-    margin: 2px auto;
+    max-height: 500px;
+    overflow-y: auto;
 }
-.transactions-listed-title{
-    background-color: #312F2F;
-    color: #fff;
-    padding: 10px 0;
+.transactions-listed ul li{
+    margin: 5px auto;
+    background-color: #dddd;
+    padding: 5px 15px;
     border-radius: 5px;
 }
 
-/*transaction form edit*/
-#transaction_edit{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(48, 48, 48, 0.3); 
-    display: none;
+.transactions-listed ul li a{
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; 
+    justify-content: space-between;
 }
-#transaction_edit form{
-    background-color: #312F2F;
-    text-align: center;
-    padding: 10px;
-    border-radius: 15px;
+.transactions-listed ul div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#transaction_edit form label {
-    color: #fff;
-    padding: 3px 0;
-}
-#transaction_edit form input{
-    width: 100%;
-    margin: 5px 0;
-}
-#transaction_edit form button {
-    margin: auto 15px;
+.transactions-listed span{
+    padding: 5px 0;
+    font-weight: bolder;
+    color: #312F2F;
 }

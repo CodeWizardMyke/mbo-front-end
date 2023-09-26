@@ -6,10 +6,10 @@
     <body>
         <%- include('partials/header') %>
         <main class="container">
-            <section>
-                <div class="card-mod" >
+            <section class="tr-content">
+                <div class="nav-transactions" >
                     <h3>Listar transações</h3>
-                    <div class="nav nav-transactions" >
+                    <div class="nav " >
                         <ul>
                             <li>
                                 <label for="bt_get_all_transactions">Mostrar todas</label>
@@ -17,26 +17,34 @@
                             </li>
                             <li>
                                 <label for="type">Filtrar por tipo</label>
-                                <select class="form-select" name="type" id="type">
+                                <select class="form-select" id="type">
                                     <option value="">Selecione</option>
-                                    <option value="Revenue">Receita</option>
                                     <option value="Expense" >Despesa</option>
+                                    <option value="Revenue">Receita</option>
                                     <option value="card" >Cartão</option>
                                     <option value="Gift" >Presente</option>
                                 </select>
                             </li>
                             <li>
                                 <label for="category_list">Listar por categoria</label>
-                                <select class="form-select" name="category_id" id="category_select_transaction">
+                                <select class="form-select" id="category_select_transaction">
                                     <option value="" >selecione</option>
                                 </select>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </section>
-            <section>
-                <div class="content">
+                <div>
+                    <div class="transactions-values">
+                        <div>
+                            <span>Saldo Atual</span>
+                            <span>R$: 500.00</span>
+                        </div>
+                        <div>
+                            <span>Balanço mensal</span>
+                            <span>R$: 500.00</span>
+                        </div>
+                    </div>
                     <div class="transactions-listed">
                         <ul></ul>
                     </div>
@@ -55,46 +63,6 @@
         </main>
         <div class="loader">
             <div class="loader-inner"></div>
-        </div>
-        <div id="transaction_edit">
-            <form id="transaction-from-edit">
-                <div>
-                    <label for="category_id">Mudar categoria </label>
-                    <input type="text" name="category_name"  value="" id="category_name">
-                    <select class="form-select" name="category_id" id="category_select">
-
-                    </select>
-                </div>
-                <div>
-                    <label for="type">Tipo de Transação</label>
-                    <input type="text" name="type_selected"  value="" id="type_selected">
-                    <select class="form-select" name="type" id="type">
-                        <option value="Revenue" >Receita</option>
-                        <option value="Expense" >Despesa</option>
-                        <option value="card" >Cartão</option>
-                        <option value="Gift" >Presente</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="amount">Valor</label>
-                    <input type="text" name="amount_selected"  value="" id="amount_selected">
-                    <input type="number" name="amount" class="input-group-text" >
-                </div>
-                <div>
-                    <label for="installments">Parcelas</label>
-                    <input type="text" name="installments_selected"  value="" id="installments_selected">
-                    <input type="number" name="installments" class="input-group-text" >
-                </div>
-                <div>
-                    <label for="date">Data da conta</label>
-                    <input type="text" name="date_selected"  value="" id="date_selected">
-                    <input type="date" id="date" name="date" class="input-group-text" id="date">
-                </div>
-                <div>
-                    <button id="submit_edit" class="btn btn-light" type="button">Editar</button>
-                    <button id="close_edit_transaciton" class="btn btn-danger" type="button">Cancelar</button>
-                </div>
-            </form>
         </div>
         <%- include('partials/footer') %>
         <script src="/javascripts/profile.user.js"></script>

@@ -1,23 +1,25 @@
 const url = `${urlBase}/transactions`
 
-async function getAllCategory(){
-    const urlCategory =  `${urlBase}/category`
-    const opt = {
-        method:'GET',
-        headers:{
-            "Authorization": `Baerer ${token}`
-        }
-    }
-
-    const promisse = await fetch(urlCategory, opt);
-    const response = await promisse.json();
-
-    insertAllCategoryInSelect(response)
-}
+window.addEventListener('load', ()=> { 
+    getTransactions()
+    getAllcategory()
+})
 
 const btn_get_all_transaction = document.querySelector('#bt_get_all_transactions')
-btn_get_all_transaction.addEventListener('click', getTransactions)
-window.addEventListener('load', getTransactions )
+btn_get_all_transaction.addEventListener('click', ()=> {
+    getTransactions()
+})
+
+const select_type = document.querySelector('#type')
+select_type.addEventListener('change', ()=> {
+    getTransactionByType(select_type.value)
+})
+
+const select_category = document.querySelector('#category_select_transaction')
+select_category.addEventListener('change', ()=> {
+    getTransactionByCategory(select_category.value)
+})
+
 async function getTransactions(){
     showLoader()
     const opt = {
@@ -27,130 +29,132 @@ async function getTransactions(){
             "Authorization":`Baerer ${token}`
         }
     }
-
     const promisse = await fetch(url, opt);
     const response = await promisse.json();
 
     hideLoader()
-    handdlerTransactionsCrud(promisse, response)
+    handdlerTransacionListed(promisse, response)
 }
 
+async function getAllcategory(){
+    const urlCategory = `${urlBase}/category`
+    const opt = {
+        method:'GET',
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":`Baerer ${token}`
+        }
+    }
 
-function showFormEditTransaction(data){
-    showTransactionEdit()
-    setDataInFormTransactionEdit(data)
-}
-async function deleteTransaction(id){
-    console.log('delete')
+    const promisse = await fetch(urlCategory, opt)
+    const response = await promisse.json();
+
+    handdlerCategory( promisse, response )
 }
 
-function handdlerTransactionsCrud( promisse ,response ){
+async function getTransactionByType (value) {
+    showLoader()
+    const url_transaction_byType = `${urlBase}/transactions/type/${value}`
+    const opt = {
+        method :"GET",
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":`Baerer ${token}`
+        },
+    }
+
+    const promisse = await fetch(url_transaction_byType, opt);
+    const response = await promisse.json();
+
+    console.log('transaction by type')
+    console.log(response)
+
+    hideLoader()
+    handdlerTransacionListed(promisse, response)
+}
+
+async function getTransactionByCategory(value){
+    console.log(value)
+    const url_transaction_byCategory = `${urlBase}/transactions/category/${value}`
+    const opt ={
+        mehtod:"GET",
+        headers:{
+            "Content-Type":"application/json",
+            "Authorization":`Baerer ${token}`
+        },
+    }
+    const promisse = await fetch(url_transaction_byCategory, opt);
+    const response = await promisse.json();
+
+    console.log('transaction by category')
+    console.log(response)
+
+    handdlerTransacionListed(promisse, response)
+}
+
+function handdlerCategory(promisse, response){
     switch (promisse.status) {
         case 200:
-            setDataInListAllTransactions(response)
-            break;
-    
+            setCategoryDataInSelect(response)
+            break;  
         default:
             break;
     }
 }
 
+function handdlerTransacionListed( promisse ,response ){
+    switch (promisse.status) {
+        case 200:
+            setDataInListAllTransactions(response)
+            break;  
+        default:
+            break;
+    }
+}
 
 /* functions insert data in view */
 
 function setDataInListAllTransactions(response) {
     const ul = document.querySelector('.transactions-listed ul')
-    ul.innerHTML = "";
-    if(response.length > 0){
-        response.map( element => {
-            const li = document.createElement('li');
-            const divTitle = document.createElement('div') 
-            const div1 = document.createElement('div') 
-            const div2 = document.createElement('div') 
-            const btnEdit = document.createElement('button')
-            const btnDelete = document.createElement('button')
-            const spanCategory = document.createElement('span')
-            const spanType = document.createElement('span')
-            const spanAmount = document.createElement('span')
-            const spanInstallment = document.createElement('span')
-            const spanDate = document.createElement('span')
-            
-            divTitle.classList.add('transactions-listed-title')
-            btnEdit.innerText = 'Editar'
-            btnEdit.classList.add('btn', 'btn-light')
-            btnEdit.type = 'button'
-            btnEdit.id = 'bt_transaction_edit'
-            /*------------------- EVENT BUTTON ADD ----------------------*/
-            btnEdit.addEventListener('click', e => {
-                showFormEditTransaction(element)
-            })
+    ul.innerHTML ="";
 
-            btnDelete.innerText = 'Delete'
-            btnDelete.classList.add('btn', 'btn-danger')
-            btnDelete.type = 'button'
-            btnDelete.id = 'bt_transaction_delete'
-            /*------------------- EVENT BUTTON ADD ----------------------*/
-            btnDelete.addEventListener('click', e => {
-                deleteTransaction(element.id)
-            })
+    response.map(element => {
+        const li = document.createElement('li')
+        const anchor = document.createElement('a')
+        const div = document.createElement('div')
+        const spanCategory = document.createElement('span')
+        const spanType = document.createElement('span')
+        const spanValue = document.createElement('span')
 
-            spanCategory.innerText = `Categoria : ${element.category.category_name}`
-
-            spanType.innerText = `Tipo : ${element.type}`
-            spanAmount.innerText = `Valor : ${element.amount}`
-            spanInstallment.innerText = `Parcelas : ${element.installments}`
-            spanDate.innerText = `Data : ${element.date}`
-            
-            /* insert in dom chields */
-            divTitle.appendChild(spanCategory)
-            divTitle.appendChild(btnEdit)
-            divTitle.appendChild(btnDelete)
-            div1.appendChild(spanType)
-            div1.appendChild(spanAmount)
-            div2.appendChild(spanInstallment)
-            div2.appendChild(spanDate)
-
-            li.appendChild(divTitle)
-            li.appendChild(div1)
-            li.appendChild(div2)
-            ul.appendChild(li)
-        });
-    }
-}
-
-function setDataInFormTransactionEdit(data){
-    const category_name = document.querySelector('#category_name')
-    category_name.value = data.category.category_name
-    category_name.disabled = true
-    getAllCategory()
-
-    const type_selected = document.querySelector('#type_selected')
-    type_selected.value = data.type
-    type_selected.disabled = true
-
-    const amount_selected = document.querySelector('#amount_selected')
-    amount_selected.value = data.amount
-    amount_selected.disabled = true
-
-    const installments_selected = document.querySelector('#installments_selected')
-    installments_selected.value = data.installments
-    installments_selected.disabled = true
-
-    const date_selected = document.querySelector('#date_selected')
-    date_selected.value = data.date
-    date_selected.disabled = true
-}
-
-function insertAllCategoryInSelect(response){
-    const select = document.querySelector('#category_select')
-    response.forEach(element => {
-        const option = document.createElement('option');
-        option.value = element.id
-        option.innerText = element.category_name
+        spanCategory.innerText = element.category.category_name
+        spanType.innerText = element.type
+        spanValue.innerText = `R$: ${element.amount}`
         
-        console.log(select)
-        select.appendChild(option)
-    });
+        anchor.href= `/profile/transaction/${element.id}`
+
+        anchor.appendChild(div)
+        anchor.appendChild(spanValue)
+        div.appendChild(spanCategory)
+        div.appendChild(spanType)
+        li.appendChild(anchor)
+        ul.appendChild(li)
+    })
+}
+
+function setCategoryDataInSelect(response){
+    if(response.length){
+        const select = document.querySelector('#category_select_transaction')
+        select.innerHTML = ""
+        response.forEach(element => {
+            const option = document.createElement('option');
+
+            option.value = element.id;
+            option.id = `${element.category_name}:${element.id}`
+            option.innerText =element.category_name
+
+            select.appendChild(option)
+        })
+    }
 }
 
 /* form edit action event */

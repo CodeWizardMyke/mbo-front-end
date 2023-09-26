@@ -6,6 +6,9 @@ const privateViewsController ={
     transactions:(req, res) => {
         return res.render('transactions')
     },
+    transaction_item: (req, res) => {
+        return res.render('transaction_item')
+    }
 }
 
 module.exports = privateViewsController;
