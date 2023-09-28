@@ -2,12 +2,53 @@
 <html lang="pt-br">
     <%- include('partials/head') %>
     <link rel="stylesheet" href="/stylesheets/profile.css">
-    <link rel="stylesheet" href="/stylesheets/transactions.css">
+    <link rel="stylesheet" href="/stylesheets/transaction_item.css">
     <body>
         <%- include('partials/header') %>
         <main class="container">
-            <section class="tr-content">
-                um unico item
+            <section class="tr-content ">
+                <div class="tr-item-head">
+                    <h4>Despesa</h4>
+                    <div class="tr-head">
+                        <span>Nome da conta: </span>
+                        <span>Valor: </span>
+                    </div>
+                </div>
+                <div class="tr-item-body">
+                    <form id="tr-form">
+                        <h4>Detalhes - Modificar</h4>
+                         <div class="tr-body">
+                            <div>
+                                <span id="date-write">Data:</span>
+                                <input class="input-group-text" type="date" id="date" name="date" value="21/06/2023">
+                            </div>
+                            <div id="data-error" class="error"></div>
+                            <div>
+                                <label for="category">Categoria:</label>
+                                <input class="input-group-text" type="text" id="category" name="category" value="Mercado">
+                            </div>
+                            <div id="category-error" class="error"></div>
+                            <div>
+                                <label for="type">Tipo:</label>
+                                <input class="input-group-text" type="text" id="type" name="type" value="Despesa" >
+                            </div>
+                            <div id="type-error" class="error"></div>
+                            <div>
+                                <label for="amount">Valor:</label>
+                                <input class="input-group-text" type="text" id="amount" name="amount" value="500,00" >
+                            </div>
+                            <div id="amount-error" class="error"></div>
+                            <div>
+                                <label for="installments">Parcelas:</label>
+                                <input class="input-group-text" type="text" id="installments" name="installments" value="0" >
+                            </div>
+                            <div id="installments-error" class="error"></div>
+                        </div>
+                        <div id="button-center">
+                            <button type="submit" class="btn btn-light">SALVAR</button>
+                        </div>
+                    </form>
+                </div>
             </section>
         </main>
         <div class="loader">

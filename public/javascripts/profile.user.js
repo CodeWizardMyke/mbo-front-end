@@ -1,4 +1,4 @@
-const urlBase = 'http://localhost:1515';
+const urlBase = 'https://mbo-backend-app.fly.dev';
 //'http://localhost:1515'
 //'https://mbo-backend-app.fly.dev';'
 
