@@ -19,33 +19,47 @@
                         <h4>Detalhes - Modificar</h4>
                          <div class="tr-body">
                             <div>
-                                <span id="date-write">Data:</span>
-                                <input class="input-group-text" type="date" id="date" name="date" value="21/06/2023">
+                                <span id="data-value"></span>
+                                <label for="date">Definir novo valor:</label>
+                                <input type="date" class="input-group-text" name="date" id="date">
+                                <span id="data-error" class="error"></span>
                             </div>
-                            <div id="data-error" class="error"></div>
                             <div>
-                                <label for="category">Categoria:</label>
-                                <input class="input-group-text" type="text" id="category" name="category" value="Mercado">
+                                <span id="category-value"></span>
+                                <label for="category_id">Definir novo valor:</label>
+                                <select class="input-group-text" name="category_id" id="category-list">
+                                    <option value="" disabled >Nome da conta</option>
+                                </select>
+                                <span id="category-error" class="error"></span>
                             </div>
-                            <div id="category-error" class="error"></div>
                             <div>
-                                <label for="type">Tipo:</label>
-                                <input class="input-group-text" type="text" id="type" name="type" value="Despesa" >
+                                <span id="type-value"></span>
+                                <label for="type">Definir novo valor:</label>
+                                <select class="input-group-text" name="type" id="type">
+                                    <option value="" >Selecione...</option>
+                                    <option value="Receita" >Receita</option>
+                                    <option value="Despesa" >Despesa</option>
+                                    <option value="Cartão" >Cartão</option>
+                                    <option value="Presente" >Presente</option>
+                                </select>
+                                <span id="type-error" class="error"></span>
                             </div>
-                            <div id="type-error" class="error"></div>
                             <div>
-                                <label for="amount">Valor:</label>
-                                <input class="input-group-text" type="text" id="amount" name="amount" value="500,00" >
+                                <span id="amount-value"></span>
+                                <label for="amount">Definir novo valor:</label>
+                                <input class="input-group-text" type="text" id="amount" name="amount" >
+                                <span id="amount-error" class="error"></span>
                             </div>
-                            <div id="amount-error" class="error"></div>
                             <div>
-                                <label for="installments">Parcelas:</label>
-                                <input class="input-group-text" type="text" id="installments" name="installments" value="0" >
+                                <span id="installments-value"></span>
+                                <label for="installments">Definir novo valor:</label>
+                                <input class="input-group-text" type="text" id="installments" name="installments" >
+                                <span id="installments-error" class="error"></span>
                             </div>
-                            <div id="installments-error" class="error"></div>
                         </div>
                         <div id="button-center">
                             <button type="submit" class="btn btn-light">SALVAR</button>
+                            <button type="button" class="btn btn-danger" id="delete">REMOVER</button>
                         </div>
                     </form>
                 </div>

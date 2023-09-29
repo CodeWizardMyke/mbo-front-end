@@ -32,14 +32,29 @@
 .tr-body div{
     margin: 10px auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    user-select: none;
+    border: #312F2F 1px solid;
 }
+.tr-body input {
+    width: 200px;
+}
+.tr-body select{
+    width: 200px;
+}
+
 #button-center{
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+.error{
+    color: red;
+    font-size: 10pt;
+    height: 20px;
+    margin: 2px;
 }
