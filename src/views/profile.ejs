@@ -8,27 +8,10 @@
             <section>
                 <div class="card-mod" id="balance-card">
                     <div class="month-date">
-                        <span>Setembro</span>
+                        <span>loading...</span>
                     </div>
                     <div class="c-flex">
-                        <div class="balance">
-                            <span>Saldo:</span>
-                            <h3 id="balance">R$ 500.00</h3>
-                        </div>
-                        <div class="revenue-expense">
-                            <div>
-                                <a href="#">
-                                    <span>Receitas</span>
-                                    <span class="positive">R$ 1.000.00</span>
-                                </a>
-                            </div>
-                            <div>
-                                <a href="#">
-                                    <span>Despesas</span>
-                                    <span class="negative">R$ -500.00</span>
-                                </a>
-                            </div>
-                        </div>
+                        <div class="transactions-balance"><span>loading...</span></div>
                     </div>
                 </div>
                 <div class="card-mod">
@@ -53,10 +36,10 @@
                                 <div>
                                     <label for="type">Tipo de Transação</label>
                                     <select class="form-select" name="type" id="type">
-                                        <option value="Revenue" >Receita</option>
-                                        <option value="Expense" >Despesa</option>
-                                        <option value="card" >Cartão</option>
-                                        <option value="Gift" >Presente</option>
+                                        <option value="receita" >Receita</option>
+                                        <option value="despesa" >Despesa</option>
+                                        <option value="cartão" >Cartão</option>
+                                        <option value="presente" >Presente</option>
                                     </select>
                                 </div>
                                 <span id="type-error" class="error"></span>
@@ -121,7 +104,6 @@
         <%- include('partials/footer') %>
         <script src="/javascripts/profile.user.js"></script>
         <script src="/javascripts/profile_dom_buttons.js"></script>
-        <script src="/javascripts/profile.category.js"></script>
         <script src="/javascripts/profile.transaction.js"></script>
     </body>
 </html>

@@ -2,14 +2,14 @@
 const divUserState = document.querySelector('#user-state')
 const isUserLoged = JSON.parse(sessionStorage.getItem('user')) || JSON.parse(localStorage.getItem('user'))
 
-if(isUserLoged){
-    divUserState.innerHTML = ""
-    const linkProfile =  document.createElement('a');
-    linkProfile.innerHTML = 'Profile'
-    linkProfile.href = '/profile'
-    linkProfile.classList.add('nav-link')
+console.log(isUserLoged)
 
-    divUserState.appendChild(linkProfile)
+if(isUserLoged == null){
+    userOfline()
+}
+
+if(isUserLoged){
+    changeToNavigateHeader()
 }
 
 
@@ -23,4 +23,20 @@ function showLoader() {
 function hideLoader() {
     const loader = document.querySelector(".loader");
     loader.style.display = "none";
+}
+
+function changeToNavigateHeader (){
+    const publicNavigate = document.querySelector('#navigate-public')
+    const privateNavigate = document.querySelector('#navigate-private')
+    
+    publicNavigate.style.display = 'none'
+    privateNavigate.style.display = 'flex'
+}
+
+function userOfline(){
+    const publicNavigate = document.querySelector('#navigate-public')
+    const privateNavigate = document.querySelector('#navigate-private')
+    
+    publicNavigate.style.display = 'flex'
+    privateNavigate.style.display = 'none'
 }

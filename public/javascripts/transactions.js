@@ -66,9 +66,6 @@ async function getTransactionByType (value) {
     const promisse = await fetch(url_transaction_byType, opt);
     const response = await promisse.json();
 
-    console.log('transaction by type')
-    console.log(response)
-
     hideLoader()
     handdlerTransacionListed(promisse, response)
 }
@@ -85,9 +82,6 @@ async function getTransactionByCategory(value){
     }
     const promisse = await fetch(url_transaction_byCategory, opt);
     const response = await promisse.json();
-
-    console.log('transaction by category')
-    console.log(response)
 
     handdlerTransacionListed(promisse, response)
 }

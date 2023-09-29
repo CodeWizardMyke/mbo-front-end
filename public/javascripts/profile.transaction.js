@@ -15,7 +15,6 @@ async function GetCategorys (){
     handdlerTransaction(promisse, response)
 }
 
-
 const myForm = document.querySelector('#form-transaction')
 myForm.addEventListener('submit',async evt => {
     showLoader()

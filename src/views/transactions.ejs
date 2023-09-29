@@ -18,11 +18,11 @@
                             <li>
                                 <label for="type">Filtrar por tipo</label>
                                 <select class="form-select" id="type">
-                                    <option value="">Selecione</option>
-                                    <option value="Expense" >Despesa</option>
-                                    <option value="Revenue">Receita</option>
-                                    <option value="card" >Cartão</option>
-                                    <option value="Gift" >Presente</option>
+                                    <option value="" >Selecione...</option>
+                                    <option value="receita" >Receita</option>
+                                    <option value="despesa" >Despesa</option>
+                                    <option value="cartão" >Cartão</option>
+                                    <option value="presente" >Presente</option>
                                 </select>
                             </li>
                             <li>
@@ -34,31 +34,24 @@
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <div class="transactions-values">
-                        <div>
-                            <span>Saldo Atual</span>
-                            <span>R$: 500.00</span>
-                        </div>
-                        <div>
-                            <span>Balanço mensal</span>
-                            <span>R$: 500.00</span>
-                        </div>
+                <div class="bg-dark p-2 mb-2">
+                    <div class="c-flex" style="color: #fff;">
+                        <div class="transactions-balance"><span>loading...</span></div>
                     </div>
                     <div class="transactions-listed">
                         <ul></ul>
                     </div>
-                    <nav class="transaction-paginate">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <button type="button" class="page-link">Anterior</button>
-                            </li>
-                            <li class="page-item">
-                                <button type="button" class="page-link">Proximo</button>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
+                <nav class="transaction-paginate">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <button type="button" class="page-link">Anterior</button>
+                        </li>
+                        <li class="page-item">
+                            <button type="button" class="page-link">Proximo</button>
+                        </li>
+                    </ul>
+                </nav>
             </section>
         </main>
         <div class="loader">
