@@ -6,10 +6,10 @@
     <body>
         <%- include('partials/header') %>
         <main class="container">
-            <section class="tr-content">
-                <div class="nav-transactions" >
+            <section class="section-content">
+                <div class="div-navigate" >
                     <h3>Listar transações</h3>
-                    <div class="nav " >
+                    <div class="nav">
                         <ul>
                             <li>
                                 <label for="bt_get_all_transactions">Mostrar todas</label>
@@ -35,14 +35,14 @@
                     </div>
                 </div>
                 <div class="bg-dark p-2 mb-2">
-                    <div class="c-flex" style="color: #fff;">
+                    <div class="div-balance">
                         <div class="transactions-balance"><span>loading...</span></div>
                     </div>
-                    <div class="transactions-listed">
+                    <div class="div-list" id="transactions-list">
                         <ul></ul>
                     </div>
                 </div>
-                <nav class="transaction-paginate">
+                <nav>
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">
                             <button type="button" class="page-link">Anterior</button>
@@ -59,6 +59,6 @@
         </div>
         <%- include('partials/footer') %>
         <script src="/javascripts/profile.user.js"></script>
-        <script src="/javascripts/transactions.js"></script>
+        <script src="/javascripts/transactions_list.js"></script>
     </body>
 </html>

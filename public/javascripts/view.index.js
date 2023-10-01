@@ -2,8 +2,6 @@
 const divUserState = document.querySelector('#user-state')
 const isUserLoged = JSON.parse(sessionStorage.getItem('user')) || JSON.parse(localStorage.getItem('user'))
 
-console.log(isUserLoged)
-
 if(isUserLoged == null){
     userOfline()
 }

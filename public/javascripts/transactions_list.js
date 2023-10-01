@@ -109,7 +109,7 @@ function handdlerTransacionListed( promisse ,response ){
 /* functions insert data in view */
 
 function setDataInListAllTransactions(response) {
-    const ul = document.querySelector('.transactions-listed ul')
+    const ul = document.querySelector('#transactions-list ul')
     ul.innerHTML ="";
 
     response.map(element => {
@@ -149,20 +149,4 @@ function setCategoryDataInSelect(response){
             select.appendChild(option)
         })
     }
-}
-
-/* form edit action event */
-const btnCloseshowFormEditTransaction = document.querySelector('#close_edit_transaciton')
-if(btnCloseshowFormEditTransaction){
-    btnCloseshowFormEditTransaction.addEventListener('click', hideTransactionEdit)
-}
-function hideTransactionEdit(){
-    const element = document.querySelector('#transaction_edit')
-    if(element.style.display = 'flex'){
-        element.style.display = ''
-    }
-}
-function showTransactionEdit(){
-    const element = document.querySelector('#transaction_edit')
-    element.style.display = 'flex'
 }

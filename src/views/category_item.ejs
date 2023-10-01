@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="stylesheet" href="/stylesheets/transaction_item.css">
+    <body>
+        <%- include('partials/header') %>
+        <main class="container">
+            <section class="tr-content ">
+                <div class="tr-item-head">
+                    <h4>Categoria</h4>
+                    <div class="tr-head"></div>
+                </div>
+                <div class="tr-item-body">
+                    <form id="form_put">
+                        <h4>Detalhes - Modificar</h4>
+                         <div class="tr-body">
+                            <div>
+                                <span id="category-value"></span>
+                                <label for="category_name">Alterar nome da categoria:</label>
+                                <input type="text" class="input-group-text" name="category_name" id="category_name" />
+                                <span id="category_name_error" class="error"></span>
+                            </div>
+                        </div>
+                        <div id="button-center">
+                            <button type="submit" class="btn btn-light">SALVAR</button>
+                            <button type="button" class="btn btn-danger" id="delete">REMOVER</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+        <%- include('partials/footer') %>
+        <script src="/javascripts/profile.user.js"></script>
+        <script src="/javascripts/category.item.js"></script>
+    </body>
+</html>

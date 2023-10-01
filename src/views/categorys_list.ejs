@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include('partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="stylesheet" href="/stylesheets/list_data.css">
+    <body>
+        <%- include('partials/header') %>
+        <main class="container">
+            <section class="section-content">
+                <div class="div-navigate" >
+                    <h3>Minhas categorias</h3>
+                    <div class="nav">
+                        <ul>
+                            <li>
+                                <label for="bt_get_all_transactions">Mostrar todas</label>
+                                <button class="btn btn-light" type="button" id="bt_get_all_transactions">Categoria</button>
+                            </li>
+                            <li>
+                                <label for="bt_get_all_transactions">Adicionar nova</label>
+                                <button class="btn btn-light" type="button" id="bt_get_all_transactions">Categoria</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box_list"></div>
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <button type="button" class="page-link">Anterior</button>
+                        </li>
+                        <li class="page-item">
+                            <button type="button" class="page-link">Proximo</button>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+        </main>
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+        <%- include('partials/footer') %>
+        <script src="/javascripts/profile.user.js"></script>
+        <script src="/javascripts/categorys_list.js"></script>
+    </body>
+</html>
