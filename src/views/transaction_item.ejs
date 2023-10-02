@@ -2,67 +2,66 @@
 <html lang="pt-br">
     <%- include('partials/head') %>
     <link rel="stylesheet" href="/stylesheets/profile.css">
-    <link rel="stylesheet" href="/stylesheets/transaction_item.css">
+    <link rel="stylesheet" href="/stylesheets/views.maneger.css">
     <body>
         <%- include('partials/header') %>
         <main class="container">
-            <section class="tr-content ">
-                <div class="tr-item-head">
+            <section class="content-section">
+                <div class="content-header">
                     <h4>Despesa</h4>
                     <div class="tr-head">
                         <span>Nome da conta: </span>
                         <span>Valor: </span>
                     </div>
                 </div>
-                <div class="tr-item-body">
+                <div class="content-body post-item">
                     <form id="tr-form">
-                        <h4>Detalhes - Modificar</h4>
-                         <div class="tr-body">
-                            <div>
-                                <span id="data-value"></span>
-                                <label for="date">Definir novo valor:</label>
-                                <input type="date" class="input-group-text" name="date" id="date">
-                                <span id="data-error" class="error"></span>
-                            </div>
-                            <div>
-                                <span id="category-value"></span>
-                                <label for="category_id">Definir novo valor:</label>
-                                <select class="input-group-text" name="category_id" id="category-list">
-                                    <option value="" >Nome da conta</option>
-                                </select>
-                                <span id="category-error" class="error"></span>
-                            </div>
-                            <div>
-                                <span id="type-value"></span>
-                                <label for="type">Definir novo valor:</label>
-                                <select class="input-group-text" name="type" id="type">
-                                    <option value="" >Selecione...</option>
-                                    <option value="receita" >Receita</option>
-                                    <option value="despesa" >Despesa</option>
-                                    <option value="cartão" >Cartão</option>
-                                    <option value="presente" >Presente</option>
-                                </select>
-                                <span id="type-error" class="error"></span>
-                            </div>
-                            <div>
-                                <span id="amount-value"></span>
-                                <label for="amount">Definir novo valor:</label>
-                                <input class="input-group-text" type="text" id="amount" name="amount" >
-                                <span id="amount-error" class="error"></span>
-                            </div>
-                            <div>
-                                <span id="installments-value"></span>
-                                <label for="installments">Definir novo valor:</label>
-                                <input class="input-group-text" type="text" id="installments" name="installments" >
-                                <span id="installments-error" class="error"></span>
-                            </div>
+                        <div>
+                            <h4>Atualizar - Deletar</h4>
                         </div>
-                        <div id="button-center">
+                        <div>
+                            <span id="data-value"></span>
+                            <label for="date">Definir novo valor:</label>
+                            <input type="date" class="input-group-text" name="date" id="date">
+                            <span id="data-error" class="error"></span>
+                        </div>
+                        <div>
+                            <span id="category-value"></span>
+                            <label for="category_id">Definir novo valor:</label>
+                            <select class="input-group-text" name="category_id" id="category-list">
+                                <option value="" >Nome da conta</option>
+                            </select>
+                            <span id="category-error" class="error"></span>
+                        </div>
+                        <div>
+                            <span id="type-value"></span>
+                            <label for="type">Definir novo valor:</label>
+                            <select class="input-group-text" name="type" id="type">
+                                <option value="" >Selecione...</option>
+                                <option value="receita" >Receita</option>
+                                <option value="despesa" >Despesa</option>
+                                <option value="cartão" >Cartão</option>
+                                <option value="presente" >Presente</option>
+                            </select>
+                            <span id="type-error" class="error"></span>
+                        </div>
+                        <div>
+                            <span id="amount-value"></span>
+                            <label for="amount">Definir novo valor:</label>
+                            <input class="input-group-text" type="text" id="amount" name="amount" >
+                            <span id="amount-error" class="error"></span>
+                        </div>
+                        <div>
+                            <span id="installments-value"></span>
+                            <label for="installments">Definir novo valor:</label>
+                            <input class="input-group-text" type="text" id="installments" name="installments" >
+                            <span id="installments-error" class="error"></span>
+                        </div>
+                        <div>
                             <button type="submit" class="btn btn-light">SALVAR</button>
                             <button type="button" class="btn btn-danger" id="delete">REMOVER</button>
                         </div>
                     </form>
-                </div>
             </section>
         </main>
         <div class="loader">

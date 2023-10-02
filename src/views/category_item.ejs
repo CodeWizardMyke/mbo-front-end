@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <%- include('partials/head') %>
-    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="stylesheet" href="/stylesheets/views.maneger.css">
     <body>
         <%- include('partials/header') %>
         <main class="container">
-            <section class="tr-content ">
-                <div class="tr-item-head">
+            <section class="content-section">
+                <div class="content-header">
                     <h4>Categoria</h4>
-                    <div class="tr-head"></div>
+                    <div class="content-value"></div>
                 </div>
-                <div class="tr-item-body">
+                <div class="content-body post-item">
                     <form id="form_put">
-                        <h4>Detalhes - Modificar</h4>
-                         <div class="tr-body">
-                            <div>
-                                <span id="category-value"></span>
-                                <label for="category_name">Alterar nome da categoria:</label>
-                                <input type="text" class="input-group-text" name="category_name" id="category_name" />
-                                <span id="category_name_error" class="error"></span>
-                            </div>
+                        <div>
+                            <h4>Atualizar - Deletar</h4>
+                        </div>
+                         <div>
+                            <span id="category-value"></span>
+                            <label for="category_name">Alterar nome da categoria:</label>
+                            <input type="text" class="input-group-text" name="category_name" id="category_name" />
+                            <span id="category_name_error" class="error"></span>
                         </div>
                         <div id="button-center">
                             <button type="submit" class="btn btn-light">SALVAR</button>

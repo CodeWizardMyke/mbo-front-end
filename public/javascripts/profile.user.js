@@ -9,6 +9,12 @@ if(!user){
     window.location = '/singin'
 }
 
+window.addEventListener('load', async ()=> {
+    const get_transactions = await getTransactions()
+    console.log(get_transactions)
+    handdlerTransactions(get_transactions[0], get_transactions[1], 'GET')
+})
+
 async function balanceDataTransactions(){
     const url = `${urlBase}/transactions`
     const opt = {
@@ -25,6 +31,20 @@ async function balanceDataTransactions(){
     handdlerTransactionProfile(promisse, response)
 }
 
+
+
+function handdlerTransactions(promisse, response, method){
+    const key = `${promisse.status}_${method}`
+
+    switch (key) {
+        case '200_GET':
+            insertDataInView(response)
+            break;
+    
+        default:
+            break;
+    }
+}
 
 function handdlerTransactionProfile(promisse, response){
     switch (promisse.status) {
@@ -126,3 +146,29 @@ const startFunctionsProfileIndex = () => {
     balanceDataTransactions()
 };
 startFunctionsProfileIndex()
+
+
+function insertDataInView(response){
+    const divExpense = document.querySelector('.m-expense')
+
+    const expense = []
+    
+    response.forEach(element => {
+        if(element.type == 'despesa'){
+            expense.push(element)
+        }
+    })
+
+    expense.forEach(element => {
+        const ul = document.createElement('ul')
+        const li = document.createElement('li')
+
+        li.innerText = `Conta: ${element.category.category_name} | valor: R$ ${element.amount}`
+
+        ul.appendChild(li)
+        divExpense.appendChild(ul)
+    })
+
+
+    console.log(expense)
+}
