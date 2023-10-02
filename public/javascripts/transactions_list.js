@@ -109,8 +109,9 @@ function handdlerTransacionListed( promisse ,response ){
 /* functions insert data in view */
 
 function setDataInListAllTransactions(response) {
-    const ul = document.querySelector('#transactions-list ul')
-    ul.innerHTML ="";
+    const div_list = document.querySelector('.list_items')
+    div_list.innerHTML ="";
+    const ul = document.createElement('ul')
 
     response.map(element => {
         const li = document.createElement('li')
@@ -133,6 +134,7 @@ function setDataInListAllTransactions(response) {
         li.appendChild(anchor)
         ul.appendChild(li)
     })
+    div_list.appendChild(ul)
 }
 
 function setCategoryDataInSelect(response){

@@ -7,23 +7,67 @@
         <%- include('partials/header') %>
         <main class="container">
             <section class="section-content">
-                <div class="div-navigate" >
+                <div class="div-navigate">
                     <h3>Minhas categorias</h3>
-                    <div class="nav">
-                        <ul>
-                            <li>
-                                <label for="bt_get_all_transactions">Mostrar todas</label>
-                                <button class="btn btn-light" type="button" id="bt_get_all_transactions">Categoria</button>
-                            </li>
-                            <li>
-                                <label for="bt_get_all_transactions">Adicionar nova</label>
-                                <button class="btn btn-light" type="button" id="bt_get_all_transactions">Categoria</button>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
-                <div class="box_list"></div>
-                <nav>
+                <div class="post-item">
+                    <form id="myForm">
+                        <div>
+                            <h4>Criar uma nova categoria</h4>
+                        </div>
+                        <div>
+                            <label for="category_name">Nome da categoria</label>
+                            <input type="text" class="input-group-text" name="category_name">
+                        </div>
+                        <div>
+                            <button class="btn btn-light" type="submit">Adicionar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="list_items">
+
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <span>Carregando...</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <span>Carregando...</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <span>Carregando...</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <span>Carregando...</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <span>Carregando...</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <nav class="mt-3">
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">
                             <button type="button" class="page-link">Anterior</button>
@@ -40,6 +84,7 @@
         </div>
         <%- include('partials/footer') %>
         <script src="/javascripts/profile.user.js"></script>
+        <script src="/javascripts/functions/category.crud.js"></script>
         <script src="/javascripts/categorys_list.js"></script>
     </body>
 </html>

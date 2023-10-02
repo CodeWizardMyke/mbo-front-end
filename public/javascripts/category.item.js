@@ -1,70 +1,26 @@
 /* OBTER O ID APARTIR DA URL DA PAGINA */
-const arrayString = window.location.pathname.split('/')
-const id = arrayString [arrayString.length -1]
+const params_id = window.location.pathname.split('/')
+const id = params_id [params_id.length -1]
 
-/* OBTER DATOS DE UMA TRANSAÇÃO E DE TODAS CATEGORIAS */
-window.addEventListener('load',()=>{
-    getCategory()
+window.addEventListener('load', async () => {
+    const get_category =  await getCategoryById(id)
+    handdlerCategoryItem(get_category[0], get_category[1], 'GET')
 })
 
-/* PEGAR UMA TRANSAÇÃO PELO ID*/
-async function getCategory (){
-    url = `${urlBase}/category/${id}`
-    const opt = {
-        method:'GET',
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization": `Baerer ${token}`,
-        },
-    }
-    const promisse = await fetch(url, opt)
-    const response = await promisse.json()
-    
-    validateRequest (promisse, response, 'GET')
-      
-}
-
-/* ATUALIZAÇÃO DE TRANSAÇÃO */
-const form_put = document.querySelector('#form_put')
-form_put.addEventListener('submit', async (evt) => {
-    evt.preventDefault()
-    const category_name = document.querySelector('#category_name').value
-
-    const url = `${urlBase}/category/${id}`
-    const opt = {
-        method:"PUT",
-        headers:{
-            "Authorization": `Baere ${token}`,
-            "Content-Type":"application/json"
-        },
-        body: JSON.stringify({category_name:category_name})
-    }
-
-    const promisse = await fetch(url, opt)
-    const response = await promisse.json()
-
-    validateRequest (promisse, response, 'PUT')
+const put_category_form = document.querySelector('#form_put')
+put_category_form.addEventListener('submit', async (evt) => {
+    evt.preventDefault();
+    const put_category = await putCategory("#form_put", id);
+    handdlerCategoryItem(put_category[0], put_category[1], 'PUT')
 })
 
 /* DELETAR UMA TRANSAÇÃO */
 document.querySelector('#delete').addEventListener('click', async () => {
-    const url = `${urlBase}/category/${id}`
-    const opt = {
-        method:"DELETE",
-        headers:{
-            "Authorization":`Baerer ${token}`,
-            "Content-type":"application/json"
-        },
-    } 
-
-    const promisse = await fetch(url, opt);
-    const response = await promisse.json();
-
-    validateRequest( promisse, response, 'DELETE')
+    const delete_category = await deleteCategory(id);
+    handdlerCategoryItem(delete_category[0], delete_category[1], "DELETE")
 })
 
-/* TRATAMENTO DE STATUS PARA PROMISSES DA CATEGORIA */
-function validateRequest (promisse, response , method ){
+function handdlerCategoryItem (promisse, response , method ){
     const key = `${promisse.status}_${method}`
 
     switch (key) {
@@ -81,6 +37,7 @@ function validateRequest (promisse, response , method ){
             alert('item deletado com sucesso')
             window.location = '/profile/categorys'
             break;
+            
         case '500_DELETE':
             let dataError = response.index
 

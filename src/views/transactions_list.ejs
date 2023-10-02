@@ -2,11 +2,12 @@
 <html lang="pt-br">
     <%- include('partials/head') %>
     <link rel="stylesheet" href="/stylesheets/profile.css">
-    <link rel="stylesheet" href="/stylesheets/transactions.css">
+    <link rel="stylesheet" href="/stylesheets/list_data.css">
     <body>
         <%- include('partials/header') %>
         <main class="container">
             <section class="section-content">
+
                 <div class="div-navigate" >
                     <h3>Listar transações</h3>
                     <div class="nav">
@@ -34,15 +35,54 @@
                         </ul>
                     </div>
                 </div>
-                <div class="bg-dark p-2 mb-2">
-                    <div class="div-balance">
-                        <div class="transactions-balance"><span>loading...</span></div>
-                    </div>
-                    <div class="div-list" id="transactions-list">
-                        <ul></ul>
-                    </div>
+
+                <div class="div-balance">
+                    <div class="transactions-balance"><span>loading...</span></div>
                 </div>
-                <nav>
+
+                <div class="list_items">
+
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <span>Carregando...</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <span>Carregando...</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <span>Carregando...</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <span>Carregando...</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <span>Carregando...</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <nav class="mt-3">
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">
                             <button type="button" class="page-link">Anterior</button>
@@ -52,6 +92,7 @@
                         </li>
                     </ul>
                 </nav>
+
             </section>
         </main>
         <div class="loader">
