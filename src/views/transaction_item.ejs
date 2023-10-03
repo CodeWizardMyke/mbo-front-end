@@ -9,18 +9,18 @@
             <section class="content-section">
                 <div class="content-header">
                     <h4>Despesa</h4>
-                    <div class="tr-head">
-                        <span>Nome da conta: </span>
-                        <span>Valor: </span>
+                    <div>
+                        <span id="category_name">Nome da conta:</span>
+                        <span id="amount">Valor:</span>
                     </div>
                 </div>
                 <div class="content-body post-item">
-                    <form id="tr-form">
+                    <form id="put_form">
                         <div>
                             <h4>Atualizar - Deletar</h4>
                         </div>
                         <div>
-                            <span id="data-value"></span>
+                            <span id="data-value">Data:</span>
                             <label for="date">Definir novo valor:</label>
                             <input type="date" class="input-group-text" name="date" id="date">
                             <span id="data-error" class="error"></span>
@@ -68,7 +68,8 @@
             <div class="loader-inner"></div>
         </div>
         <%- include('partials/footer') %>
-        <script src="/javascripts/profile.user.js"></script>
+        <script src="/javascripts/functions/transaction.crud.js"></script>
+        <script src="/javascripts/functions/category.crud.js"></script>
         <script src="/javascripts/transaction.item.js"></script>
     </body>
 </html>

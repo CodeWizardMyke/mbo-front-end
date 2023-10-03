@@ -1,68 +1,32 @@
-window.addEventListener('load', GetCategorys)
+showLoader()
+async function shootGetCategory(){
+    const get_categotys = await getCategorys()
+    handdlerPromisses(get_categotys[0], get_categotys[1], 'GET_CATEGORYS')
+}shootGetCategory()
 
-async function GetCategorys (){
-    const urlCategory = `${urlBase}/category`
-    const opt = {
-        method:"GET",
-        headers:{
-            "Authorization":`Baerer ${token}`
-        }
-    }
-    
-    const promisse = await fetch(urlCategory, opt);
-    const response = await promisse.json();
-    
-    handdlerTransaction(promisse, response)
-}
-
-const myForm = document.querySelector('#form-transaction')
-myForm.addEventListener('submit',async evt => {
+document.querySelector('#form-transaction').addEventListener('submit', async evt => {
     showLoader()
-    evt.preventDefault()
-    const urlTransaction = `${urlBase}/transactions`
-
-    const formData = new FormData(myForm)
-    const formDataObj = {};
-    formData.forEach((value, key) => {
-        if(key == 'date'){
-           value = value.replace(/-/g, "/");
-        }
-        formDataObj[key] = value;
-    });
-
-    const opt = {
-        method:'POST',
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization": `Baerer ${token}`
-        },
-        body:  JSON.stringify(formDataObj)
-    }
-    
-   const promisse = await fetch(urlTransaction, opt);
-   const response = await promisse.json()
-
-    handdlerTransaction(promisse, response)
+    const post_transaction = await postTransaction('#form-transaction')
+    handdlerPromisses(post_transaction[0], post_transaction[1], 'POST_TRANSACTION')
 })
 
-
-function handdlerTransaction(promisse, response){
-    switch (promisse.status) {
-        case 200:
+function handdlerPromisses(promisse, response, method){
+    hideLoader()
+    const key = `${promisse.status}_${method}`
+    switch (key) {
+        case '200_GET_CATEGORYS':
             updateCategorySelect()
             populateSelectWhitCategory(response);
             break;
-        case 201:
+        case '201_POST_TRANSACTION':
             hideElementDom('.box-form')
-            GetCategorys()
-            hideLoader()
+            shootGetCategory()
             break;
-        case 400:
+        case '400_POST_TRANSACTION':
             arrayErrorsHanddler(response)
-            hideLoader()
             break;
         default:
-            hideLoader()
+            console.log(`Error inesperado cod: ${promisse.key}`)
             break;
     }
 }

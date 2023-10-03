@@ -1,37 +1,11 @@
-const urlBase = 'https://mbo-backend-app.fly.dev'; //production
-//const urlBase = 'http://localhost:1515'; //developer
+window.addEventListener('load', async () => {
+    !user ? window.location = '/singin': ''
 
-const user = JSON.parse(localStorage.getItem('user')) || JSON.parse(sessionStorage.getItem('user'));
-const token = localStorage.getItem('token') || sessionStorage.getItem('token')
+    document.querySelector('.month-date').innerText = getMonth()
 
-if(!user){
-    alert('faça login antes de acessar essa rota!')
-    window.location = '/singin'
-}
-
-window.addEventListener('load', async ()=> {
     const get_transactions = await getTransactions()
-    console.log(get_transactions)
     handdlerTransactions(get_transactions[0], get_transactions[1], 'GET')
 })
-
-async function balanceDataTransactions(){
-    const url = `${urlBase}/transactions`
-    const opt = {
-        method:"GET", 
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization":`Baerer ${token}`
-        }
-    }
-
-    const promisse = await fetch(url, opt);
-    const response = await promisse.json();
-
-    handdlerTransactionProfile(promisse, response)
-}
-
-
 
 function handdlerTransactions(promisse, response, method){
     const key = `${promisse.status}_${method}`
@@ -39,6 +13,7 @@ function handdlerTransactions(promisse, response, method){
     switch (key) {
         case '200_GET':
             insertDataInView(response)
+            defineBalanceUser(response)
             break;
     
         default:
@@ -46,19 +21,7 @@ function handdlerTransactions(promisse, response, method){
     }
 }
 
-function handdlerTransactionProfile(promisse, response){
-    switch (promisse.status) {
-        case 200:
-            handdlerTransactionData(response)
-            break;
-        default:
-            alert(`Error inesperado cod: ${promisse.status}`)
-            break;
-    }
-}
-
-
-function handdlerTransactionData(response){
+function defineBalanceUser(response){
     if(!response.length){return false}
 
     let expense = 0
@@ -89,35 +52,46 @@ function handdlerTransactionData(response){
 
     const domDivBalanceTransactions = document.querySelector('.transactions-balance')
 
-    if(domDivBalanceTransactions){
-        const div = document.createElement('div');
-        const span = document.createElement('span');
-        const h3 = document.createElement('h3')
-        
-        span.innerText= `Saldo:`
-        h3.innerText = `R$ ${balance}`
-        
-        if(balance < 0 ){
-            h3.classList.add('negative')
-        }else{
-            h3.classList.remove('negative')
-        }
-        div.classList.add('balance')
-
-        domDivBalanceTransactions.innerHTML = ""
-        div.appendChild(span)
-        div.appendChild(h3)
-        domDivBalanceTransactions.appendChild(div)
+    const div = document.createElement('div');
+    const span = document.createElement('span');
+    const h3 = document.createElement('h3')
+    
+    span.innerText= `Saldo:`
+    h3.innerText = `R$ ${balance}`
+    
+    if(balance < 0 ){
+        h3.classList.add('negative')
+    }else{
+        h3.classList.remove('negative')
     }
+    div.classList.add('balance')
+
+    domDivBalanceTransactions.innerHTML = ""
+    div.appendChild(span)
+    div.appendChild(h3)
+    domDivBalanceTransactions.appendChild(div)
 }
 
-const elementDomMonthDate = document.querySelector('.month-date');
-if(elementDomMonthDate){
-    const span = document.createElement('span');
-    span.innerText = getMonth()
+function insertDataInView(response){
+    const divExpense = document.querySelector('.m-expense')
 
-    elementDomMonthDate.innerHTML=""
-    elementDomMonthDate.appendChild(span)
+    const expense = []
+    
+    response.forEach(element => {
+        if(element.type == 'despesa'){
+            expense.push(element)
+        }
+    })
+
+    expense.forEach(element => {
+        const ul = document.createElement('ul')
+        const li = document.createElement('li')
+
+        li.innerText = `Conta: ${element.category.category_name} | valor: R$ ${element.amount}`
+
+        ul.appendChild(li)
+        divExpense.appendChild(ul)
+    })
 }
 
 function getMonth(){
@@ -140,35 +114,4 @@ function getMonth(){
     
     const nomeDoMes = obterNomeMes(mes);
     return nomeDoMes;
-}
-
-const startFunctionsProfileIndex = () => {
-    balanceDataTransactions()
-};
-startFunctionsProfileIndex()
-
-
-function insertDataInView(response){
-    const divExpense = document.querySelector('.m-expense')
-
-    const expense = []
-    
-    response.forEach(element => {
-        if(element.type == 'despesa'){
-            expense.push(element)
-        }
-    })
-
-    expense.forEach(element => {
-        const ul = document.createElement('ul')
-        const li = document.createElement('li')
-
-        li.innerText = `Conta: ${element.category.category_name} | valor: R$ ${element.amount}`
-
-        ul.appendChild(li)
-        divExpense.appendChild(ul)
-    })
-
-
-    console.log(expense)
 }

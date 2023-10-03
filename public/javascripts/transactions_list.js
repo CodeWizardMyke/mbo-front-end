@@ -1,112 +1,53 @@
-const url = `${urlBase}/transactions`
+async function shootGetTransactions(){
+    const get_transactions = await getTransactions()
+    handdlerPromisses(get_transactions[0], get_transactions[1], 'GET_TRANSACTIONS')
+}
 
-window.addEventListener('load', ()=> { 
-    getTransactions()
-    getAllcategory()
-})
+async function shootGetCategorys(){
+    const get_categotys = await getCategorys()
+    handdlerPromisses(get_categotys[0], get_categotys[1], 'GET_CATEGORYS')
+}
+
+async function shootGetTransactionByType(type){
+    const get_transactions = await getTransactionByType(type)
+    handdlerPromisses(get_transactions[0], get_transactions[1], 'GET_TRANSACTIONS')
+}
+
+async function shootGetTransactionByCategory(category){
+    const get_categotys = await getCategorys(category)
+    handdlerPromisses(get_categotys[0], get_categotys[1], 'GET_TRANSACTIONS')
+}
 
 const btn_get_all_transaction = document.querySelector('#bt_get_all_transactions')
 btn_get_all_transaction.addEventListener('click', ()=> {
-    getTransactions()
+    shootGetTransactions()
 })
 
 const select_type = document.querySelector('#type')
 select_type.addEventListener('change', ()=> {
-    getTransactionByType(select_type.value)
+    shootGetTransactionByType(select_type.value)
 })
 
 const select_category = document.querySelector('#category_select_transaction')
 select_category.addEventListener('change', ()=> {
-    getTransactionByCategory(select_category.value)
+    shootGetTransactionByCategory(select_category.value)
 })
 
-async function getTransactions(){
-    showLoader()
-    const opt = {
-        method :"GET",
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization":`Baerer ${token}`
-        }
-    }
-    const promisse = await fetch(url, opt);
-    const response = await promisse.json();
+function handdlerPromisses(promisse, response, method){
+    const key = `${promisse.status}_${method}`
 
-    hideLoader()
-    handdlerTransacionListed(promisse, response)
-}
-
-async function getAllcategory(){
-    const urlCategory = `${urlBase}/category`
-    const opt = {
-        method:'GET',
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization":`Baerer ${token}`
-        }
-    }
-
-    const promisse = await fetch(urlCategory, opt)
-    const response = await promisse.json();
-
-    handdlerCategory( promisse, response )
-}
-
-async function getTransactionByType (value) {
-    showLoader()
-    const url_transaction_byType = `${urlBase}/transactions/type/${value}`
-    const opt = {
-        method :"GET",
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization":`Baerer ${token}`
-        },
-    }
-
-    const promisse = await fetch(url_transaction_byType, opt);
-    const response = await promisse.json();
-
-    hideLoader()
-    handdlerTransacionListed(promisse, response)
-}
-
-async function getTransactionByCategory(value){
-    console.log(value)
-    const url_transaction_byCategory = `${urlBase}/transactions/category/${value}`
-    const opt ={
-        mehtod:"GET",
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization":`Baerer ${token}`
-        },
-    }
-    const promisse = await fetch(url_transaction_byCategory, opt);
-    const response = await promisse.json();
-
-    handdlerTransacionListed(promisse, response)
-}
-
-function handdlerCategory(promisse, response){
-    switch (promisse.status) {
-        case 200:
+    switch (key) {
+        case '200_GET_CATEGORYS':
             setCategoryDataInSelect(response)
-            break;  
-        default:
             break;
-    }
-}
-
-function handdlerTransacionListed( promisse ,response ){
-    switch (promisse.status) {
-        case 200:
+        case '200_GET_TRANSACTIONS':
             setDataInListAllTransactions(response)
-            break;  
+            break;
         default:
+            console.log(`Error inesperado cod: ${response.status}`)
             break;
     }
 }
-
-/* functions insert data in view */
 
 function setDataInListAllTransactions(response) {
     const div_list = document.querySelector('.list_items')
@@ -152,3 +93,8 @@ function setCategoryDataInSelect(response){
         })
     }
 }
+
+function autoStartFunctions(){
+    shootGetTransactions()
+    shootGetCategorys()
+}autoStartFunctions()

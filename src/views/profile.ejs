@@ -7,9 +7,7 @@
         <main class="container">
             <section>
                 <div class="card-mod" id="balance-card">
-                    <div class="month-date">
-                        <span>loading...</span>
-                    </div>
+                    <div class="month-date"></div>
                     <div class="c-flex">
                         <div class="transactions-balance"><span>loading...</span></div>
                     </div>
@@ -102,9 +100,10 @@
             <div class="loader-inner"></div>
         </div>
         <%- include('partials/footer') %>
+        <script src="/javascripts/functions/transaction.crud.js"></script>
+        <script src="/javascripts/functions/category.crud.js"></script>
         <script src="/javascripts/profile.user.js"></script>
         <script src="/javascripts/profile_dom_buttons.js"></script>
         <script src="/javascripts/profile.transaction.js"></script>
-        <script src="/javascripts/functions/transaction.crud.js"></script>
     </body>
 </html>
