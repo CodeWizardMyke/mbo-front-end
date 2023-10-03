@@ -73,7 +73,6 @@ function defineBalanceUser(response){
 
 function insertDataInView(response){
     const divExpense = document.querySelector('.m-expense')
-
     const expense = []
     
     response.forEach(element => {
@@ -85,9 +84,18 @@ function insertDataInView(response){
     expense.forEach(element => {
         const ul = document.createElement('ul')
         const li = document.createElement('li')
+        const spanAcountName = document.createElement('span')
+        const spanValue = document.createElement('span')
+        
+        spanAcountName.innerText = `Conta: ${element.category.category_name}`
+        spanValue.innerText = `valor: R$ ${element.amount}`
+        
+        if(element.type == 'despesa' || element.type == 'card'){
+            spanValue.classList.add('negative')
+        }
 
-        li.innerText = `Conta: ${element.category.category_name} | valor: R$ ${element.amount}`
-
+        li.appendChild(spanAcountName)
+        li.appendChild(spanValue)
         ul.appendChild(li)
         divExpense.appendChild(ul)
     })

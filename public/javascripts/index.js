@@ -8,6 +8,5 @@ if(logoutBtn){
     logoutBtn.addEventListener('click', e => {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
-        window.location.reload()
     })
 }
