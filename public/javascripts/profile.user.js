@@ -15,7 +15,6 @@ function handdlerTransactions(promisse, response, method){
             insertDataInView(response)
             defineBalanceUser(response)
             break;
-    
         default:
             break;
     }
@@ -48,7 +47,7 @@ function defineBalanceUser(response){
         }
     })
 
-    let balance = (revenue + gift) - (expense - card)
+    let balance = (revenue + gift) - ( expense + card)
 
     const domDivBalanceTransactions = document.querySelector('.transactions-balance')
 

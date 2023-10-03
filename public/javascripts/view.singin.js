@@ -1,14 +1,10 @@
 window.addEventListener('load', () => {
-    const urlBase = 'https://mbo-backend-app.fly.dev';
 
     const formSingIn = document.querySelector('#singin_user');
-
     formSingIn.addEventListener('submit', async (evt) => {
         evt.preventDefault();
 
         const formData = new FormData(formSingIn);
-
-        // Converte os dados do formulário em um objeto JavaScript
         const formDataObj = {};
         formData.forEach((value, key) => {
             formDataObj[key] = value;
@@ -59,7 +55,6 @@ window.addEventListener('load', () => {
     }
 
     function SpanErrorAdd(response){
-
         response.forEach(error => {
             const span = document.querySelector(`#${error.path}-error`);
             span.innerHTML = error.msg;

@@ -1,6 +1,4 @@
 window.addEventListener('load', () => {
-    const urlBase = 'https://mbo-backend-app.fly.dev';
-
     const formSingIn = document.querySelector('#singup_user');
 
     formSingIn.addEventListener('submit', async (evt) => {
@@ -8,7 +6,6 @@ window.addEventListener('load', () => {
 
         const formData = new FormData(formSingIn);
 
-        // Converte os dados do formulário em um objeto JavaScript
         const formDataObj = {};
         formData.forEach((value, key) => {
             formDataObj[key] = value;

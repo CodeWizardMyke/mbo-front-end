@@ -1,14 +1,5 @@
 const urlTransaction = `${urlBase}/transactions`
 
-function formDataTransformJson (id_form){
-    const object = {};
-
-    const formData = new FormData( document.querySelector(id_form) );
-    formData.forEach( (value, key) => object[key] = value );
-
-    return JSON.stringify(object);;
-};
-
 async function getTransactions(){
     const opt = {
         method :"GET",
@@ -25,12 +16,14 @@ async function getTransactions(){
 }
 
 async function postTransaction(id_form){
-    const form = document.querySelector(id_form);
-
-    const formData = new FormData(form)
-    const object = {}
-
-    formData.forEach( (value, key) => object[key] = value );
+    const formData = new FormData(document.querySelector(id_form))
+    const formDataObj = {};
+    formData.forEach((value, key) => {
+        if(key == 'date'){
+           value = value.replace(/-/g, "/");
+        }
+        formDataObj[key] = value;
+    });
 
     const opt = {
         method : "POST",
@@ -38,7 +31,7 @@ async function postTransaction(id_form){
             "Content-Type":"application/json",
             "Authorization":`Baerer ${token}`
         },
-        body: JSON.stringify(object)
+        body: JSON.stringify(formDataObj)
     }
 
     const promisse = await fetch(urlTransaction, opt);
