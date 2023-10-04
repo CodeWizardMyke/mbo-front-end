@@ -2,6 +2,13 @@ a{
     text-decoration: none;
 }
 
+.bt-left{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: 5px;
+    margin-right: 20px;
+}
 .content-section{
     border-radius: 15px;
     background-color: #312F2F;

@@ -12,10 +12,10 @@
                 </div>
                 <div class="content-body">
                     <div class="post-item">
-                        <form id="myForm">
-                            <div>
-                                <h4>Criar uma nova categoria</h4>
-                            </div>
+                        <div class="bt-left">
+                            <button class="btn btn-light" id="show_post_form">Nova categoria</button>
+                        </div>
+                        <form id="myForm" style="display: none;">
                             <div>
                                 <label for="category_name">Nome da categoria</label>
                                 <input type="text" class="input-group-text" name="category_name">
@@ -84,7 +84,6 @@
             <div class="loader-inner"></div>
         </div>
         <%- include('partials/footer') %>
-        <script src="/javascripts/profile.user.js"></script>
         <script src="/javascripts/functions/category.crud.js"></script>
         <script src="/javascripts/categorys_list.js"></script>
     </body>

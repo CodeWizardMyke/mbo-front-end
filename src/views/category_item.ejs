@@ -11,6 +11,7 @@
                     <div class="content-value"></div>
                 </div>
                 <div class="content-body post-item">
+
                     <form id="form_put">
                         <div>
                             <h4>Atualizar - Deletar</h4>
@@ -28,12 +29,30 @@
                     </form>
                 </div>
             </section>
+            <section class="content-section">
+                <div class="content-header">
+                    <h4>Transaçoes da categoria</h4>
+                </div>
+                <div class="content-body">
+                    <div class="list_items">
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <span>Carregando...</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </main>
         <div class="loader">
             <div class="loader-inner"></div>
         </div>
         <%- include('partials/footer') %>
-        <script src="/javascripts/profile.user.js"></script>
+        <script src="/javascripts/functions/transaction.crud.js"></script>
         <script src="/javascripts/functions/category.crud.js"></script>
         <script src="/javascripts/category.item.js"></script>
     </body>

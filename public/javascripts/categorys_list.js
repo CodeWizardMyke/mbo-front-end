@@ -9,6 +9,16 @@ document.querySelector('#myForm').addEventListener('submit', async (evt)  => {
     handdlerCategory(post_category [0], post_category [1])
 })
 
+document.querySelector('#show_post_form').addEventListener('click', e => {
+    const myFormPost = document.querySelector('#myForm')
+
+    if(myFormPost.style.display == 'none'){
+        myFormPost.style.display = 'block'
+    }else{
+        myFormPost.style.display = 'none'
+    }
+})
+
 function handdlerCategory(promisse, response){
     switch (promisse.status) {
         case 200:

@@ -1,7 +1,9 @@
 window.addEventListener('load', async () => {
     !user ? window.location = '/singin': ''
 
-    document.querySelector('.month-date').innerText = getMonth()
+    const elementMonth =document.querySelector('.month-date')
+
+    elementMonth ? elementMonth.innerText = getMonth(): ''
 
     const get_transactions = await getTransactions()
     handdlerTransactions(get_transactions[0], get_transactions[1], 'GET')
