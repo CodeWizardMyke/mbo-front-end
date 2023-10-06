@@ -43,6 +43,9 @@
     align-items: center;
     justify-content: space-evenly;
 }
+.nav-menu #user-state a{
+    padding: 5px;
+}
 
 
 .header{
