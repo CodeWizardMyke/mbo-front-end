@@ -1,35 +1,21 @@
-async function shootGetTransactions(){
-    const get_transactions = await getTransactions()
+const transactions = JSON.parse(transactions_data)
+transactions ? setDataInListAllTransactions(transactions) : GetTransactions() ;
+
+document.querySelector('#type').addEventListener('change', async ()=> {
+    const value = document.querySelector('#type').value
+    const get_transactions = value ? await getTransactionByType(value) : [];
+    
     handdlerPromisses(get_transactions[0], get_transactions[1], 'GET_TRANSACTIONS')
-}
-
-async function shootGetTransactionByType(type){
-    const get_transactions = await getTransactionByType(type)
-    handdlerPromisses(get_transactions[0], get_transactions[1], 'GET_TRANSACTIONS')
-}
-
-async function shootGetTransactionByCategory(category){
-    const get_categotys = await getCategorys(category)
-    handdlerPromisses(get_categotys[0], get_categotys[1], 'GET_TRANSACTIONS')
-}
-
-const btn_get_all_transaction = document.querySelector('#bt_get_all_transactions')
-btn_get_all_transaction.addEventListener('click', ()=> {
-    shootGetTransactions()
 })
 
-const select_type = document.querySelector('#type')
-select_type.addEventListener('change', ()=> {
-    shootGetTransactionByType(select_type.value)
+document.querySelector('#bt_get_all_transactions').addEventListener('click', () => {
+    transactions ? setDataInListAllTransactions(transactions) : GetTransactions() ;
 })
 
-function handdlerPromisses(promisse, response, method){
-    const key = `${promisse.status}_${method}`
+function handdlerPromisses(promisse, response, f){
+    const key = `${promisse.status}_${f}`
 
     switch (key) {
-        case '200_GET_CATEGORYS':
-            setCategoryDataInSelect(response)
-            break;
         case '200_GET_TRANSACTIONS':
             setDataInListAllTransactions(response)
             break;
@@ -93,12 +79,6 @@ function setDataInListAllTransactions(response) {
     const div_balance = document.querySelector('.transactions-balance')
     div_balance.innerText = `Balanco das contas: R$ ${balance}`
 }
-
-
-function autoStartFunctions(){
-    shootGetTransactions()
-}autoStartFunctions()
-
 
 function calculateBalance(values, type){
     let balance = 0
