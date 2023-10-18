@@ -1,16 +1,49 @@
-//const urlBase = 'https://mbo-backend-app.fly.dev';
-const urlBase = 'http://localhost:1515';
+const urlBase = 'https://mbo-backend-app.fly.dev';
+//const urlBase = 'http://localhost:1515';
+const urlProject = 'http://localhost:3000'
 
 const user = JSON.parse(localStorage.getItem('user')) || JSON.parse(sessionStorage.getItem('user'));
 const token = localStorage.getItem('token') || sessionStorage.getItem('token')
 
 //FUNÇÃO PARA DESLOGAR USUARIO / REMOVER TOKEN E USUARIO DO LOCAL STORAGE
-function LogoutUser(){
+function LogOutUser(){
     document.querySelector('#logout').addEventListener('click', e => {
         localStorage.removeItem('token')
         localStorage.removeItem('user')
     })
 }
+window.addEventListener('load', e => {
+    if(user && token){
+        const secoundNav = document.querySelector('#secound-nav')
+        secoundNav.innerHTML = ""
+
+        const div_buttons = document.createElement('div')
+        const btn_profile = document.createElement('button')
+        const btn_transactions = document.createElement('button')
+        const btn_categorys = document.createElement('button')
+
+        btn_profile.innerText = 'Profile';
+        btn_transactions.innerText = "Transactions";
+        btn_categorys.innerText = "Categorys";
+
+        div_buttons.classList.add('div_buttons')
+
+        btn_profile.addEventListener('click',e =>{
+            window.location.href =`${urlProject}/profile`
+        })
+        btn_transactions.addEventListener('click',e =>{
+            window.location.href =`${urlProject}/profile/transactions`
+        })
+        btn_categorys.addEventListener('click',e =>{
+            window.location.href =`${urlProject}/profile/categorys`
+        })
+
+        div_buttons.appendChild(btn_profile)
+        div_buttons.appendChild(btn_transactions)
+        div_buttons.appendChild(btn_categorys)
+        secoundNav.appendChild(div_buttons)
+    }
+})
 
 //PEGAR TODAS AS TRANSAÇOES E ADICIONAR AO LOCAL STORAGE
 const transactions_data = localStorage.getItem('transactions')
@@ -74,5 +107,5 @@ function saveDataLocalStorage(response, f){
 
 //START DEFALT FUNCTIONS
 function StartaApp(){
-    LogoutUser()
+    LogOutUser()
 }
