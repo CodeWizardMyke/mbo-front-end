@@ -12,6 +12,19 @@ document.querySelector('#bt_get_all_transactions').addEventListener('click', () 
     transactions ? setDataInListAllTransactions(transactions) : GetTransactions() ;
 })
 
+async function getBalance(){
+    const url = `${urlBase}/data/balance`
+    const opt = {
+        "method":"GET",
+        "headers":{
+            "Authorization":`Baerer ${token}`,
+        }
+    }
+
+    const promisse = await fetch( url, opt );
+    return await promisse.json();
+}
+
 function handdlerPromisses(promisse, response, f){
     const key = `${promisse.status}_${f}`
 
@@ -29,12 +42,6 @@ function setDataInListAllTransactions(response) {
     const div_list = document.querySelector('.list_items')
     div_list.innerHTML ="";
     const ul = document.createElement('ul')
-    
-        let despesa=0
-        let receita=0
-        let cartao=0
-        let presente=0
-        let balance=0
 
     response.map(element => {
         const li = document.createElement('li')
@@ -44,21 +51,6 @@ function setDataInListAllTransactions(response) {
         const spanType = document.createElement('span')
         const spanValue = document.createElement('span')
 
-        switch (element.type) {
-            case 'despesa' :
-                despesa = Number(element.amount)
-            break;
-            case 'receita' :
-                receita = Number(element.amount)
-            break;
-            case 'cartão' :
-                cartao = Number(element.amount)
-            break;
-            case 'presente' :
-                presente = Number(element.amount)
-            break;
-        }
-        
         spanCategory.innerText = element.category.category_name
         spanType.innerText = element.type
         spanValue.innerText = `R$: ${element.amount}`
@@ -73,32 +65,16 @@ function setDataInListAllTransactions(response) {
         ul.appendChild(li)
     })
     div_list.appendChild(ul)
-
-    balance = (receita + presente) - (despesa + cartao)
-
-    const div_balance = document.querySelector('.transactions-balance')
-    div_balance.innerText = `Balanco das contas: R$ ${balance}`
 }
 
-function calculateBalance(values, type){
-    let balance = 0
-    console.log(balance)
 
-    switch (type) {
-        case 'despesa' :
-            balance = - Number(values)
-        break;
-        case 'receita' :
-            balance = Number(values)
-        break;
-        case 'cartão' :
-            balance = - Number(values)
-        break;
-        case 'presente' :
-            balance = Number(values)
-        break;
-        default:
-            break;
-    }
-    return balance
-}
+function insertDomBalance(){
+    getBalance()
+        .then(data => {
+            const div_balance = document.querySelector('.transactions-balance')
+            div_balance.innerText = `Balanco das contas: R$ ${data.balance}`
+        })
+        .catch(err => console.log(err))
+
+}insertDomBalance()
+

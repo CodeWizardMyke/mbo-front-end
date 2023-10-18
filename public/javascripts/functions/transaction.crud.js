@@ -120,19 +120,3 @@ async function getTransactionByType (value) {
 
     return [ promisse, response ]
 }
-
-async function getTransactionByCategory(value){
-    console.log(value)
-    const url_transaction_byCategory = `${urlBase}/transactions/category/${value}`
-    const opt ={
-        mehtod:"GET",
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization":`Baerer ${token}`
-        },
-    }
-    const promisse = await fetch(url_transaction_byCategory, opt);
-    const response = await promisse.json();
-
-    return [ promisse, response ]
-}

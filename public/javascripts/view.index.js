@@ -7,7 +7,7 @@ if(isUserLoged == null){
 }
 
 if(isUserLoged){
-    changeToNavigateHeader()
+    console.log('isUserLoged')
 }
 
 
@@ -21,14 +21,6 @@ function showLoader() {
 function hideLoader() {
     const loader = document.querySelector(".loader");
     loader.style.display = "none";
-}
-
-function changeToNavigateHeader (){
-    const publicNavigate = document.querySelector('#navigate-public')
-    const privateNavigate = document.querySelector('#navigate-private')
-    
-    publicNavigate.style.display = 'none'
-    privateNavigate.style.display = 'flex'
 }
 
 function userOfline(){
