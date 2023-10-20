@@ -26,6 +26,9 @@ window.addEventListener('load', e => {
         btn_transactions.innerText = "Transactions";
         btn_categorys.innerText = "Categorys";
 
+        btn_categorys.classList.add('btn', 'btn-secondary')
+        btn_transactions.classList.add('btn', 'btn-secondary')
+        btn_profile.classList.add('btn', 'btn-secondary')
         div_buttons.classList.add('div_buttons')
 
         btn_profile.addEventListener('click',e =>{
@@ -42,6 +45,10 @@ window.addEventListener('load', e => {
         div_buttons.appendChild(btn_transactions)
         div_buttons.appendChild(btn_categorys)
         secoundNav.appendChild(div_buttons)
+    }else{
+        document.querySelector('#btn_singIn').addEventListener('click', e => {
+            window.location.href = `${urlProject}/singin`
+        })
     }
 })
 
