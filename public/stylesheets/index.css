@@ -4,7 +4,6 @@
     padding: 0;
     font-family: sans-serif;
 }
-
 :root{
     ---dark:#312F2F;
     ---dark-off:#312f2fea;
@@ -16,102 +15,45 @@
     --bg-bx-security:#d5ba77ea ;
 }
 
-/*------------header----------*/
-
-.div_buttons{
+header{
+    background-color: #312F2F;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: end;
-    margin-right: 10%;
-}
-.div_buttons button{
-    margin: 0 1px;
+    flex-wrap: wrap;
 }
 
-.nav-menu{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap-reverse;
-    background-color: var(--subcolor);
-    align-items: center;
-    justify-content: space-evenly;
-}
-.nav-menu a{
-    text-decoration: none;
-    color: var(---tt-color);
-    min-height: 35px;
-    min-width: 100px;
-    text-align: center;
-    margin: 2px;
-    border-radius: 5px;
-}
-.nav-menu a:hover{
-    color: var(---tt-color-on);
-}
-.nav-menu #user-state{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.nav-menu #user-state a{
-    padding: 5px;
-}
-
-
-.header{
-    background-color: var(---dark) ;
-}
-.header .header-tt a {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+header .link-logo{
     width: 100%;
-    height: 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 100px;
+    justify-content: center;
+    color: #fff;
     text-decoration: none;
-}
-.header .header-tt img{
-    width: 35px;
-    margin-right: 5px;
-    margin-bottom: 10px;
-}
-.header-tt h1{
-    color: var(---tt-color);
+    border-bottom: 1px solid #dddd;
+    padding: 15px 0;
 }
 
-#t-page{
+header div{
     display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: space-evenly;
-    min-width: 200px;
+    justify-content: flex-end;
+    width: 100%;
 }
-#t-page span{
+
+header ul{
+    list-style: none;
+    margin: 5px 15px;
+}
+header ul a{
+    display: inline-block;
+    padding: 5px;
+    background-color: rgb(231, 173, 49);
+    min-width: 100px;
+    border-radius: 5px;
+    text-align: center;
     text-decoration: none;
-    color: var(---tt-color);
-    font-size: 14pt;
-}
-.h-nav{
-    background-color: var(--subcolor);
-    min-height: 40px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.h-nav nav{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-}
-.h-nav a{
-    color: var(---tt-color);
-}
-.h-nav a:hover{
-    color: var(---tt-color-on);
+    color: #312F2F;
+    margin-left: 5px;
 }
 
 /*------------ main ----------*/
