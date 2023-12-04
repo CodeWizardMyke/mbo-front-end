@@ -2,6 +2,7 @@ const urlBase = 'https://mbo-backend-app.fly.dev';
 //const urlBase = 'http://localhost:1515';
 const urlProject = 'http://localhost:3000'
 
+
 const user = JSON.parse(localStorage.getItem('user')) || JSON.parse(sessionStorage.getItem('user'));
 const token = localStorage.getItem('token') || sessionStorage.getItem('token')
 
