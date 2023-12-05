@@ -1,3 +1,4 @@
+const url =' https://mbo-backend-app.fly.dev'
 
 $('#auth').submit( async (e) => {
     e.preventDefault()
@@ -18,7 +19,7 @@ $('#auth').submit( async (e) => {
         body: JSON.stringify(body),
     };
 
-    const promisse = await fetch( `${urlBase}/user/login` ,options);
+    const promisse = await fetch( `${url}/user/login` ,options);
     const response = await promisse.json();
     
     handlerResponses(response, promisse, true)
@@ -49,7 +50,7 @@ $('#singUp').submit( async (e) => {
         body: JSON.stringify(body),
     };
 
-    const promisse = await fetch( `${urlBase}/users` ,options);
+    const promisse = await fetch( `${url}/users` ,options);
     const response = await promisse.json();
     
     handlerResponses(response, promisse, false)
