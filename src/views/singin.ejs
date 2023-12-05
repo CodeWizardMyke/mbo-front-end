@@ -2,70 +2,56 @@
 <html lang="pt-br">
     <%- include('partials/head') %>
     <body>
-        <%- include('partials/header') %>
         <link rel="stylesheet" href="/stylesheets/singin.css">
-        <main>
-            <div class='userauth'>
-                <div class="container">
-                    <form class="py-5 my-5 singin" id='singin_user'>
-                        <h4 class='pb-3'>Login</h4>
-                        <div class="row mb-3">
-                            <label for="singinemail" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                            <input type="email" name='email' class="form-control" id="singinemail" placeholder='digite seu login de usuário' >
-                            <span id="email-error"></span>
-                            </div>
+        <%- include('partials/header') %>
+        <main class="container">
+            <section class="content">
+
+                <form>
+                    <h4 class='pb-3'>Entrar</h4>
+                    <div class="field-content">
+                        <label for="inEmail">Email:</label>
+                        <input type="email" name='email' class="form-control" id="inEmail">
+                        <span id="email-error"></span>
+                    </div>
+                    <div class="field-content">
+                        <label for="inPass" class="col-sm-2 col-form-label">Senha:</label>
+                        <input type="password" name='password' class="form-control" id="inPass">
+                        <span id="password-error"></span>
+                    </div>
+                    <div class="field-content">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="authSinc" checked >
+                            <label class="form-check-label" for="authSinc">Manter Logado</label>
                         </div>
-                        <div class="row mb-3">
-                            <label for="singinpassword" class="col-sm-2 col-form-label">Password</label>
-                            <div class="col-sm-10">
-                            <input type="password" name='password' class="form-control" id="singinpassword" placeholder='digite sua senha' >
-                            <span id="password-error"></span>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-sm-10 offset-sm-2">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="keepLoggedIn" checked>
-                                <label class="form-check-label" for="keepLoggedIn">Manter Logado</label>
-                            </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Sign in</button>
-                    </form>
-                    <form class="py-5 my-5 singin" id='singup_user'>
-                        <h4 class='pb-3'>Cadastrar-se</h4>
-                        <div class="row mb-3">
-                            <label for="fullname" class="col-sm-2 col-form-label">Nome</label>
-                            <div class="col-sm-10">
-                            <input type="text" name='fullname' class="form-control" id="fullname" placeholder='nome completo...'>
-                            <span id="fullname-up-error"></span>
-                            </div>
-                        </div>
-    
-                        <div class="row mb-3">
-                            <label for="singupemail" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                            <input type="email" name='email' class="form-control" id="singupemail" placeholder='email válido'>
-                            <span id="email-up-error"></span>
-                            </div>
-                        </div>
-    
-                        <div class="row mb-3">
-                            <label for="singuppassword" class="col-sm-2 col-form-label">Password</label>
-                            <div class="col-sm-10">
-                            <input type="password" name='password' class="form-control" id="singuppassword" placeholder='uma senha extraforte' >
-                            <span id="password-up-error"></span>
-                            </div>
-                        </div>
-    
-                        <button type="submit" class="btn btn-warning">Sign in</button>
-                    </form> 
-                </div>
-            </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                </form>
+
+                <form>
+                    <h4>Criar novo usuário.</h4>
+                    <div class="field-content">
+                        <label for="fullname">Nome</label>
+                        <input type="text" name='fullname' class="form-control" id="fullname" placeholder='nome completo.'>
+                        <span id="fullname-up-error"></span>
+                    </div>
+                    <div class="field-content">
+                        <label for="upEmail">Email</label>
+                        <input type="email" name='email' class="form-control" id="upEmail" placeholder='Digite um email.'>
+                        <span id="email-up-error"></span>
+                    </div>
+
+                    <div class="field-content">
+                        <label for="upPass">Senha:</label>
+                        <input type="password" name='password' class="form-control" id="upPass" placeholder='Digite uma senha.' >
+                        <span id="password-up-error"></span>
+                    </div>
+                    <button type="submit" class="btn btn-warning">Sign in</button>
+                </form>
+                 
+            </section>
         </main>
         <%- include('partials/footer') %>
         <script src="/javascripts/view.singin.js"></script>
-        <script src="/javascripts/view.singup.js"></script>
     </body>
 </html>

@@ -1,18 +1,33 @@
-
-form.singin{
-    max-width: 700px;
-    padding: 10px;
-    color: #fff;
-    border-radius: 15px;
-    margin:  0 auto;
-    background-color: #312f2ff2;
+body{
+    background-image: url('../images/bg-sky.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
-.userauth{
-    min-height: 100vh;
+
+.content{
+    margin: 50px 0;
+    padding: 25px;
+    background-color: #ffffff61;
+    border-radius: 15px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
-    background-image: url('../images//artem-podrez-1280px.jpg');
-    background-size: cover;
+}
+.content form{
+    margin: 20px auto;
+    max-width: 350px;
+}
+.field-content{
+    padding: 5px;
+    margin: 15px auto;
+    text-align: start;
+}
+.content form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
