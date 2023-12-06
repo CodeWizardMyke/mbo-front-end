@@ -52,10 +52,11 @@
     justify-content: space-between;
     border-radius: 15px;
     cursor: pointer;
+    box-shadow: 0 0 15px #7E7CE2;
 }
 .card-box:hover{
     background-color: rgb(246, 246, 246);
-    -webkit-transform: scale(1.1);
+    -webkit-transform: scale(1.05);
 }
 .card-box img{
     width: 100px;

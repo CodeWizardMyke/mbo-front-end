@@ -29,6 +29,12 @@
   background-attachment: fixed;
 }
 
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 /* header  start */
 header{
@@ -343,23 +349,3 @@ footer{
   border-bottom: solid 2px #fff;
 }
 
-
-@media only screen and (max-width: 900px) {
-    
-    header{
-        flex-direction: column;
-    }
-    .hd-menu {
-      width: 100%;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    header{
-        flex-direction: row;
-    }
-    .hd-menu {
-        display: none;
-    }
-    .hd-menu-dp{display: block;}
-}
