@@ -1,6 +1,7 @@
-showLoader()
+
 async function shootGetCategory(){
     const get_categotys = await getCategorys()
+    console.log(get_categotys)
     handdlerPromisses(get_categotys[0], get_categotys[1], 'GET_CATEGORYS')
 }shootGetCategory()
 

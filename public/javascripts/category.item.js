@@ -3,16 +3,12 @@ const params_id = window.location.pathname.split('/')
 const id = params_id [params_id.length -1]
 
 window.addEventListener('load', async () => {
-
     const get_category =  await getCategoryById(id)
     handdlerPromisses(get_category[0], get_category[1], 'GET')
 
     const get_transactions = await getTransactions()
     handdlerPromisses(get_transactions[0], get_transactions[1], 'GET_TRANSACTIONS')
-
 })
-
-
 
 const put_category_form = document.querySelector('#form_put')
 put_category_form.addEventListener('submit', async (evt) => {
@@ -34,28 +30,23 @@ function handdlerPromisses (promisse, response , method ){
         case '200_GET':
             insertDataCategory(response)
             break;
-
         case '200_PUT':
             alert('item atualizado com sucesso');
             window.location.reload()
             break;
-
         case '200_GET_TRANSACTIONS':
             setDataInListAllTransactions(response)
             break;
-
         case '200_DELETE':
             alert('item deletado com sucesso')
             window.location = '/profile/categorys'
             break;
-            
         case '500_DELETE':
             let dataError = response.index
 
             if(dataError == 'transactions_category_id_fkey'){
                 alert('Remova antes todas transações, que tem relaçao com esta categoria')
             }
-
             break;
         default:
             console.log(`Erro inesperado cod:${promisse.status}`)

@@ -2,16 +2,16 @@
 <html lang="pt-br">
     <%- include('partials/head') %>
     <link rel="stylesheet" href="/stylesheets/profile.css">
-    <body>
+    <body class="bg-sky">
         <%- include('partials/header') %>
         <main class="container">
             <section>
                 <div class="card-mod" id="balance-card">
-                    <div class="month-date"></div>
-                    <div class="c-flex">
-                        <div class="transactions-balance"><span>loading...</span></div>
-                    </div>
+                    <h3 class="month-date"></h3>
+                    <div class="transactions-balance"><span>loading...</span></div>
                 </div>
+            </section>
+            <section>
                 <div class="card-mod">
                     <div class="tag-add ">
                         <h3>Transação</h3>
@@ -63,7 +63,8 @@
                         </div>
                     </div>
                 </div>
-
+            </section>
+            <section>
                 <div class="card-mod">
                     <div>
                         <h3>Despesas mensais</h3>
@@ -72,6 +73,8 @@
                         <ul></ul>
                     </div>
                 </div>
+            </section>
+            <section>
                 <div class="card-mod">
                     <div class="tag-add ">
                         <div>
@@ -82,6 +85,8 @@
                         </div>
                     </div>
                 </div>
+            </section>
+            <section>
                 <div class="card-mod">
                     <div class="tag-add ">
                         <div>
@@ -101,7 +106,6 @@
         <script src="/javascripts/functions/transaction.crud.js"></script>
         <script src="/javascripts/functions/category.crud.js"></script>
         <script src="/javascripts/profile.user.js"></script>
-        <script src="/javascripts/profile_dom_buttons.js"></script>
         <script src="/javascripts/profile.transaction.js"></script>
     </body>
 </html>

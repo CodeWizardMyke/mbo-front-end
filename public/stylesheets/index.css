@@ -4,7 +4,31 @@
     --txt-color-pink: #D47CA6;
     --txt-color-black: #000000;
     --ctn-glass: #E9E9E9;
+    --bg-pink: #D47CA6;
+    --bg-purple: #7E7CE2;
+    --bg-dark: #383838;
+    --bg-dark-secound: #6f6f6f;
 }
+.positive{
+  color: #5ECE37;
+}
+.negative{
+  color: #D30C0C;
+}
+.error{
+  color: #ff5151;
+  font-weight: bolder;
+  font-size: 14pt;
+}
+
+.bg-sky{
+  background-image: url('../images/bg-sky.jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+}
+
 
 /* header  start */
 header{

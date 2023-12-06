@@ -1,26 +1,30 @@
-
-.positive{
-    color: #5ECE37;
+main{
+    background-color:var(--bg-dark) ;
+    border-radius: 15px;
+    padding: 0 5px;
+    margin: 5px 0;
 }
-.negative{
-    color: #D30C0C;
+section{
+    padding: 5px;
+    margin: 5px;
 }
-.error{
-    color: #ff5151;
-    font-weight: bolder;
-    font-size: 14pt;
-}
-.d-off{
-    display: none;
-}
-
 .card-mod{
-    background-color: var(---dark);
+    background-color: var(--bg-dark-secound);
     color: #fff;
     text-align: center;
     padding: 5px;
     margin: 25px auto;
     border-radius: 15px;
+}
+#balance-card h3{
+    width: 100%;
+}
+#balance-card{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .c-flex{
