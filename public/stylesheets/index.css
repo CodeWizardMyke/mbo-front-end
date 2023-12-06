@@ -10,6 +10,7 @@
 header{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -168,6 +169,63 @@ header{
   .container-menu-dp ul li a:hover {
     background-color: #D47CA6;
   }
+#btn-logout {
+  border: none;
+  cursor: pointer;
+  min-width: 100px;
+  height: 25px;
+  font-weight: bolder;
+  border-radius: 5px;
+  transition: 300ms;
+  margin: 5px;
+}
+#btn-logout:hover{
+  background-color: #9695e6;
+  color: #5553ce;
+}
+.sub-menu{
+  display: flex;
+  align-items: center ;
+  justify-content: center;
+  width: 100%;
+}
+.sub-menu nav {
+  width: 100%;
+  min-height: 45px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #D47CA6;
+}
+.sub-menu ul {
+  margin: 5px;
+  height:45px;
+  width: 70%;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.sub-menu ul li a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bolder;
+  height: 35px;
+  min-width: 100px;
+  border: 1px solid #dddddd00;
+  border-radius: 5px;
+  color: #000000;
+  transition: 300ms;
+}
+.sub-menu ul li a:hover{
+  border: 1px solid #7E7CE2;
+  color: #5553ce;
+}
+
 /* header  end */
 
 /*footer*/
@@ -260,6 +318,7 @@ footer{
 .f-menu ul li a:hover{
   border-bottom: solid 2px #fff;
 }
+
 
 @media only screen and (max-width: 900px) {
     
