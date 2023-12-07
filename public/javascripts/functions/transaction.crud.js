@@ -8,11 +8,10 @@ async function getTransactions(){
             "Authorization":`Baerer ${token}`
         }
     }
-
     const promisse = await fetch(urlTransaction, opt);
     const response = await promisse.json()
 
-    return {promisse, response }
+    return {promisse, response}
 }
 
 async function postTransaction(id_form){
@@ -33,16 +32,14 @@ async function postTransaction(id_form){
         },
         body: JSON.stringify(formDataObj)
     }
-
     const promisse = await fetch(urlTransaction, opt);
     const response = await promisse.json();
     
-    return [promisse, response ]
+    return {promisse, response }
 }
 
 async function putTransaction( id_form, id_item ){
     const elementHtml = document.querySelector(id_form);
-
     const formData = new FormData(elementHtml)
 
     const formDataObj = {};
@@ -69,7 +66,7 @@ async function putTransaction( id_form, id_item ){
     const promisse = await fetch(url, opt)
     const response = await promisse.json()
     
-    return [promisse, response ]
+    return {promisse, response }
 }
 
 async function deleteTransaction( id_item ){
@@ -86,7 +83,7 @@ async function deleteTransaction( id_item ){
     const promisse = await fetch(url, opt);
     const response = await promisse.json();
 
-    return [ promisse, response ]
+    return {promisse, response }
 }
 
 async function getTransactionById( id_item ){
@@ -102,7 +99,7 @@ async function getTransactionById( id_item ){
     const promisse = await fetch( `${urlTransaction}/${id_item}`, opt );
     const response = await promisse.json();
 
-    return [ promisse, response ]
+    return {promisse, response}
 }
 
 async function getTransactionByType (value) {
@@ -118,5 +115,5 @@ async function getTransactionByType (value) {
     const promisse = await fetch(url_transaction_byType, opt);
     const response = await promisse.json();
 
-    return [ promisse, response ]
+    return {promisse, response}
 }

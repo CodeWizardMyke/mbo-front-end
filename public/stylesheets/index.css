@@ -270,7 +270,7 @@ footer{
   justify-content: center;
   margin: 10px 0;
 }
-.btn-singup a{
+.f-content-btn a{
     width: 200px;
     height: 35px;
     text-align: center;
@@ -283,7 +283,7 @@ footer{
     border-radius: 5px;
     border: solid 1px #fff;
 }
-.btn-singup a:hover{
+.f-content-btn a:hover{
     border: solid 1px #000000;
     color: #000000;
 }

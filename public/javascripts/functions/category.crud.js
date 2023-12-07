@@ -23,7 +23,7 @@ async function getCategorys(){
     const promisse = await fetch(urlCategory, opt);
     const response = await promisse.json()
 
-    return [promisse, response]
+    return {promisse, response}
 }
 
 async function postCategory(id_form){
@@ -46,7 +46,7 @@ async function postCategory(id_form){
     const promisse = await fetch(urlCategory, opt);
     const response = await promisse.json();
     
-    return [promisse, response]
+    return {promisse, response}
 }
 
 async function putCategory( id_form, id_item ){
@@ -64,7 +64,7 @@ async function putCategory( id_form, id_item ){
     const promisse = await fetch( `${urlCategory}/${id_item}`, opt );
     const response = await promisse.json();
 
-    return [ promisse, response]
+    return {promisse, response}
 }
 
 async function deleteCategory( id_item ){
@@ -81,7 +81,7 @@ async function deleteCategory( id_item ){
     const promisse = await fetch(url, opt);
     const response = await promisse.json();
 
-    return [ promisse, response ]
+    return {promisse, response}
 }
 
 async function getCategoryById( id_item ){
@@ -97,5 +97,5 @@ async function getCategoryById( id_item ){
     const promisse = await fetch( `${urlCategory}/${id_item}`, opt );
     const response = await promisse.json();
 
-    return [ promisse, response]
+    return {promisse, response}
 }

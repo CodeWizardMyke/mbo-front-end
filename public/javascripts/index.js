@@ -8,6 +8,10 @@ window.addEventListener('load', ()=> {
     $("#btn-logout").click( ()=> { userLogout() });
 
     user ? userLogedTrue() : userLogedFalse();
+
+    $("#logo-page").click( ()=> {
+        window.location.href ='/'
+    })
 })
 
 function userLogout () { 
@@ -17,7 +21,6 @@ function userLogout () {
     localStorage.removeItem('categorys')
 
     window.location = '/';
-    
 }
 
 function userLogedTrue () { 
@@ -41,5 +44,5 @@ document.addEventListener("DOMContentLoaded", function() {
       setTimeout(animarImagem, 2000);
     }
 
-    setTimeout(animarImagem, 400);
+    minhaImagem ? setTimeout(animarImagem, 400) : '';
 });
