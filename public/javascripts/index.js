@@ -28,7 +28,18 @@ function userLogedFalse() {
     $(".sub-menu").css('display','none')
 }
 
-//evento de disparo de click no logo da pagina retornando ao início da navegação.
-document.querySelector('#logo-page').addEventListener('click', ()=> {
-    window.location.href = "/"
-})
+document.addEventListener("DOMContentLoaded", function() {
+    var minhaImagem = document.getElementById("boat-image");
+
+    function animarImagem() {
+      minhaImagem.style.top = "20px";
+
+      setTimeout(function() {
+        minhaImagem.style.top = "0";
+      }, 1000);
+
+      setTimeout(animarImagem, 2000);
+    }
+
+    setTimeout(animarImagem, 400);
+});
