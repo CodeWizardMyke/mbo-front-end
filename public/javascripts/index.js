@@ -23,6 +23,7 @@ function userLogout () {
 
 function userLogedTrue () { 
     $(".sub-menu").css('display','flex')
+    $(".btn-singin").remove();
 }
 function userLogedFalse() { 
     $(".sub-menu").css('display','none')
