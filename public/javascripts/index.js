@@ -8,7 +8,6 @@ window.addEventListener('load', ()=> {
     $("#btn-logout").click( ()=> { userLogout() });
 
     user ? userLogedTrue() : userLogedFalse();
-
 })
 
 function userLogout () { 
@@ -28,3 +27,8 @@ function userLogedTrue () {
 function userLogedFalse() { 
     $(".sub-menu").css('display','none')
 }
+
+//evento de disparo de click no logo da pagina retornando ao início da navegação.
+document.querySelector('#logo-page').addEventListener('click', ()=> {
+    window.location.href = "/"
+})

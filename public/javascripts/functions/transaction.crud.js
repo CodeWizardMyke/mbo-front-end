@@ -12,7 +12,7 @@ async function getTransactions(){
     const promisse = await fetch(urlTransaction, opt);
     const response = await promisse.json()
 
-    return [ promisse, response ]
+    return {promisse, response }
 }
 
 async function postTransaction(id_form){
