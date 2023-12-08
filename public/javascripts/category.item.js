@@ -3,24 +3,30 @@ const params_id = window.location.pathname.split('/')
 const id = params_id [params_id.length -1]
 
 window.addEventListener('load', async () => {
-    const get_category =  await getCategoryById(id)
-    handdlerPromisses(get_category[0], get_category[1], 'GET')
-
-    const get_transactions = await getTransactions()
-    handdlerPromisses(get_transactions[0], get_transactions[1], 'GET_TRANSACTIONS')
+    get_category();
+    get_transactions();
 })
+async function get_category() {
+    const {promisse, response} = await getCategoryById(id);
+    handdlerPromisses (promisse, response, 'GET');
+};
+
+async function get_transactions() {
+    const {promisse, response} = await getTransactions();
+    handdlerPromisses (promisse, response, 'GET_TRANSACTIONS');
+};
 
 const put_category_form = document.querySelector('#form_put')
 put_category_form.addEventListener('submit', async (evt) => {
     evt.preventDefault();
-    const put_category = await putCategory("#form_put", id);
-    handdlerPromisses(put_category[0], put_category[1], 'PUT')
+    const {promisse, response} = await putCategory("#form_put", id);
+    handdlerPromisses( promisse, response, 'PUT')
 })
 
 /* DELETAR UMA TRANSAÇÃO */
 document.querySelector('#delete').addEventListener('click', async () => {
-    const delete_category = await deleteCategory(id);
-    handdlerPromisses(delete_category[0], delete_category[1], "DELETE")
+    const {promisse, response } = await deleteCategory(id);
+    handdlerPromisses( promisse, response, "DELETE")
 })
 
 function handdlerPromisses (promisse, response , method ){

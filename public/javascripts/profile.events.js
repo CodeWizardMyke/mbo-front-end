@@ -21,6 +21,7 @@ function handdlerTransaction(promisse, response, when){
         case '201_transaction':
             alert('Transação criada com sucesso!');
             $('.box-form').hide();
+            window.location.reload()
             break;
         default:
             break;
