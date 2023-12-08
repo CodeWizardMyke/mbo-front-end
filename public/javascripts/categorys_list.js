@@ -1,21 +1,20 @@
 window.addEventListener('load', async () => { 
-    const category_list = await getCategorys()
-    handdlerCategory(category_list[0], category_list[1])
+    const {promisse, response} = await getCategorys()
+    handdlerCategory(promisse, response)
 })
 
 document.querySelector('#myForm').addEventListener('submit', async (evt)  => {
     evt.preventDefault()
-    const post_category =  await postCategory(('#myForm'))
-    handdlerCategory(post_category [0], post_category [1])
+    const {promisse, response} =  await postCategory(('#myForm'))
+    handdlerCategory(promisse, response)
 })
 
-document.querySelector('#show_post_form').addEventListener('click', e => {
-    const myFormPost = document.querySelector('#myForm')
-
-    if(myFormPost.style.display == 'none'){
-        myFormPost.style.display = 'block'
+$('#show_post_form').click( () => {
+    let display = $("#myForm").css("display")
+    if(  display === "" || display === 'none'){
+        $("#myForm").show()
     }else{
-        myFormPost.style.display = 'none'
+        $("#myForm").hide()
     }
 })
 
