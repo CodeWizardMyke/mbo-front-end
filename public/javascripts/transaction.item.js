@@ -1,47 +1,50 @@
-/* OBTER O ID APARTIR DA URL DA PAGINA */
-const arrayString = window.location.pathname.split('/')
-const id = arrayString [arrayString.length -1]
+const id = window.location.href.match(/\/(\d+)$/)[1];
 
-/* OBTER DATOS DE UMA TRANSAÇÃO E DE TODAS CATEGORIAS */
 window.addEventListener('load', async () =>{
-   const get_transaction_id = await getTransactionById(id)
-   handdlerPromisses(get_transaction_id[0], get_transaction_id[1], 'GET_TRANSATION')
-
-   const get_categotys = await getCategorys();
-   handdlerPromisses(get_categotys[0], get_categotys[1], 'GET_CATEGORYS')
+    getDataTransaction();
+    getDataCategorys();
 })
+
+async function getDataTransaction () {
+    const {promisse, response} = await getTransactionById(id)
+    handdlerPromisses(promisse, response, "get_transaction")
+}
+
+async function getDataCategorys() {
+    const {promisse, response} = await getCategorys();
+    handdlerPromisses(promisse, response, 'get_categorys');
+}
 
 /* ATUALIZAÇÃO DE TRANSAÇÃO */
-document.querySelector('#put_form').addEventListener('submit', async (evt) => {
-    evt.preventDefault()
-    const put_transaction = await putTransaction('#put_form', id)
-    handdlerPromisses(put_transaction[0], put_transaction[1], 'PUT_TRANSACTION')
+$("#put_form").submit( async (evt) => {
+    evt.preventDefault();
+    const {promisse, response} = await put_transaction() ;
+    handdlerPromisses(promisse, response, 'put_transaction');
 })
 
-/* DELETAR UMA TRANSAÇÃO */
-document.querySelector('#delete').addEventListener('click', async () => {
-    const delete_transaction = await deleteTransaction(id);
-    console.log(delete_transaction)
-    handdlerPromisses(delete_transaction[0], delete_transaction[1], 'DELETE_TRANSACTION')
-})
+/* DELETEANDO UMA TRANSAÇÃO */
+$("#delete").click(  async ()=> {
+    const {promisse, response} = await deleteTransaction(id);
+    handdlerPromisses(promisse, response, 'delete_transaction');
+});
 
 function handdlerPromisses(promisse, response, mehtod){
     const key = `${promisse.status}_${mehtod}`
 
     switch (key) {
-        case '200_GET_TRANSATION':
+        case '200_get_transaction':
             writeDataReceviedInDom(response)
             break;
-        case '200_PUT_TRANSACTION':
+        case '200_put_transaction':
             alert('Alterado com sucesso!')
             window.location.reload()
             break;
-        case '200_DELETE_TRANSACTION':
+        case '200_get_categorys':
+            insertCategoryInSelect(response)
+            break;
+        case '200_delete_transaction':
             alert('Deletado com sucesso!')
             window.location = '/profile/transactions'
-            break;
-        case '200_GET_CATEGORYS':
-            insertCategoryInSelect(response)
             break;
         default:
             console.log(`Error inesperado cod: ${promisse.status}`)
@@ -51,30 +54,21 @@ function handdlerPromisses(promisse, response, mehtod){
 
 /* INSIRIR DADOS RECEBIDOS DA TRANSACTION NA VIEW */
 function writeDataReceviedInDom(response){
-    document.querySelector('#category_name').innerHTML = `Nome da conta: ${response.category.category_name}`
-    document.querySelector('#amount').innerHTML = `Valor: ${response.amount}`
-
-    let getData = response.date.split('T')[0]
-    let dataBr = getData.split('-').reverse().join('/')
-
-    document.querySelector('#data-value').innerHTML = `Data da transação: ${dataBr}`
-    document.querySelector('#category-value').innerHTML = `Categoria da conta: ${response.category.category_name}`
-    document.querySelector('#type-value').innerHTML = `Tipo da transação: ${response.type}`
-    document.querySelector('#amount-value').innerHTML = `Valor da transação: R$${response.amount}`
-    document.querySelector('#installments-value').innerHTML = `Quantidades de parcelas: ${response.installments}`
+    for(const item in response){
+        let item_value = response[item]
+    
+        item === 'date' ? item_value = item_value.match(/\d{4}-\d{2}-\d{2}/)[0] : '';
+        item === 'category' ? item_value = response[item].category_name : '';
+    
+        $(`#${item}-value`).append(`<span>Valor atual da ${item}: ${item_value}</span>`)
+    }
 }
 
 /* INSIRIR DADOS RECEBIDOS DA CATEGORIAS NO SELECT */
 function insertCategoryInSelect(response){
-    if(response.length){
-        const select = document.querySelector('#category-list')
-        response.map(element => {
-            const option = document.createElement('option');
-
-            option.value = element.id
-            option.innerText = element.category_name
-
-            select.appendChild(option)
-        })
-    }
+    response.map(element => {
+        $("#category-list").append(`
+            <option value="${element.id}">${element.category_name}</option>
+        `)
+    })
 }
