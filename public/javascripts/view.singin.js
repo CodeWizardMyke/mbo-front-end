@@ -1,121 +1,100 @@
-const url =' https://mbo-backend-app.fly.dev'
+const url ='https://mbo-back-end.fly.dev'; //url do projeto back-end
+let oldDataSingUp = {}; //Armazena dados do usuário para efetuar o login e redirecioná-lo após a criação de sua conta
 
 $('#auth').submit( async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const email = $('#inEmail').val()
-    email ? '' : alert('email invalido!')
-    const pass = $('#inPass').val()
-    pass ? '' : alert('senha invalida!')
+    const email = $('#inEmail').val();
+    email ? '' : alert('email invalido!');
+    const pass = $('#inPass').val();
+    pass ? '' : alert('senha invalida!');
 
-    const body = {
-        email:email,
-        password:pass,
-    }
+    const body = {email:email, password:pass,};
 
-    const options ={
-        method:'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(body),
-    };
-
-    const promisse = await fetch( `${url}/user/login` ,options);
-    const response = await promisse.json();
-    
-    handlerResponses(response, promisse, true)
-})
-
+   loginUser(body);
+});
 
 $('#singUp').submit( async (e) => {
     e.preventDefault()
 
-    const fullname = $('#fullname').val()
-    fullname ? '' : alert('Nome de usuário invalido!')
-    
-    const email = $('#upEmail').val()
-    email ? '' : alert('email invalido!')
-    
-    const pass = $('#upPass').val()
-    pass ? '' : alert('senha invalida!')
+    const fullname = $('#fullname').val();
+    const email = $('#upEmail').val();
+    const pass = $('#upPass').val();
 
-    const body = {
-        fullname:fullname,
-        email:email,
-        password:pass,
-    }
+    const body = {fullname:fullname, email:email, password:pass,};
+
+    //Envie os dados de registro para realizar o login com base na resposta bem-sucedida na criação de um novo usuário
+    oldDataSingUp = {email:email, password:pass};
 
     const options ={
         method:'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {'Content-Type': 'application/json'},      
+        cors:'no-cors',
         body: JSON.stringify(body),
     };
 
     const promisse = await fetch( `${url}/users` ,options);
     const response = await promisse.json();
-    
-    handlerResponses(response, promisse, false)
-})
 
-function handlerResponses( response, promisse, key){
-    switch (promisse.status) {
-        case 200:
-            userLogedTrue(response);
+    handdlerPromisses(promisse, response, 'singUp');
+});
+
+const handdlerPromisses = (promisse, response, key) => {
+    const k = `${key}:${promisse.status}`;
+
+    switch (k) {
+        case 'login:200':
+            logionSucessful(response);
             break;
-        case 201:
-            userCreated(response);
+        case 'singUp:201':
+            loginUser(oldDataSingUp);
             break;
-        case 400:
-            errosFind( response, key );
+        case 'login:400':
+            loginErrosHanddler (response);
             break;
-        case 500:
-            alert('erro no servidor cod 500')
+        case 'singUp:400':
+            singUpErrosHanddler (response);
             break;
         default:
-            alert('error inesperado cod '+ promisse.status)
-        break;
-    }
-}
-    
-function userLogedTrue(response){
-    const isChecked = $('#authSinc').is(':checked');
-    
-    isChecked ? checkTrue() : checkedFalse() ;
-    
-    function checkTrue () { 
-        localStorage.setItem('token', response.token);
+            console.log(`Error inesperado cod: ${promisse.status}`);
+            break;
+    };
+};
+
+async function loginUser (body) {
+    const options ={
+        method:'POST',
+        headers: {'Content-Type': 'application/json'},      
+        cors:'no-cors',
+        body: JSON.stringify(body),
+    };
+    const promisse = await fetch( `${url}/user/login` ,options);
+    const response = await promisse.json();
+
+    handdlerPromisses(promisse, response, 'login');
+};
+
+function loginErrosHanddler (response) {
+    response.map( element => {
+        $(`#${element.path}-error`).empty()
+        $(`#${element.path}-error`).append(`${element.msg}`)
+    })
+};
+function singUpErrosHanddler (response) {
+    response.map( element => {
+        $(`#${element.path}-up-error`).empty()
+        $(`#${element.path}-up-error`).append(`${element.msg}`)
+    })
+};
+
+function logionSucessful(response){
+    const bt_auto_login = $("#authSinc").prop('checked');
+    if(bt_auto_login){
         localStorage.setItem('user', JSON.stringify(response.user));
-    }
-
-    function checkedFalse () {
-        sessionStorage.setItem('token', response.token);
+        localStorage.setItem('token', JSON.stringify(response.token));
+    }else{
         sessionStorage.setItem('user', JSON.stringify(response.user));
-    }
-    window.location = '/profile'
-}
-
-function userCreated (response) {
-    sessionStorage.setItem('token', response.token);
-    sessionStorage.setItem('user', JSON.stringify(response.user));
-    window.location = '/profile'
-}
-
-function errosFind(response, key){
-
-    function SpanErrorAdd(response){
-        let stringErr = ''
-        key ? stringErr ='-error' : stringErr= '-up-error';
-
-        response.forEach(error => {
-            const span = document.querySelector(`#${error.path}${stringErr}`);
-            span.innerHTML = error.msg.substring(0, 22);
-            span.style = 'color:red;'
-        })
-    }SpanErrorAdd(response);
-
-    function SpanErrorUpdate(){
-        const spanCathc = document.querySelectorAll('#singin_user span')
-        spanCathc.forEach(element => {
-            element.innerHTML = ""
-        });
-    }SpanErrorUpdate();
-}
+        sessionStorage.setItem('token', JSON.stringify(response.token));
+    };
+    window.location.href = '/profile';
+};
