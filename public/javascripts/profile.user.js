@@ -15,8 +15,10 @@ function  handdlerPromisses(promisse, response) {
             insertDataTransactionsInDom(response)
             defineBalanceUser(response)
             break;
+        case 401:
+            console.log(`Erro: ${response.msg}, cod: ${promisse.status}`)
         default:
-            alert(`Error inesperado _cod:${promisse.status}`)
+            console.log(`Error inesperado _cod:${promisse.status}`)
             break;
     }
 }

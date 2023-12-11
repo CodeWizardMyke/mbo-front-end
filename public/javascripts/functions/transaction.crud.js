@@ -10,6 +10,8 @@ async function getTransactions(){
     }
     const promisse = await fetch(urlTransaction, opt);
     const response = await promisse.json()
+    console.log(promisse)
+    console.log(response)
 
     return {promisse, response}
 }

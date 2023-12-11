@@ -1,4 +1,3 @@
-const url ='https://mbo-back-end.fly.dev'; //url do projeto back-end
 let oldDataSingUp = {}; //Armazena dados do usuário para efetuar o login e redirecioná-lo após a criação de sua conta
 
 $('#auth').submit( async (e) => {
@@ -33,7 +32,7 @@ $('#singUp').submit( async (e) => {
         body: JSON.stringify(body),
     };
 
-    const promisse = await fetch( `${url}/users` ,options);
+    const promisse = await fetch( `${urlBase}/users` ,options);
     const response = await promisse.json();
 
     handdlerPromisses(promisse, response, 'singUp');
@@ -65,10 +64,9 @@ async function loginUser (body) {
     const options ={
         method:'POST',
         headers: {'Content-Type': 'application/json'},      
-        cors:'no-cors',
         body: JSON.stringify(body),
     };
-    const promisse = await fetch( `${url}/user/login` ,options);
+    const promisse = await fetch( `${urlBase}/user/login` ,options);
     const response = await promisse.json();
 
     handdlerPromisses(promisse, response, 'login');
@@ -89,6 +87,7 @@ function singUpErrosHanddler (response) {
 
 function logionSucessful(response){
     const bt_auto_login = $("#authSinc").prop('checked');
+    console.log(response.token)
     if(bt_auto_login){
         localStorage.setItem('user', JSON.stringify(response.user));
         localStorage.setItem('token', JSON.stringify(response.token));
