@@ -33,23 +33,26 @@ function handdlerCategory(promisse, response){
 }
 
 function setCategoryDataInSelect(response){
-    const div = document.querySelector('.list_items')
-    div.innerHTML = ""
-    const ul  = document.createElement('ul')
-    ul.classList.add('list-items')
-    response.forEach(element => {
-        const li = document.createElement('li')
-        const anchor = document.createElement('a')
-        const div = document.createElement('div')
-        const spanCategory = document.createElement('span')
-
-        spanCategory.innerText = element.category_name
-        anchor.href= `/profile/category/${element.id}`
-
-        anchor.appendChild(div)
-        div.appendChild(spanCategory)
-        li.appendChild(anchor)
-        ul.appendChild(li)
-    })
-    div.appendChild(ul)
+    $(".list_items ul").empty();
+    
+    if(response.length > 0){
+        response.map(element => {
+            $(".list_items ul").append(`
+                <li>
+                    <a href="/profile/category/${element.id}">
+                        <div><span>${element.category_name}</span></div>
+                    </a>
+                </li>
+            `)
+        });
+    }else{
+        $(".list_items ul").empty();
+        $(".list_items ul").append(`
+                <li>
+                    <a href="#">
+                        <div><span>Nenhuma categoria encontrada!</span></div>
+                    </a>
+                </li>
+            `)
+    }
 }

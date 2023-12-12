@@ -5,6 +5,22 @@ body{
     background-size: cover;
 }
 
+.myForm{
+    width: 100%;
+    margin: 5px auto; padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.myForm div{
+    width: 60%;
+    padding: 5px;
+}
+.myForm div span{
+    color: #bc1212d9;
+}
+
 .content{
     margin: 50px 0;
     padding: 25px;
@@ -16,18 +32,8 @@ body{
     align-items: center;
     justify-content: space-evenly;
 }
-.content form{
-    margin: 20px auto;
-    max-width: 350px;
-}
+
 .field-content{
     padding: 5px;
     margin: 15px auto;
-    text-align: start;
-}
-.content form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }

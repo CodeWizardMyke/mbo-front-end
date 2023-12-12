@@ -75,7 +75,7 @@ async function loginUser (body) {
 function loginErrosHanddler (response) {
     response.map( element => {
         $(`#${element.path}-error`).empty()
-        $(`#${element.path}-error`).append(`${element.msg}`)
+        $(`#${element.path}-error`).append(`${element.msg  == "Cannot read properties of null (reading 'password')" ? '' : element.msg}`)
     })
 };
 function singUpErrosHanddler (response) {
