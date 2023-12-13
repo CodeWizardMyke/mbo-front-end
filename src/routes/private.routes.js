@@ -3,7 +3,7 @@ const router = express.Router();
 
 const privateViewsController = require('../controllers/private.views.controller');
 
-router.get('/', privateViewsController.profile)
+router.get('/', privateViewsController.dashboard)
 
 router.get('/transactions', privateViewsController.transactions)
 router.get('/transaction/:id', privateViewsController.transaction_item)

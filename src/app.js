@@ -24,7 +24,7 @@ app.use(methodOverride('_method'))
 app.use(cors());
 
 app.use('/', publicRoutes);
-app.use('/profile', privateRoutes);
+app.use('/dashboard', privateRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

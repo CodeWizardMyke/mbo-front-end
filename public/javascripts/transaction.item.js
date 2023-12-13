@@ -44,7 +44,7 @@ function handdlerPromisses(promisse, response, mehtod){
             break;
         case '200_delete_transaction':
             alert('Deletado com sucesso!')
-            window.location = '/profile/transactions'
+            window.location = '/dashboard/transactions'
             break;
         default:
             console.log(`Error inesperado cod: ${promisse.status}`)

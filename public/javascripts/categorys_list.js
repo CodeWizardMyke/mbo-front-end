@@ -39,7 +39,7 @@ function setCategoryDataInSelect(response){
         response.map(element => {
             $(".list_items ul").append(`
                 <li>
-                    <a href="/profile/category/${element.id}">
+                    <a href="/dashboard/category/${element.id}">
                         <div><span>${element.category_name}</span></div>
                     </a>
                 </li>

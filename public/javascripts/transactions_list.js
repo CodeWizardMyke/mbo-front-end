@@ -26,7 +26,7 @@ function insertDataInList(response) {
         response.map( element => {
             $(".list_items ul").append(`
             <li>
-                <a href="/profile/transaction/${element.id}">
+                <a href="/dashboard/transaction/${element.id}">
                     <div>
                         <span>${element.category.category_name}</span>
                         <span>${element.type}</span>

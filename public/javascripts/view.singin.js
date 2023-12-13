@@ -95,5 +95,5 @@ function logionSucessful(response){
         sessionStorage.setItem('user', JSON.stringify(response.user));
         sessionStorage.setItem('token', JSON.stringify(response.token));
     };
-    window.location.href = '/profile';
+    window.location.href = '/dashboard';
 };

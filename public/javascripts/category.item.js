@@ -103,7 +103,7 @@ function insertDataList(element){
     spanType.innerText = element.type
     spanValue.innerText = `R$: ${element.amount}`
     
-    anchor.href= `/profile/transaction/${element.id}`
+    anchor.href= `/dashboard/transaction/${element.id}`
 
     anchor.appendChild(div)
     anchor.appendChild(spanValue)
