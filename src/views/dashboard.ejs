@@ -29,66 +29,73 @@
                     </div>
                 </div>
             </section>
-            <div>
-                <section class="section_box">
-                    <div class="content_box">
-                        <div>
-                            <div class="txt_content">
-                                <img src="/images/cash-report.png" alt="adicionando-transação">
-                                <p>Crie uma nova transação e gerencie suas transações de forma facil.</p>
-                            </div>
-                            <button type="button" class="btn_box_ss" id="btn-transaction">adicionar</button>
-                        </div>
-                    </div>
-                    <div class="content_box">
-                        <div>
-                            <div class="txt_content">
-                                <img src="/images/cash-inovation.png" alt="adicionando-transação">
-                                <p>Crie uma meta para guardar, e guarde seu dinheiro!</p>
-                            </div>
-                            <button type="button" class="btn_box_ss">adicionar</button>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <div class="box-form">
-                        <div class="div-transaction">
-                            <%- include('./partials/dashboard/form_transaction') %>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <div class="card-mod">
-                        <div>
-                            <h3>Despesas mensais</h3>
-                        </div>
-                        <div class="m-expense">
-                            <ul></ul>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <div class="card-mod">
-                        <div class="tag-add ">
-                            <div>
-                                <h3>Minhas metas</h3>
-                            </div>
-                            <div>
-                                <button type="button" class="btn btn-secondary">Nova conta +</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section>
+
+            <section class="section_box">
+                <div class="content_box">
                     <div>
-                        <div class="tag-add ">
-                            <div>
-                                <h3>Gráfico da sua gestão</h3>
-                            </div>
+                        <div class="txt_content">
+                            <img src="/images/cash-report.png" alt="adicionando-transação">
+                            <p>Crie uma nova transação e gerencie suas transações de forma facil.</p>
+                        </div>
+                        <button type="button" class="btn_box_ss" id="btn-transaction">adicionar</button>
+                    </div>
+                </div>
+                <div class="content_box">
+                    <div>
+                        <div class="txt_content">
+                            <img src="/images/cash-inovation.png" alt="adicionando-transação">
+                            <p>Crie uma meta para guardar, e guarde seu dinheiro!</p>
+                        </div>
+                        <button type="button" class="btn_box_ss">adicionar</button>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+
+                <div class="box-form">
+                    <div class="div-transaction">
+                        <%- include('./partials/dashboard/form_transaction') %>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="box_card tag-add">
+                    <div>
+                        <h3>Todas Despesas do mês.</h3>
+                    </div>
+                    <button type="button" class="btn_ligth" id="btn_show_expenses">Mostrar</button>
+                </div>
+            </section>
+            <section class="box_off_expenses">
+                <div id="expenses">
+                    <ul></ul>
+                </div>
+            </section>
+
+            <section>
+                <div class="box_card">
+                    <div class="tag-add ">
+                        <div>
+                            <h3>Minhas metas</h3>
+                        </div>
+                        <div>
+                            <button type="button" class="btn_ligth">mostrar</button>
                         </div>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="bg-light">
+                    <div class="tag-add ">
+                        <div>
+                            <h3>Gráfico da sua gestão</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <div class="loader">
             <div class="loader-inner"></div>

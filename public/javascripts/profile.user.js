@@ -9,10 +9,11 @@ window.addEventListener('load', async () => {
     handdlerPromisses(promisse, response);
 })
 
+let dataArray = []
 function  handdlerPromisses(promisse, response) { 
     switch (promisse.status) {
         case 200:
-            insertDataTransactionsInDom(response)
+            dataArray = response
             defineBalanceUser(response)
             break;
         case 401:
@@ -50,10 +51,12 @@ function defineBalanceUser(response){
     $("#last_balance div").append(`<span class="${clasName}"> R$ ${balance} </span>`)
 }
 
-function insertDataTransactionsInDom(response){
+$("#btn_show_expenses").click(e => { expensesSetInView(dataArray) })
+function expensesSetInView(response){
+    $("#expenses ul").empty()
     response.map( element =>{
         if(element.type === 'despesa'){
-            $(".m-expense ul").append(`
+            $("#expenses ul").append(`
                 <li>
                     <span>Conta: ${ element.category.category_name }</span>
                     <span class='negative' >Valor: R$ ${element.amount}</span>
