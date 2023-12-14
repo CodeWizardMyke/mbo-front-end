@@ -9,27 +9,110 @@ section{
 }
 .bgOnGradient{
     border-radius: 25px;
-    margin: 50px 0;
+    margin: 50px auto;
 }
 .card-mod{
-    background-color: var(--bg-dark-secound);
+    background-color: var(--bg-purple);
     color: #fff;
     text-align: center;
     padding: 5px;
     margin: 25px auto;
     border-radius: 15px;
 }
-#balance-card h3{
-    width: 100%;
+
+#month_date{
+    font-size: 18pt;
+    font-weight: bold;
 }
-#balance-card{
+#my_balance{
+    font-size: 14pt;
+    font-weight: bold;
+    
+}
+#my_balance > div{
+    background-color: #494949c0;
+    border-radius: 15px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    margin: 25px auto;
 }
 
+.line_dark_full{
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 900px;
+    padding: 10px 35px;
+
+}
+.line_dark_small{
+    max-width: 300px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+#balance_revenue span{color: #8AEC72 !important;}
+#balance_expense span{color: #db3c3c;}
+#last_balance{display: flex;}
+#last_balance div{margin-left: 10px;}
+#last_balance span{color: #FFD337;}
+
+
+.section_box{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.section_box >div{
+    margin: 15px;
+}
+.content_box{
+    max-width: 500px;
+    min-height: 200px;
+    background-color: #F6F6F6;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.735);
+}
+.content_box >div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.content_box img {
+    max-width: 70px;
+}
+.content_box .txt_content{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-bottom: 35px;
+}
+.btn_box_ss{
+    width: 125px;
+    height: 35px;
+    border-radius: 15px;
+    border: none;
+    background-color: #FDE284;
+    font-weight: bold;
+    transition: all 200ms;
+}
+.btn_box_ss:hover {
+    background-color: rgba(244, 213, 102, 0.738);
+    box-sizing: 0 0 5px #dddd;
+}
+
+
+.content_box .txt_content p{
+    max-width: 70%;
+}
 .c-flex{
     display: flex;
     flex-direction: column;

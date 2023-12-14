@@ -1,8 +1,8 @@
 window.addEventListener('load', async () => {
     !user ? window.location.href = '/singin': ''
 
-    const elementMonth =document.querySelector('.month-date')
-    elementMonth ? elementMonth.innerText = getMonth(): ''
+    //função para obter o mes atual e aplicar na view
+    getMonth();
 
     const {promisse, response} = await getTransactions()
 
@@ -35,16 +35,19 @@ function defineBalanceUser(response){
         }
     })
 
-    let balance = revenue - expense;
-    let clasName = balance > 0 ? 'positive' : 'negative';
+    //atribuindo o valor para receita a view
+    $("#balance_revenue span").empty();
+    $("#balance_revenue span").append(`R$ ${revenue}`);
 
-    $(".transactions-balance").empty()
-    $(".transactions-balance").append(`
-        <div>
-            <span>Meu saldo</span>
-            <h3 class='${clasName}' >R$: ${balance}</h3>
-        </div>
-    `)
+    //atribuindo o valor de despesa a view
+    $("#balance_expense span").empty();
+    $("#balance_expense span").append(`R$ ${expense}`);
+    
+    //atribuindo o valor do saldo final a view
+    let balance = revenue - expense;
+    let clasName = balance >= 0 ? '' : 'negative';
+    $("#last_balance div").empty()
+    $("#last_balance div").append(`<span class="${clasName}"> R$ ${balance} </span>`)
 }
 
 function insertDataTransactionsInDom(response){
@@ -76,6 +79,6 @@ function getMonth(){
     }
     const data = new Date(); 
     const mes = data.getMonth() + 1;
-    const nomeDoMes = obterNomeMes(mes);
-    return nomeDoMes;
+
+    $("#month_date").append(`<h3>Movimentações do mês</h3><span>de: ${obterNomeMes(mes)}.</span>`)
 }

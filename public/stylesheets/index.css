@@ -11,7 +11,7 @@
 }
 
 .bgOnGradient{
-  background: linear-gradient(to bottom, #f6f6f664, #D47CA6, #7E7CE2);
+  background: linear-gradient(to bottom, #f6f6f6b9, #D47CA6, #7E7CE2);
   border-radius: 25px 25px 0 0;
   padding: 15px 0;
 }
