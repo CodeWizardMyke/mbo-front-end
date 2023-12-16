@@ -53,13 +53,20 @@ function defineBalanceUser(response){
 
 $("#btn_show_expenses").click(e => { expensesSetInView(dataArray) })
 function expensesSetInView(response){
+    if( $("#expenses ul").css('display') === 'none'){
+        $("#expenses ul").css('display','flex');
+    }else{
+        $("#expenses ul").css('display','none');
+    }
     $("#expenses ul").empty()
     response.map( element =>{
         if(element.type === 'despesa'){
             $("#expenses ul").append(`
                 <li>
-                    <span>Conta: ${ element.category.category_name }</span>
-                    <span class='negative' >Valor: R$ ${element.amount}</span>
+                    <a href="/dashboard/transaction/${element.id}">
+                        <span>${element.category.category_name}: R${element.amount}</span>
+                        <span>Mensalidade</span>
+                    </a>
                 </li>
             `)
         }
