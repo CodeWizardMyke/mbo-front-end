@@ -200,12 +200,14 @@ section{
     display: flex;
     align-items: center;
     flex-direction: column;
+    text-align: center;
     justify-content: space-evenly;
     padding: 5px;
     font-size: 14pt;
     font-weight: bolder;
     transition: 300ms;
     border-radius: 5px;
+    cursor: pointer;
 }
 #expenses ul a:hover {
     background-color: #fff;
