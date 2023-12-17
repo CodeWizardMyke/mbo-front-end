@@ -13,6 +13,8 @@ $(document).ready( ()=>{
     })
 })
 
+
+
 function handdlerTransaction(promisse, response, when){
     const key = `${promisse.status}_${when}`
     switch (key) {
@@ -30,6 +32,12 @@ function handdlerTransaction(promisse, response, when){
 }
 
 function populateSelectCategory(response) {
+    if(response.length > 0){
+        $("#category_listed").css('display', 'block')
+    }else{
+        $("#category_listed").css('display', 'none')
+    }
+
     $("#span_list ul").empty();
     response.forEach(element => {
         let listItem = $(`
@@ -66,7 +74,18 @@ function tableInsertLine(){
             <label for="installments">Parcelas</label>
         </td>
         <td>
-            <input type="number" name="installments" class="input-group-text" value="0">
+            <input type="number"min="1" max="128" name="installments" class="input-group-text" value="0">
         </td>
     `)
 }
+
+let dateNow = new Date().toISOString().split('T')[0]
+$("#data_set").empty()
+$("#date").val(dateNow)
+$("#data_set").append(dateNow)
+
+$("#date").blur( () => {
+    let value_date = $("#date").val()
+    $("#data_set").empty()
+    $("#data_set").append(value_date)
+})

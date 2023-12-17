@@ -5,21 +5,21 @@
             <th>Valor selecionado</th>
         </thead>
         <tbody>
-            <tr>
+            <tr id="category_listed">
                 <td>
-                    <span class="span_list" id="span_list">Categorias já registradas
+                    <span class="span_list" id="span_list">Categorias
                         <ul></ul>
                     </span>
                 </td>
                 <td>
-                    <span id="category_name"></span>
+                    <span id="category_name">Selecione uma categoria</span>
                     <input type="text" id="category_value" name="category_id"
                     placeholder="valor desejado" disabled>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="text" class="input-group-text" name="new_category" id="new_category" placeholder="Criar uma nova categoria">
+                    <input type="text" class="input-group-text" name="new_category" id="new_category" placeholder="Criar categoria">
                 </td>
                 <td>
                     <span>O valor será adicionado ao salvar a transação</span>
@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <td>
-                    <span class="span_list" id="span_transactions_list">Tipo de Transação
+                    <span class="span_list" id="span_transactions_list">transação
                         <ul>
                             <li>Despesa <input type="text" value="despesa"></li>
                             <li>Receita <input type="text" value="receita"></li>
@@ -37,20 +37,20 @@
                     </span>
                 </td>
                 <td>
-                    <span id="type_transaction"></span>
+                    <span id="type_transaction"> tipo de transaçao</span>
                     <input type="text" name="type" value="" class="d-none" id="type_tr">
                 </td>
             </tr>
             <tr id="installments_line"></tr>
             <tr>
                 <td>
-                    <label for="date">Data da conta</label>
+                    <input type="date" id="date" name="date" class="input-group-text" placeholder="dd/mm/aaaa" id="date">
                 </td>
                 <td>
-                    <input type="date" id="date" name="date" class="input-group-text" placeholder="dd/mm/aaaa" id="date">
+                    <span id="data_set">Data da conta</span>
                 </td>
             </tr>
         </tbody>
     </table>
-    <button class="btn btn-warning mt-3">Adicionar</button>
+    <button class="btn_box_ss" type="submit" >Adicionar</button>
 </form>
