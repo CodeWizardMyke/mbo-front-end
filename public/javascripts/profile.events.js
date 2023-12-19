@@ -5,9 +5,12 @@ $(document).ready( ()=>{
 function startAppTransactionFromEvents() {
     getCategoryList();
     formTransactionPost();
-    $('#span_transactions_list ul li').click( show_tr_installments );
     setDateNow();
-    $("#date").blur( () => { selectdate() });
+    $('#span_transactions_list ul li').click( show_tr_installments );
+    $("#category_value").blur( writeInCategorySpan );
+    $("#new_category").blur( writeInCreateCategorySpan );
+    $("#amount").blur( writeInAmountSpan );
+    $("#date").blur( selectdate );
 };
 
 async function getCategoryList(){
@@ -31,7 +34,6 @@ function handdlerTransaction(promisse, response, when){
                 break;
         case '201_transaction':
             alert('Transação criada com sucesso!');
-            $('.box-form').hide();
             window.location.reload();
                 break;
         case '400_transaction':
@@ -43,23 +45,58 @@ function handdlerTransaction(promisse, response, when){
 };
 
 function populateSelectCategory(response) {
-    response.length > 0 ? $("#category_listed").css('display', 'block') : $("#category_listed").css('display', 'none');
-    $("#span_list ul").empty();
-    
-    response.forEach(element => {
-        let listItem = $(`<li>${element.category_name}<input type="text" value="${element.id}"></li>`);
 
-        listItem.click(() => { clickHandler(element.category_name, element.id) });
+    if(response.length > 0 ){
+        insert_table_td();
+        $("#span_list ul").empty();
 
-        $("#span_list ul").append(listItem);
-    });
+        response.forEach(element => {
+            let listItem = $(`<li>${element.category_name}<input type="text" value="${element.id}"></li>`);
+            listItem.click(() => { clickHandler(element.category_name, element.id) });
+            
+            $("#span_list ul").append(listItem);
+        });
+        
+        function clickHandler(category_name, id) {
+            $("#category_id_select").empty();
+            $("#category_id_select").append(`${category_name}`);
+            $("#category_value").val(id);
+        };
+    };
 
-    function clickHandler(category_name, id) {
-        $("#category_name").empty();
-        $("#category_name").append(`${category_name}`);
-        $("#category_value").append(`${id}`);
-    }
+    function insert_table_td() {  
+        $("#category_listed").append(`
+            <td>
+                <span class="span_list" id="span_list">Categorias
+                    <ul></ul>
+                </span>
+            </td>
+            <td>
+                <span id="category_id_select">Selecione uma categoria</span>
+                <input type="text" id="category_value" name="category_id" value="">
+            </td>
+        `)
+    };
 };
+
+function writeInCategorySpan(){
+    const category_name = $("#category_value").val();
+    $("#category_id_select").css('color','#fff');
+    $("#category_id_select").empty();
+    $("#category_id_select").append(category_name);
+}
+function writeInCreateCategorySpan(){
+    const category_name = $("#new_category").val();
+    $("#category_id_set").css('color','#fff');
+    $("#category_id_set").empty();
+    $("#category_id_set").append(category_name);
+};
+function writeInAmountSpan(){
+    const amountValue = $("#amount").val();
+    $("#amount_set").empty();
+    $("#amount_set").css("color",'#fff');
+    $("#amount_set").append(amountValue);
+}
 
 function show_tr_installments(){
     const selectedValue = $(this).find('input').val();
@@ -100,10 +137,24 @@ function selectdate(){
 };
 
 function handdlerErrorsTransaction(response) {
-    console.log(response)
+
     response.map(element => {
+        if(element.path === 'category_id'){
+            writeErrorsInSpan(element, 'category_name' )
+        }else{
+            writeErrorsInSpan(element)
+        }
+    })
+    
+    function writeErrorsInSpan(element, html_id){
+        if(html_id){
+            $(`#${element.path}_select`).empty()
+            $(`#${element.path}_select`).append(element.msg)
+            $(`#${element.path}_select`).css('color','#D30C0C')
+        }
+
         $(`#${element.path}_set`).empty()
         $(`#${element.path}_set`).append(element.msg)
         $(`#${element.path}_set`).css('color','#D30C0C')
-    })
-}
+    };
+};

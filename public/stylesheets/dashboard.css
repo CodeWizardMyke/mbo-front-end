@@ -116,6 +116,7 @@ section{
     background-color: var(--bg-purple);
     border-radius: 15px;
     padding: 5px;
+    display: none;
 }
 .box-form button{
     display: block;
@@ -211,13 +212,6 @@ section{
 }
 .box-form form div input, .box-form form div select {
     max-width: 165px;
-}
-.div-transaction{
-    padding: 10px 0;
-    margin-top: 15px;
-}
-.div-transaction input#date{
-    width: 100%;
 }
 
 .tag-add {

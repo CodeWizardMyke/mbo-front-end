@@ -9,10 +9,13 @@ window.addEventListener('load', async () => {
     handdlerPromisses(promisse, response);
 })
 
+//dataArray foi criada para receber os dados da promisse getTransaction
 let dataArray = []
+
 function  handdlerPromisses(promisse, response) { 
     switch (promisse.status) {
         case 200:
+            //data array recebera os dados da promisse já executada
             dataArray = response
             defineBalanceUser(response)
             break;
@@ -51,54 +54,56 @@ function defineBalanceUser(response){
     $("#last_balance div").append(`<span class="${clasName}"> R$ ${balance} </span>`)
 }
 
+//aqui sera passado como parametro os dados salvos da promisse getTransaction para serem reutilizados
 $("#btn_show_expenses").click(e => { expensesSetInView(dataArray) })
-function expensesSetInView(response){
-    //action display button on - off
-    buttonHanddlerDisplay()
-    //clean ul list
-    $("#expenses ul").empty()
-    //verify is not exists expenses
-    const key = response.length > 0 ? true : false ;
 
-    if(key){
-        response.map( element =>{
-            if(element.type === 'despesa'){
-                $("#expenses ul").append(`
-                    <li>
-                        <a href="/dashboard/transaction/${element.id}">
-                            <span>${element.category.category_name}: R${element.amount}</span>
-                            <span>Mensalidade</span>
-                        </a>
-                    </li>
-                `)
-            }
-        })
-    }else{
+function expensesSetInView(response){
+    let display = $("#expenses ul").css('display');
+    display === 'none' ? display = 'flex' : display = 'none';
+    $("#expenses ul").css({'display': display});
+    
+    $("#expenses ul").empty()
+
+    let expensesExists = false;
+
+    response.map( element =>{
+        writeInDomAllExpenses(element)
+    });
+
+    if(expensesExists == false){
+        $("#expenses ul").css({'display': display, 'justify-content':'center'});
         $("#expenses ul").append(`
         <li>
             <a>
                 <span>Nenhuma despesa cadastrada !</span>
             </a>
         </li>
-    `)
+        `)
     }
 
-    function buttonHanddlerDisplay(){
-        if( $("#expenses ul").css('display') === 'none'){
-            $("#expenses ul").css('display','flex');
-        }else{
-            $("#expenses ul").css('display','none');
+    function writeInDomAllExpenses(element){
+        if(element.type === 'despesa'){
+            expensesExists = true
+            $("#expenses ul").append(`
+                <li>
+                    <a href="/dashboard/transaction/${element.id}">
+                        <span>${element.category.category_name}: R${element.amount}</span>
+                        <span>Mensalidade</span>
+                    </a>
+                </li>
+            `)
         }
     }
-
 }
+
 
 $('#btn-transaction').click( () => {
     let display = $(".box-form").css("display")
-    if(  display === "" || display === 'none'){
-        $(".box-form").show()
+
+    if(  display === 'none'){
+        $(".box-form").css("display","block")
     }else{
-        $(".box-form").hide()
+        $(".box-form").css("display","none")
     }
 })
 
