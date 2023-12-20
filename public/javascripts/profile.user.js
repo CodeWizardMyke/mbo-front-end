@@ -7,6 +7,7 @@ window.addEventListener('load', async () => {
     const {promisse, response} = await getTransactions()
 
     handdlerPromisses(promisse, response);
+    
 })
 
 //dataArray foi criada para receber os dados da promisse getTransaction
@@ -17,6 +18,7 @@ function  handdlerPromisses(promisse, response) {
         case 200:
             //data array recebera os dados da promisse já executada
             dataArray = response
+            startAppDrawCharts(response)
             defineBalanceUser(response)
             break;
         case 401:
@@ -116,4 +118,57 @@ function getMonth(){
     const mes = data.getMonth() + 1;
 
     $("#month_date").append(`<h3>Movimentações do mês</h3><span>de: ${obterNomeMes(mes)}.</span>`)
+}
+
+
+function startAppDrawCharts(data) { 
+
+    let transactions = [['transações', 'valor']]
+    let expensesVal = 0
+    data.map(element => {
+        let itemName = ''
+        
+        if(element.type === 'despesa' || element.type === 'cartão'){
+            itemName = `Despesa: ${element.category.category_name}`
+            expensesVal += Number(element.amount)
+        }else{
+            itemName = `Receita: ${element.category.category_name}`
+        }
+        
+        let item = [itemName, Number(element.amount)]
+        
+        transactions.push(item)
+        
+    })
+    writeListTransactions(transactions, expensesVal)
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable(transactions);
+
+      var options = {
+        title: 'Minhas Movitementações'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+      chart.draw(data, options);
+    }
+}
+
+function writeListTransactions(array, valExpenses){
+    $("#g_list").empty()
+    array.map( element => {
+        $("#g_list").append(`
+        <li>
+        <span> ${element[0]}</span>
+        <span> valor: R$ ${element[1]}</span>
+        </li>
+        `)
+    })
+
+    $("#t_expenses").append(`Valor total das desepsas: R$ ${valExpenses}`)
 }

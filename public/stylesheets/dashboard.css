@@ -261,7 +261,8 @@ section{
     min-height: 125px;
 }
 #expenses ul li {
-    margin: 5px 15px;
+    margin: 5px auto;
+    padding: 10px;
 }
 
 #expenses ul a {
@@ -284,4 +285,22 @@ section{
 }
 #expenses ul a:hover {
     background-color: #fff;
+}
+
+.content_graphc{
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px;
+    min-height: 400px;
+}
+
+.content_graphc ul{
+    list-style: none;
+    padding: 0;
+    font-size: 13pt;
+    font-weight: bold;
+    color: #4D4D4D;
 }

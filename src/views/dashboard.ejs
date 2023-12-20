@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <%- include('partials/head') %>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="/stylesheets/dashboard.css">
     <body class="bg-sky">
         <%- include('partials/header') %>
@@ -86,9 +87,16 @@
 
             <section class="my-5">
                 <div class="bg-light">
-                    <div class="tag-add ">
+                    <div class="content_graphc">
                         <div>
-                            <h3>Gráfico da sua gestão</h3>
+                            <h2>Gráfico da sua gestão</h2>
+                            <div>
+                                <ul id="g_list"></ul>
+                                <span id="t_expenses"></span>
+                            </div>
+                        </div>
+                        <div class="graphic">
+                            <div id="piechart"></div>
                         </div>
                     </div>
                 </div>
