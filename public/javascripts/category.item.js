@@ -45,7 +45,7 @@ function handdlerPromisses (promisse, response , method ){
             break;
         case '200_DELETE':
             alert('item deletado com sucesso')
-            window.location = '/profile/categorys'
+            window.location = '/dashboard/categorys'
             break;
         case '500_DELETE':
             let dataError = response.index
@@ -72,43 +72,28 @@ function insertDataCategory(response){
 }
 
 function setDataInListAllTransactions(response) {
-    const div_list = document.querySelector('.list_items')
-    div_list.innerHTML ="";
-    const ul = document.createElement('ul')
-
+    $('.list_items ul').empty();
+    let trExists = false;
     response.map(element => {
-        if(element.category.category_name == category_value){
-            const li = insertDataList(element)
-            ul.appendChild(li)
-        }
-    })
-    div_list.appendChild(ul)
+        if(element.category.id == id){
+            console.log(element)
+            trExists = true;
+           $(".list_items ul").append(`
+                <li>
+                    <a href="/dashboard/transaction/${element.id}">
+                        <div>
+                            <span>${element.category.category_name}</span>
+                            <span>${element.type}</span>
+                        </div>
+                        <span>R$: ${element.amount}</span>
+                    </a>
+                </li>
+           `);
+        };
+    });
 
-    if(ul.innerHTML == ""){
-        ul.innerHTML = `Nenhuma transação registrada para esssa categoria`
-        ul.style.color= '#fff'
-        ul.style.textAlign= 'center'
+    if(!trExists){
+        $(".list_items ul").append(`<li>Nenhuma transação registrada para esssa categoria</li>`)
+        $(".list_items ul").css({'color':'#fff', 'text-align':'center'});
     }
-}
-
-function insertDataList(element){
-    const li = document.createElement('li')
-    const anchor = document.createElement('a')
-    const div = document.createElement('div')
-    const spanCategory = document.createElement('span')
-    const spanType = document.createElement('span')
-    const spanValue = document.createElement('span')
-
-    spanCategory.innerText = element.category.category_name
-    spanType.innerText = element.type
-    spanValue.innerText = `R$: ${element.amount}`
-    
-    anchor.href= `/dashboard/transaction/${element.id}`
-
-    anchor.appendChild(div)
-    anchor.appendChild(spanValue)
-    div.appendChild(spanCategory)
-    div.appendChild(spanType)
-    li.appendChild(anchor)
-    return li
 }

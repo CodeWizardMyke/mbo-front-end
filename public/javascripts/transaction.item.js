@@ -18,7 +18,7 @@ async function getDataCategorys() {
 /* ATUALIZAÇÃO DE TRANSAÇÃO */
 $("#put_form").submit( async (evt) => {
     evt.preventDefault();
-    const {promisse, response} = await put_transaction() ;
+    const {promisse, response} = await putTransaction('#put_form', id) ;
     handdlerPromisses(promisse, response, 'put_transaction');
 })
 
