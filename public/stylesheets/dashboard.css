@@ -304,3 +304,14 @@ section{
     font-weight: bold;
     color: #4D4D4D;
 }
+
+.graphic{  
+
+    background-color: #4D4D4D;
+    margin: 50px auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.piechart{
+    width: 100%;
+}
