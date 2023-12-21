@@ -18,7 +18,7 @@ function  handdlerPromisses(promisse, response) {
         case 200:
             //data array recebera os dados da promisse já executada
             dataArray = response
-            startAppDrawCharts(response)
+            response.length > 0 ? startAppDrawCharts(response) : '' ;
             defineBalanceUser(response)
             break;
         case 401:
@@ -34,7 +34,7 @@ function defineBalanceUser(response){
     let revenue = 0
 
     response.map(element => {
-        if(element.type === 'despesa' || element.type === 'card'){
+        if(element.type === 'despesa' || element.type === 'cartão'){
             expense += Number(element.amount);
         }else{
             revenue += Number(element.amount);
@@ -84,7 +84,7 @@ function expensesSetInView(response){
     }
 
     function writeInDomAllExpenses(element){
-        if(element.type === 'despesa'){
+        if(element.type === 'despesa' || element.type === 'cartão'){
             expensesExists = true
             $("#expenses ul").append(`
                 <li>
@@ -122,7 +122,7 @@ function getMonth(){
 
 
 function startAppDrawCharts(data) { 
-
+    $(".chart-google").show()
     let transactions = [['transações', 'valor']]
     let expensesVal = 0
     data.map(element => {

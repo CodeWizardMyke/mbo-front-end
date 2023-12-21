@@ -314,5 +314,8 @@ section{
 }
 .piechart{
     width: 100%;
-    
+}
+
+.chart-google{
+    display: none;
 }
