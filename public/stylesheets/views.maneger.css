@@ -1,45 +1,95 @@
-a{
-    text-decoration: none;
-}
-
-.bt-left{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    margin-bottom: 5px;
-    margin-right: 20px;
-}
-.content-section{
-    border-radius: 15px;
-    background-color: #312F2F;
-}
-.content-section{
-    padding: 5px;
-    margin: 15px auto;
-    user-select: none;
-}
-
+a{text-decoration: none; color: #312F2F;}
+.content-header h3{color: #312F2F;font-weight: bolder; margin-bottom: 25px;}
+.content-section{ margin-top: 50px; border-bottom: 1px solid #fff;}
 .content-header{
     min-height: 100px;
-    color: #fff;
+    color: black;
     text-align: center;
     padding: 10px 0;
-    margin-bottom: 1px;
 }
-.content-header ul{
-    margin: 15px auto;
-    width: 100%;
+.menu_tr_list{
+    border-radius: 15px;
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 75px;
     flex-wrap: wrap;
+}
+.menu_tr_list div{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    min-width: 48%;
+    padding: 5px;
+}
+.menu_tr_list select{
+    max-width: 120px;
+}
+.menu_tr_list span{
+    margin: 0 5px;
+    font-weight: bold;
+}
+.list_items{
+    max-height: 400px;
+    overflow-y: auto;
+    user-select: none;
+    padding: 15px;
+}
+.list_items ul{
+    list-style: none;
+    padding: 0;
+
+}
+.list_items li {
+    margin: 5px auto;
+    background-color: #ffffffbd;
+    border-radius: 5px;
+    max-width:50% ;
+    min-height: 75px;
+}
+.list_items ul li a div{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.list_items span{
+    padding: 5px;
+    font-weight: bolder;
+}
+
+@media only screen and (max-width: 290px){
+    .list_items span{
+        width: 100%;
+        text-align: center;
+        padding: 5px 0;
+    }
+}
+@media only screen and (max-width: 450px){
+    .menu_tr_list span{
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+
+
+
+.transactions-values{
+    background-color: #312F2F;
+    color: #fff;
+    padding: 15px;
+    display:flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
 }
-.content-header ul li {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
+.transactions-values div {
+    padding: 15px 2px;
+    text-align: center;
 }
 
 .post-item{
@@ -73,61 +123,4 @@ a{
 .post-item form input, select{
     width: 100%;
     max-width: 400px;
-}
-
-.list_items{
-    max-height: 400px;
-    overflow-y: auto;
-    background-color: #312F2F;
-    padding: 15px;
-}
-.list_items ul{
-    list-style: none;
-}
-.list_items ul li{
-    margin: 5px auto;
-    background-color: #dddd;
-    padding: 5px 15px;
-    border-radius: 5px;
-}
-.list_items ul li a{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-}
-.list_items ul li a div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-.list_items span{
-    padding: 5px 0;
-    font-weight: bolder;
-    color: #312F2F;
-}
-.div-balance{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    padding: 15px;
-    margin: 15px;
-    border: 1px solid #fff;
-    border-radius: 10px;
-}
-
-.transactions-values{
-    background-color: #312F2F;
-    color: #fff;
-    padding: 15px;
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.transactions-values div {
-    padding: 15px 2px;
-    text-align: center;
 }

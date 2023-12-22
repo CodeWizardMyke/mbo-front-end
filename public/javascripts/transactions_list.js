@@ -28,10 +28,17 @@ function insertDataInList(response) {
             <li>
                 <a href="/dashboard/transaction/${element.id}">
                     <div>
-                        <span>${element.category.category_name}</span>
-                        <span>${element.type}</span>
+                        <span>Nome conta:</span>
+                        <i>${element.category.category_name}</i>
+                    </div>  
+                    <div>
+                        <span>Transação:</span>
+                        <i>${element.type}</i>
                     </div>
-                    <span>R$: ${element.amount}</span>
+                    <div>
+                        <span>Valor:</span>
+                        <i>R$${element.amount}</i>
+                    </div>
                 </a>
             </li>`) 
         });

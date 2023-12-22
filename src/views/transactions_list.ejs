@@ -5,43 +5,30 @@
     <body  class="bg-sky">
         <%- include('partials/header') %>
         <main class="container">
-            <section class="content-section">
+            <section class="content-section bgOnGradient">
                 <div class="content-header" >
-                    <h3>Listar transações</h3>
-                    <div class="nav">
-                        <ul>
-                            <li>
-                                <label for="btn-all-transactions">Mostrar todas</label>
-                                <button class="btn btn-light" type="button" id="btn-all-transactions">Transações</button>
-                            </li>
-                            <li>
-                                <label for="type">Filtrar por tipo</label>
-                                <select class="form-select" id="transaction-type">
-                                    <option value="false" >Selecione...</option>
-                                    <option value="receita" >Receita</option>
-                                    <option value="despesa" >Despesa</option>
-                                    <option value="cartão" >Cartão</option>
-                                    <option value="presente" >Presente</option>
-                                </select>
-                            </li>
-                        </ul>
+                    <h3>Todas suas transações.</h3>
+                    <div class="menu_tr_list">
+                        <div>
+                            <span>Listar todas transações</span>
+                            <button class="btn btn-light" type="button" id="btn-all-transactions">Transações</button>
+                        </div>
+                        <div>
+                            <span>Buscar por tipo de transação</span>
+                            <select class="form-select" id="transaction-type">
+                                <option value="false" >Selecione...</option>
+                                <option value="receita" >Receita</option>
+                                <option value="despesa" >Despesa</option>
+                                <option value="cartão" >Cartão</option>
+                                <option value="presente" >Presente</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
                 <div class="content-body">
-                    <div class="div-balance">
-                        <div class="transactions-balance"><span>loading...</span></div>
-                    </div>
                     <div class="list_items">
-                        <ul>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <span>Carregando...</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
+                       <ul></ul>
                     </div>
                 </div>
 
