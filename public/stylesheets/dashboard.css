@@ -129,6 +129,16 @@ section{
     color: #fff;
     font-weight: bold;
 }
+.form_tr thead th{
+    border: 1px solid black;
+}
+.form_tr table{
+    border: 1px solid black;
+    padding: 15px;
+    background-color: #ffffff89;
+    color: #303030;
+}
+
 .form_tr  table td > * {
     margin: 0 auto;
 }

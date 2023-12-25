@@ -222,7 +222,7 @@ header{
   color: #5553ce;
 }
 .sub-menu{
-  display: flex;
+  display: none;
   align-items: center ;
   justify-content: center;
   width: 100%;
