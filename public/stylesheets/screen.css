@@ -6,7 +6,9 @@
     .hd-menu {
       width: 100%!important;
     }
-    /*page index css end*/
+    .hd-menu ul {
+        width: 100% !important;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -18,13 +20,18 @@
         background-color: rgba(0, 0, 0, 0.233);
     }
     .hd-menu {
-        display: none !important;
         width: 100%;
         padding: 5px;
         flex-wrap: wrap-reverse;
     }
-    .hd-menu-dp{display: block !important;}
-    /*page index css end*/
+    .div_hd_menu_hide{
+        display: none!important;
+    }
+    .div_main_menu_show{
+        display: block;
+    }
+
+    
 
     /*page home css start*/
     .container-section{
@@ -47,4 +54,6 @@
         width: 100%;
     }
     /*page home css end*/
+
+    .main_menu{display: flex !important;}
 }

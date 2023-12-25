@@ -57,4 +57,12 @@ function main_menu_show_hide () {
         $(".inner_main_menu").css('display', 'none')
         $(".div_icon_menu img").css('background-color','')
     })
+
+    if(!user){  
+        $(".hd-menu").css('display', 'block')
+    }else{
+        $(".hd-menu").css('display', 'flex')
+        $(".hide_show").addClass('div_hd_menu_hide')
+    }
+
 }

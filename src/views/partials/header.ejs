@@ -2,21 +2,40 @@
   <div>
     <span class="hd-title"><h1 id="logo-page">Meu bolso online.</h1></span>
   </div>
-  <div class="hd-menu">
-    <div class="hd-link">
-      <ul>
-        <li><a href="/">Início</a></li>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Contato</a></li>
-      </ul>
-    </div>
-    <div class="hd-auth btn-singin ">
-      <ul>
-        <li ><a href="/singin" class="bt-login">Entrar</a></li>
-      </ul>
-    </div>
-  </div>
+  <nav class="hd-menu hide_show">
+    <ul>
+      <li><a href="/">Início</a></li>
+      <li><a href="#">Sobre</a></li>
+      <li><a href="#">Contato</a></li>
+    </ul>
+    <ul class="hd-auth btn-singin ">
+      <li ><a href="/singin" class="bt-login">Entrar</a></li>
+    </ul>
+  </nav>
 </header>
-<div class="sub-menu">
+<div class="sub-menu hide_show">
   <%- include('./navigate-user.ejs')  %>
+</div>
+<div class="sub-menu">
+  <div class="main_menu">
+    <div class="inner_main_menu">
+        <ul>
+            <li><a href="#">Perfil</a></li>
+            <li><a href="#" id="btn-logout">Sair</a></li>
+        </ul>
+        <ul>
+            <li><a href="/">Início</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/dashboard/transactions">Transações</a></li>
+            <li><a href="/dashboard/categorys">Categorias</a></li>
+        </ul>
+    </div>
+    <div class="div_icon_menu">
+        <img src="/images/menu_list.png" alt="menu-list-icon">
+    </div>
+</div>
 </div>
