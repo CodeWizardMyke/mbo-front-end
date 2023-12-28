@@ -3,6 +3,9 @@ const privateViewsController ={
     dashboard:(req, res) => {
         return res.render('dashboard')
     },
+    profile:(req, res) => {
+        return res.render('profile')
+    },
     transactions:(req, res) => {
         return res.render('transactions_list')
     },

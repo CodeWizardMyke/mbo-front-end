@@ -59,7 +59,7 @@ function main_menu_show_hide () {
     })
 
     if(!user){  
-        $(".hd-menu").css('display', 'block')
+        $(".hd-menu").css('display', 'flex')
     }else{
         $(".hd-menu").css('display', 'flex')
         $(".hide_show").addClass('div_hd_menu_hide')

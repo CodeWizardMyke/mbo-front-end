@@ -1,0 +1,13 @@
+main{
+    border-radius: 15px;
+    padding: 0 5px;
+    margin: 5px 0;
+}
+section{
+    padding: 5px;
+    margin: 5px;
+}
+.bgOnGradient{
+    border-radius: 25px;
+    margin: 50px auto;
+}
