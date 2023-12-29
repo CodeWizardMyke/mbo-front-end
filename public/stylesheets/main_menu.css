@@ -9,8 +9,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    transition: ease-in-out 300ms;
 }
-.main_menu:hover {background-color: #fff;}
 
 .div_icon_menu{
     display: block;
@@ -18,13 +18,17 @@
     height: 40px;
     padding: 5px;
     border-radius: 100%;
-    background-color: #ffffffa4;
     transition: all 200ms; 
+    background-color: #fff;
 }
-.div_icon_menu img{width: 100%;padding: 2px;}
+.div_icon_menu img{
+    display: block;
+    width: 100%;
+    padding: 2px;
+    border-radius: 25%;
+}
 .div_icon_menu img:hover{
     -webkit-transform: scale(1.05);
-    background-color: black;
 }
 
 .inner_main_menu {
@@ -34,8 +38,7 @@
     justify-content: space-evenly;
     width: 100%;
     height: 100%;
-    background-color: #fff;
-    min-height: 400px;
+    min-height: 200px;
 }
 .inner_main_menu ul{
     display: flex;

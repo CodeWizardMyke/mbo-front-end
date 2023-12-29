@@ -48,21 +48,32 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function main_menu_show_hide () {
     
-    $(".div_icon_menu").on( 'mouseenter',   function (param) { 
-        $(".inner_main_menu").css('display', 'flex')
-        $(".div_icon_menu img").css('background-color','#fff')
-    })
-
-    $(".inner_main_menu").on( 'mouseleave',   function (param) { 
-        $(".inner_main_menu").css('display', 'none')
-        $(".div_icon_menu img").css('background-color','')
-    })
-
     if(!user){  
         $(".hd-menu").css('display', 'flex')
     }else{
         $(".hd-menu").css('display', 'flex')
         $(".hide_show").addClass('div_hd_menu_hide')
     }
+
+    $("main").on('click', ()=> {
+        $(".inner_main_menu").css('display', 'none')
+        $(".main_menu").css('background-color','')
+    })
+
+    $(".div_icon_menu").on('click', ()=> {
+        let display =  $(".inner_main_menu").css('display')
+        if( display == 'none'){
+            $(".inner_main_menu").css('display', 'flex')
+            $(".main_menu").css('background-color','#fff')
+        }else{
+            $(".inner_main_menu").css('display', 'none')
+            $(".main_menu").css('background-color','')
+        }
+    })
+
+    $(".inner_main_menu").on( 'mouseleave',   function (param) { 
+        $(".inner_main_menu").css('display', 'none')
+        $(".main_menu").css('background-color','')
+    })
 
 }
