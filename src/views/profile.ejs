@@ -31,10 +31,12 @@
                             </div>
                             <div class="now_data"></div>
                             <div class="form_put_config">
-                                <form>
-                                    <div class="inner_inputs"></div>
+                                <form id="my_form">
+                                    <div class="inner_inputs">
+                                        <%- include('partials/profile.forms.ejs') %>
+                                    </div>
                                     <div class="div_bt_save">
-                                        <button type="button">Salvar</button>
+                                        <button type="submit">Salvar</button>
                                     </div>
                                 </form>
                             </div>
@@ -42,11 +44,20 @@
                     </div>
                 </div>
             </section>
+            <div class="popup" id="popupMessage">
+                <div>
+                    <span>Tem certeza que deseja deletar sua conta ?</span>
+                    <div class="btn_opt">
+                        <button type="button" class="btn border" id="btn_del_false">Não</button>
+                        <button type="button" class="btn btn-danger" id="btn_del_true">Sim</button>
+                    </div>
+                </div>
+            </div>
         </main>
         <%- include('partials/footer') %>
-        <script src="/javascripts/functions/transaction.crud.js"></script>
-        <script src="/javascripts/functions/category.crud.js"></script>
+        <script src="/javascripts/functions/user.crud.js"></script>
         <script src="/javascripts/profile.user.js"></script>
-        <script src="/javascripts/profile.events.js"></script>
     </body>
 </html>
+
+

@@ -7,6 +7,7 @@ section{
     padding: 5px;
     margin: 5px;
 }
+
 .bgOnGradient{
     border-radius: 25px;
     margin: 50px auto;
@@ -88,11 +89,17 @@ section{
 .content-c{
     display: none;
     width: 500px;
+    min-height: 300px;
     background-color: #fff;
     padding: 25px 0px;
     border-radius: 15px;
     margin: 5px 0;
 }
+
+.content-c article{
+    display: none;
+}
+
 .now_data{
     background-color: #E9E9E9;
     display: flex;
@@ -155,6 +162,26 @@ section{
     background-color: #fde384b3;
     color: #212121ae;
 }
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.popup .btn_opt{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px 0;
+}
+
 
 @media only screen and (max-width: 1200px) {
     .side_bar{

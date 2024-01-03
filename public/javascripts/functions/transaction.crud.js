@@ -65,7 +65,7 @@ async function putTransaction( id_form, id_item ){
     const promisse = await fetch(url, opt)
     const response = await promisse.json()
     
-    return {promisse, response }
+    return { promisse, response }
 }
 
 async function deleteTransaction( id_item ){
