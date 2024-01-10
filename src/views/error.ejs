@@ -1,3 +1,66 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include('partials/head') %>
+    <body>
+        <style>
+            body{
+                background-color: black;
+            }
+            main section{
+                margin:0;
+                background-color: #0b0b0be8;
+                color: #fff;
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            main section .content_err {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .msg-err {
+                background-color: #f9f9f9ed;
+                border-radius: 25px;
+                text-align: center;
+                padding: 25px;
+                color: #221d1d;
+                min-width: 400px;
+            }
+            .img-err{
+                max-width: 200px;
+            }
+            .img-err img {
+                padding: 15px;
+                user-select: none;
+            }
+        </style>
+        <main>
+            <section>  
+                <div class="content_err">
+                    <div class="msg-err">
+                        <h1><%= message %></h1>
+                        <h2><%= error.status %></h2>
+                        <pre>pagina não encontrada!</pre>
+                        <div>
+                            <button class="btn btn-primary" id="btn-voltar">Voltar pagina inicial</button>
+                        </div>
+                    </div>
+                    <div class="img-err">
+                        <img src="/images/astronauta.png" alt="astronauta no foguete">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+    <script>
+        document.querySelector('#btn-voltar').addEventListener('click', ()=> {
+            window.location.href = '/'
+        })
+    </script>
+</html>
+
+
