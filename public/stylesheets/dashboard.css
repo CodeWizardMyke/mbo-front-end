@@ -329,3 +329,17 @@ section{
 .chart-google{
     display: none;
 }
+.ebv{
+    position: relative;
+}
+.ebv-msg{
+    position: absolute;
+    background-color: #3030309b;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px
+}
